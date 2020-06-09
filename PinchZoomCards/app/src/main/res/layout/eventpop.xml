@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/ic_video"/>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/Body1Black"
+                android:alpha="0.5"
+                android:text="Event Title"/>
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:layout_gravity="bottom"
+                android:hint="Title"
+                android:backgroundTint="@color/Black12"
+                android:textColorHint="@color/Black26"
+                android:textSize="20sp"
+                android:textColor="@color/Black87"
+                android:textColorHighlight="@color/Black87"
+                android:textCursorDrawable="@drawable/cursor"
+                android:text=""
+                android:id="@+id/name"
+                android:inputType="textCapSentences"/>
+        </LinearLayout>
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_gravity="right"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Body1Black"
+                android:text="ON:"
+                android:padding="8dp"/>
+            <TextView
+                android:id="@+id/datepickerButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Date"
+                android:background="@null"
+                android:theme="@style/SubHeadBlack87"
+                android:onClick="showDatePickerDialog" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AT:"
+                android:theme="@style/Body1Black"
+                android:paddingLeft="32dp"
+                android:paddingRight="8dp"/>
+
+            <TextView
+                android:id="@+id/timepickerButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Time"
+                android:theme="@style/SubHeadBlack87"
+                android:background="@null"
+                android:onClick="showTimePickerDialog" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

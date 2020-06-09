@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="4dp"
+    tools:context=".PinchInteraction">
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical">
+           <!--<include layout="@layout/eventpop"/>-->
+           <!--<include layout="@layout/chatlayout"/>-->
+           <include layout="@layout/abhishek"/>
+           <include layout="@layout/search_results"/>
+           <include layout="@layout/search_results_added"/>
+           <include layout="@layout/notification2"/>
+           <include layout="@layout/notificationcubelist"/>
+           <include layout="@layout/notification"/>
+           <include layout="@layout/image_card_gradient"/>
+           <include layout="@layout/integrations"/>
+           <include layout="@layout/integration_card"/>
+           <include layout="@layout/card_collaborators"/>
+           <include layout="@layout/right_songcard"/>
+           <include layout="@layout/right_article"/>
+           <include layout="@layout/right_zomato"/>
+           <include layout="@layout/right_document"/>
+           <include layout="@layout/right_imdb"/>
+           <include layout="@layout/right_youtube"/>
+           <include layout="@layout/right_merged_card"/>
+           <!--<include layout="@layout/chatlayout"/>-->
+           <!--<include layout="@layout/card_merge_1"/>-->
+           <!--<include layout="@layout/card_merge_image"/>-->
+           <!--<include layout="@layout/card_merge_zomato"/>-->
+           <!--<include layout="@layout/card_merge_amazon"/>-->
+           <!--<include layout="@layout/card_merge_video"/>-->
+           <!--<include layout="@layout/card_merge_document"/>-->
+           <!--<include layout="@layout/card_merge_notes"/>-->
+           <!--<include layout="@layout/card_merge_email"/>-->
+           <!--<include layout="@layout/card_article"/>-->
+           <!--<include layout="@layout/card_contact"/>-->
+           <!--<include layout="@layout/card_document"/>-->
+           <!--<include layout="@layout/card_event"/>-->
+           <!--<include layout="@layout/card_flight"/>-->
+           <!--<include layout="@layout/card_foursquare"/>-->
+           <!--<include layout="@layout/card_imdb"/>-->
+           <!--<include layout="@layout/card_link"/>-->
+           <!--<include layout="@layout/card_map"/>-->
+           <!--<include layout="@layout/card_note"/>-->
+           <!--<include layout="@layout/card_photo"/>-->
+           <!--<include layout="@layout/card_rotten"/>-->
+           <!--<include layout="@layout/card_tripadvisor"/>-->
+           <!--<include layout="@layout/card_twitter"/>-->
+           <!--<include layout="@layout/card_yelp"/>-->
+           <!--<include layout="@layout/card_youtube"/>-->
+           <!--<include layout="@layout/card_zomatocard"/>-->
+       </LinearLayout>
+   </ScrollView>
+</RelativeLayout>

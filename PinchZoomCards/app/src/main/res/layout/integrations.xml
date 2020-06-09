@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/integration_container"
+    android:padding="16dp"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    ​
+    ​<LinearLayout
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="4"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/integration_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif-light"
+        android:text="Enable your Integration"
+        />
+    ​
+    <Switch
+        android:id="@+id/integration_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:checked="false" />
+</LinearLayout>
+    ​
+
+    <ImageView
+        android:id="@+id/integration_image"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical|end"
+        android:padding="8dp"
+        android:background="@drawable/round_rect_button"
+        android:src="@drawable/ic_youtube" />
+</LinearLayout>

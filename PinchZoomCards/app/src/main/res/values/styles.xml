@@ -1,0 +1,174 @@
+<!-- Base application theme. -->
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!--android:fontFamily="sans-serif"           // roboto regular-->
+    <!--android:fontFamily="sans-serif-light"     // roboto light-->
+    <!--android:fontFamily="sans-serif-condensed" // roboto condensed-->
+    <!--android:fontFamily="sans-serif-thin"      // roboto thin (android 4.2)-->
+    <!--android:fontFamily="sans-serif-medium"    // roboto medium (android 5.0)-->
+
+    <!--start of new theme-->
+    <style name="GoogleCardTitleBlack">
+        <item name="android:textSize">@dimen/titleGooglenow</item>
+        <item name="android:textColor">@color/Black87</item>
+        <item name="android:fontFamily">sans-serif-Regular</item>
+    </style>
+    <style name="GoogleCardTitleWhite">
+        <item name="android:textSize">@dimen/titleGooglenow</item>
+        <item name="android:textColor">@color/White100</item>
+        <item name="android:fontFamily">sans-serif-Regular</item>
+    </style>
+    <style name="CardTitleBlack">
+        <item name="android:textSize">@dimen/CardTitleNew</item>
+        <item name="android:textColor">@color/Black87</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="CaptionNewBlack">
+        <item name="android:textSize">@dimen/CaptionNew</item>
+        <item name="android:textColor">@color/Black26</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+    </style>
+    <style name="CaptionNewBlack10">
+        <item name="android:textSize">@dimen/caption10</item>
+        <item name="android:textColor">@color/Black26</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+    </style>
+    <!--end of new theme-->
+
+    <!--     White Text Style    -->
+    <style name="Display4White">
+        <item name="android:textSize">@dimen/display4</item>
+        <item name="android:textColor">@color/White70</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+    <style name="Display3White">
+        <item name="android:textSize">@dimen/display3</item>
+        <item name="android:textColor">@color/White70</item>
+    </style>
+    <style name="Display2White">
+        <item name="android:textSize">@dimen/display2</item>
+        <item name="android:textColor">@color/White70</item>
+    </style>
+    <style name="Display1White">
+        <item name="android:textSize">@dimen/display1</item>
+        <item name="android:textColor">@color/White70</item>
+    </style>
+    <style name="HeadlineWhite">
+        <item name="android:textSize">@dimen/headline</item>
+        <item name="android:textColor">@color/White100</item>
+    </style>
+    <style name="TitleWhite">
+        <item name="android:textSize">@dimen/title</item>
+        <item name="android:textColor">@color/White100</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="CustomTitleWhite">
+        <item name="android:textSize">@dimen/customTitle</item>
+        <item name="android:textColor">@color/White100</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="SubHeadWhite">
+        <item name="android:textSize">@dimen/subhead</item>
+        <item name="android:textColor">@color/White70</item>
+    </style>
+    <style name="Body2White">
+        <item name="android:textSize">@dimen/body2</item>
+        <item name="android:textColor">@color/White70</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="Body1White">
+        <item name="android:textSize">@dimen/body2</item>
+        <item name="android:textColor">@color/White100</item>
+    </style>
+    <style name="CaptionWhite">
+        <item name="android:textSize">@dimen/caption</item>
+        <item name="android:textColor">@color/White70</item>
+    </style>
+    <style name="CaptionWhite10">
+        <item name="android:textSize">@dimen/caption10</item>
+        <item name="android:textColor">@color/White70</item>
+    </style>
+    <style name="CustomCaptionWhite">
+        <item name="android:textSize">@dimen/caption</item>
+        <item name="android:textColor">@color/White70</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+    <style name="ButtonWhite">
+        <item name="android:textSize">@dimen/button</item>
+        <item name="android:textColor">@color/White100</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!--     Black Text Style    -->
+
+    <style name="Display4Black">
+        <item name="android:textSize">@dimen/display4</item>
+        <item name="android:textColor">@color/Black54</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+    <style name="Display3Black">
+        <item name="android:textSize">@dimen/display3</item>
+        <item name="android:textColor">@color/Black54</item>
+    </style>
+    <style name="Display2Black">
+        <item name="android:textSize">@dimen/display2</item>
+        <item name="android:textColor">@color/Black54</item>
+    </style>
+    <style name="Display1Black">
+        <item name="android:textSize">@dimen/display1</item>
+        <item name="android:textColor">@color/Black54</item>
+    </style>
+    <style name="HeadlineBlack">
+        <item name="android:textSize">@dimen/headline</item>
+        <item name="android:textColor">@color/Black87</item>
+    </style>
+    <style name="TitleBlack">
+        <item name="android:textSize">@dimen/title</item>
+        <item name="android:textColor">@color/Black87</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="CustomTitleBlack">
+        <item name="android:textSize">@dimen/customTitle</item>
+        <item name="android:textColor">@color/Black87</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="SubHeadBlack87">
+        <item name="android:textSize">@dimen/subhead</item>
+        <item name="android:textColor">@color/Black87</item>
+    </style>
+    <style name="SubHeadBlack54">
+        <item name="android:textSize">@dimen/subhead</item>
+        <item name="android:textColor">@color/Black54</item>
+    </style>
+    <style name="Body2Black">
+        <item name="android:textSize">@dimen/body2</item>
+        <item name="android:textColor">@color/Black87</item>
+    </style>
+    <style name="Body1Black">
+        <item name="android:textSize">@dimen/body2</item>
+        <item name="android:textColor">@color/Black54</item>
+    </style>
+    <style name="CaptionBlack">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/Black54</item>
+    </style>
+    <style name="CaptionBlack10">
+        <item name="android:textSize">@dimen/caption10</item>
+        <item name="android:textColor">@color/Black26</item>
+    </style>
+    <style name="customCaptionBlack">
+        <item name="android:textSize">@dimen/caption</item>
+        <item name="android:textColor">@color/Black54</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+    <style name="ButtonBlack">
+        <item name="android:textSize">@dimen/button</item>
+        <item name="android:textColor">@color/Black87</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+</resources>
