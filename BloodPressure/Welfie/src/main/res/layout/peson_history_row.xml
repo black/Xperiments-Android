@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/history_row"
+    android:orientation="horizontal">
+
+    <View
+        android:layout_width="6dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="16dp"
+        android:background="#ffe100"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/title_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingRight="8dp"
+            android:text="24 JUNE,16"
+            android:layout_weight="0.5"
+            android:textColor="#757575" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/title_heart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="BPM"
+                android:textColor="#757575"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/heart"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_below="@+id/title_heart"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/heart" />
+
+            <TextView
+                android:id="@+id/heatbeat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_heart"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@+id/heart"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_vertical"
+                android:text="84"
+                android:textColor="#757575"
+                android:textSize="24sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/title_bpm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="SYS/DIA"
+                android:textColor="#757575"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bpm_upper_lower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_bpm"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_vertical"
+                android:text="84"
+                android:textColor="#757575"
+                android:textSize="24sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

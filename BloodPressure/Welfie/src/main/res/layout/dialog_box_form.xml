@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/form_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3498DB"
+        android:textColor="#FFF"
+        android:textSize="21sp"
+        android:padding="16dp"
+        android:text="ADD PERSON"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_below="@+id/form_title">
+        <EditText
+            android:id="@+id/person_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:textSize="14sp"
+            android:hint="PERSON NAME"
+            android:inputType="text" />
+
+        <RadioGroup
+            android:id="@+id/gender_selection"
+            android:layout_below="@+id/person_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MALE"
+                android:onClick="RadioButtonClicked"
+                />
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FEMALE"
+                android:onClick="RadioButtonClicked"/>
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/person_metrics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/gender_selection">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="WEIGHT"/>
+                <EditText
+                    android:id="@+id/person_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:padding="16dp"
+                    android:textSize="21sp"
+                    android:hint="KG"
+                    android:inputType="number" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="HEIGHT"/>
+                <EditText
+                    android:id="@+id/person_height"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:padding="16dp"
+                    android:textSize="21sp"
+                    android:hint="M"
+                    android:inputType="number" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="AGE"/>
+                <EditText
+                    android:id="@+id/person_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:padding="16dp"
+                    android:textSize="21sp"
+                    android:hint="Y"
+                    android:inputType="number" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

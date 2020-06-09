@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:id="@+id/measure_activy"
+    android:tag="measureFragment"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/phone_disconnected"
+        android:scaleX="1.4"
+        android:scaleY="1.4"/>
+    <TextView
+        android:id="@+id/start_button"
+        android:layout_width="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingRight="32dp"
+        android:paddingLeft="32dp"
+        android:layout_height="40dp"
+        android:background="@drawable/roundrect_button"
+        android:text="START"
+        android:textAlignment="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="43dp"
+        android:textColor="#FFF"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/measure_values"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:padding="16dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingRight="8dp"
+                android:textStyle="bold"
+                android:text="DATE"
+                android:textColor="#353535" />
+            <TextView
+                android:id="@+id/time_stamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-light"
+                android:paddingRight="8dp"
+                android:text="24 JUNE,16"
+                android:textColor="#757575" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/title_heart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="BPM"
+                android:textColor="#353535"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/heart"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_below="@+id/title_heart"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/heart" />
+
+            <TextView
+                android:id="@+id/heatbeat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_heart"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@+id/heart"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_vertical"
+                android:text="84"
+                android:textColor="#757575"
+                android:textSize="24sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/title_bpm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="SYS/DIA"
+                android:textColor="#353535"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bpm_upper_lower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_bpm"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_vertical"
+                android:text="84"
+                android:textColor="#757575"
+                android:textSize="24sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+</RelativeLayout>
