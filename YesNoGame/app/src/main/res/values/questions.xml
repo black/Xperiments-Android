@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="question0">Are you feeling happy?</string>
+    <string name="question1">Are you feeling sad?</string>
+    <string name="question2">Obama was the first president?</string>
+    <string name="question3">Do you like ice cream?</string>
+    <string name="question4">Do you want water?</string>
+    <string name="question5">Do you want fan?</string>
+    <string name="question6">Can we fly?</string>
+    <string name="question7">Sum of 13+49 is 96?</string>
+    <string name="question8">Subtraction of 45–12 is 33? </string>
+    <string name="question9">Are you feeling pain?</string>
+</resources>
