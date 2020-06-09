@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ThemeSelectorDemo</string>
+    <string name="black">Black</string>
+    <string name="blue">Blue</string>
+    <string name="pick">Pick Your Colour</string>
+    <string name="agree">I agree to the terms and conditions</string>
+</resources>

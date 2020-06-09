@@ -1,0 +1,43 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Medical theme Blue -->
+    <style name="MedicalThemeBlue" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/BluePrimaryMedical</item>
+        <item name="colorPrimaryDark">@color/BluePrimaryDarkMedical</item>
+        <item name="colorAccent">@color/BlueAccentMedical</item>
+    </style>
+
+    <!-- Medical theme Orange -->
+    <style name="MedicalThemeOrange" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/OrangePrimaryMedical</item>
+        <item name="colorPrimaryDark">@color/OrangePrimaryDarkMedical</item>
+        <item name="colorAccent">@color/OrangeAccentMedical</item>
+    </style>
+
+    <!-- Medical theme Light -->
+    <style name="MedicalLightTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/OrangePrimaryMedical</item>
+        <item name="colorPrimaryDark">@color/OrangePrimaryDarkMedical</item>
+        <item name="colorAccent">@color/OrangeAccentMedical</item>
+    </style>
+
+    <!-- Medical theme Dark -->
+    <style name="MedicalDarkTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/OrangePrimaryMedical</item>
+        <item name="colorPrimaryDark">@color/OrangePrimaryDarkMedical</item>
+        <item name="colorAccent">@color/OrangeAccentMedical</item>
+    </style>
+
+</resources>

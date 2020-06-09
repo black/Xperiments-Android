@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- -->
+    <color name="BluePrimaryMedical">#3D5AFE</color>
+    <color name="BluePrimaryDarkMedical">#304FFE</color>
+    <color name="BlueAccentMedical">#00B8D4</color>
+
+    <!-- -->
+    <color name="OrangePrimaryMedical">#FF9100</color>
+    <color name="OrangePrimaryDarkMedical">#FF6D00</color>
+    <color name="OrangeAccentMedical">#000000</color>
+
+</resources>
