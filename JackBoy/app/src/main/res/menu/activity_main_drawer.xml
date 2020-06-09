@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/breathlizer"
+            android:icon="@drawable/ic_ac_unit_black_24dp"
+            android:title="Breathlizer" />
+        <item
+            android:id="@+id/airpollution"
+            android:icon="@drawable/ic_grain_black_24dp"
+            android:title="Air Pollution" />
+        <item
+            android:id="@+id/waterpollution"
+            android:icon="@drawable/ic_invert_colors_black_24dp"
+            android:title="Water Pollution" />
+        <item
+            android:id="@+id/gassensor"
+            android:icon="@drawable/ic_whatshot_black_24dp"
+            android:title="Gas Sensor" />
+    </group>
+
+    <!--<item android:title="Communicate">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/nav_share"-->
+                <!--android:icon="@drawable/ic_menu_share"-->
+                <!--android:title="Share" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_send"-->
+                <!--android:icon="@drawable/ic_menu_send"-->
+                <!--android:title="Send" />-->
+        <!--</menu>-->
+    <!--</item>-->
+
+</menu>
