@@ -1,0 +1,25 @@
+[
+{
+    "title": "Thirsty",
+    "subtitle": "I need water",
+    "next": "",
+    "prev": ""
+},
+{
+    "title": "Hungry",
+    "subtitle": "I am hungry",
+    "next": "",
+    "prev": ""
+},
+{
+    "title": "Done",
+    "subtitle": "I am full",
+    "next": "",
+    "prev": ""
+},
+{
+    "title": "Back",
+    "subtitle": "Go back",
+    "next": "",
+    "prev": "home"
+}]

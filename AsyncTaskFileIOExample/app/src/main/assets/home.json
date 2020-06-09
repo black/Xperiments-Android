@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Yes",
+    "subtitle": "Yes",
+    "next": "",
+    "prev": ""
+  },
+  {
+    "title": "No",
+    "subtitle": "No",
+    "next": "",
+    "prev": ""
+  },
+  {
+    "title": "Pause",
+    "subtitle": "I need a break",
+    "next": "",
+    "prev": ""
+  },
+  {
+    "title": "More",
+    "subtitle": "More options",
+    "next": "more",
+    "prev": ""
+  }
+]
