@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "556642889031",
+    "firebase_url": "https://watchdog-30d14.firebaseio.com",
+    "project_id": "watchdog-30d14",
+    "storage_bucket": "watchdog-30d14.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556642889031:android:45bced434745b8087c3062",
+        "android_client_info": {
+          "package_name": "com.black.watchads"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556642889031-6iepuoehfio40q0jur54cuo1b059rcg6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.black.watchads",
+            "certificate_hash": "d2cb2dd3de3d5d420b93b6458f5d927c22eb718a"
+          }
+        },
+        {
+          "client_id": "556642889031-tjg308rn6lm4ppldm69dtu7icap9v8pq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6G_-fFWzidgqEweuRGF2C-_7KdJMjRIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556642889031-tjg308rn6lm4ppldm69dtu7icap9v8pq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
