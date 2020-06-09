@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--<GridView
+        android:id="@+id/gridViewExample"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:paddingBottom="8dp"
+        android:verticalSpacing="8dp"
+        android:horizontalSpacing="8dp"
+        android:numColumns="4"
+        android:scrollbars="none"/>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/customRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
