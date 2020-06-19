@@ -7,22 +7,32 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MainActivity">
-    <TextView
-        android:id="@+id/loadedData"
+    <ProgressBar
+        android:layout_centerInParent="true"
+        android:id="@+id/readProgress"
+        android:visibility="gone"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:layout_height="wrap_content"/>
     <com.jjoe64.graphview.GraphView
-        android:layout_below="@id/loadedData"
         android:id="@+id/graph"
         android:layout_width="match_parent"
         android:layout_height="300dp"/>
+    <ScrollView
+        android:id="@+id/container"
+        android:layout_below="@id/graph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/loadedData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </ScrollView>
     <Button
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"

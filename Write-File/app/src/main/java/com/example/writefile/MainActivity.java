@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.jjoe64.graphview.GraphView;
@@ -37,7 +38,7 @@ import devin.com.linkmanager.bean.Angle;
 import devin.com.linkmanager.bean.DataType;
 import devin.com.linkmanager.bean.Power;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     public static final String TAG ="SENSOR";
     public static final String FILE_NAME = "link.csv";
     private String data;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Signals> signalsList = new ArrayList<>();
     private LineGraphSeries<DataPoint> mSeries = new LineGraphSeries<>();
     private double graph2LastXValue = 5d;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         tv = findViewById(R.id.loadedData);
         ctv= findViewById(R.id.connectStatus);
-
+        progressBar = findViewById(R.id.readProgress);
         /*Permissions*/
         String[] permissions = {
                 Manifest.permission.ACCESS_FINE_LOCATION,
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 .withPermissions(permissions)
                 .withListener(permissionsListener)
                 .check();
+
         /*EEG Sensor-----------------------*/
         try {
             LinkManager.getInstance().init(getApplication());
@@ -117,7 +120,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadFile(View view){
-        FileInputStream fis = null;
+        ReadAsync task = new ReadAsync(getApplicationContext(), new Results() {
+            @Override
+            public void processFinish(String output) {
+                tv.setText(output);
+            }
+        });
+        task.setProgressBar(progressBar);
+        task.execute();
+       /* FileInputStream fis = null;
         try {
             fis = openFileInput(FILE_NAME);
             InputStreamReader isr = new InputStreamReader(fis);
@@ -140,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        }
+        }*/
     }
 
     private void appendToFile(String str) {
