@@ -21,15 +21,11 @@ import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
-import org.w3c.dom.Text;
-
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +39,7 @@ public class MainActivity extends AppCompatActivity{
     public static final String FILE_NAME = "link.csv";
     private String data;
     private TextView tv,ctv;
-    private List<Signals> signalsList = new ArrayList<>();
+    private List<Signal> signalList = new ArrayList<>();
     private LineGraphSeries<DataPoint> mSeries = new LineGraphSeries<>();
     private double graph2LastXValue = 5d;
     private ProgressBar progressBar;
@@ -97,8 +93,8 @@ public class MainActivity extends AppCompatActivity{
         try {
             fos = openFileOutput(FILE_NAME,MODE_WORLD_READABLE);
             /*fos.write(data.getBytes());*/
-            for(int i=0; i<signalsList.size(); i++){
-                Signals s = signalsList.get(i);
+            for(int i = 0; i< signalList.size(); i++){
+                Signal s = signalList.get(i);
                 fos.write(s.toString().getBytes());
             }
             Log.d("WRITESTATUS","Success");
@@ -219,30 +215,30 @@ public class MainActivity extends AppCompatActivity{
                     break;
                 case DataType.CODE_ATTENTION:
                     long t1 = System.currentTimeMillis();
-                    signalsList.add(new Signals(t1, Signals.Signal.ATTENTION,msg.arg1));
+                    signalList.add(new Signal(t1, Signal.Type.ATTENTION,msg.arg1));
                     Log.d(TAG,"Attention:"+  msg.arg1);
                     break;
                 case DataType.CODE_MEDITATION:
                     long t2 = System.currentTimeMillis();
-                    signalsList.add(new Signals(t2, Signals.Signal.MEDITATION,msg.arg1));
+                    signalList.add(new Signal(t2, Signal.Type.MEDITATION,msg.arg1));
                     Log.d(TAG,"Meditation:"+  msg.arg1);
                     break;
                 case DataType.CODE_RAW:
                     long t3 = System.currentTimeMillis();
-                    signalsList.add(new Signals(t3, Signals.Signal.RAW,msg.arg1));
+                    signalList.add(new Signal(t3, Signal.Type.RAW,msg.arg1));
                     Log.d(TAG,"Raw:"+  msg.arg1);
                     break;
                 case DataType.CODE_EEGPOWER:
                     Power power = (Power)msg.obj;
                     long t4 = System.currentTimeMillis();
-                    signalsList.add(new Signals(t4, Signals.Signal.LOALPHA,power.lowAlpha));
-                    signalsList.add(new Signals(t4, Signals.Signal.HIALPHA,power.highAlpha));
-                    signalsList.add(new Signals(t4, Signals.Signal.LOBETA,power.lowBeta));
-                    signalsList.add(new Signals(t4, Signals.Signal.HIBETA,power.highBeta));
-                    signalsList.add(new Signals(t4, Signals.Signal.LOGAMMA,power.lowGamma));
-                    signalsList.add(new Signals(t4, Signals.Signal.MIDGAMMA,power.middleGamma));
-                    signalsList.add(new Signals(t4, Signals.Signal.THETA,power.theta));
-                    signalsList.add(new Signals(t4, Signals.Signal.DELTA,power.delta));
+                    signalList.add(new Signal(t4, Signal.Type.LOALPHA,power.lowAlpha));
+                    signalList.add(new Signal(t4, Signal.Type.HIALPHA,power.highAlpha));
+                    signalList.add(new Signal(t4, Signal.Type.LOBETA,power.lowBeta));
+                    signalList.add(new Signal(t4, Signal.Type.HIBETA,power.highBeta));
+                    signalList.add(new Signal(t4, Signal.Type.LOGAMMA,power.lowGamma));
+                    signalList.add(new Signal(t4, Signal.Type.MIDGAMMA,power.middleGamma));
+                    signalList.add(new Signal(t4, Signal.Type.THETA,power.theta));
+                    signalList.add(new Signal(t4, Signal.Type.DELTA,power.delta));
                     break;
                 case DataType.CODE_ANGLE:
                     Angle angle = (Angle) msg.obj;
@@ -251,4 +247,38 @@ public class MainActivity extends AppCompatActivity{
             invalidateOptionsMenu();
         }
     };
+
+    /*---------------*/
+    private void perform(){
+        ArrayList<Signal> signalArray = new ArrayList<>();
+        for (Signal signal : signalList) {
+            if (signal.type == Signal.Type.RAW) {
+                signalArray.add(signal);
+            }
+        }
+
+        if(signalArray.size()<512){
+            return;
+        }
+
+//        FFT transform = new FFT(512);
+//        double x[] = new double[512];
+//        double y[] = new double[512];
+//        for(int i=0; i < 512; ++i) {
+//            x[i] = signalArray.get(i).RAW;
+//        }
+//
+//        transform.fft(x, y);
+//        double scale = 512 * 512; // no_of_samples * frequency of data
+//        for(int i=0; i < signalArray.size()/8; ++i){
+//            mSeries.appendData(new DataPoint(graph2LastXValue+=1d, data), true, 40);
+//        }
+//        signalArray.clear();
+//        Signals[] signalArray;
+//        signalArray = new Signals[n];
+//        int j=0;
+//        for(Signals signal : signalsList){
+//            signalArray
+//        }
+    }
 }
