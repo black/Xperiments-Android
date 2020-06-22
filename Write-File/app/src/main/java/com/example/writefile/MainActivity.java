@@ -1,9 +1,13 @@
 package com.example.writefile;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -57,7 +61,8 @@ public class MainActivity extends AppCompatActivity{
         /*Permissions*/
         String[] permissions = {
                 Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE
         };
 
         Dexter.withActivity(this)
@@ -119,7 +124,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void appendToFile(String str) {
-        File file = getFileStreamPath("data.csv");
+        File file = getFileStreamPath(FILE_NAME);
         if (!file.exists()) {
             try {
                 file.createNewFile();
@@ -213,12 +218,13 @@ public class MainActivity extends AppCompatActivity{
                     Angle angle = (Angle) msg.obj;
                     break;
             }
-            invalidateOptionsMenu();
+            //perform();
         }
     };
 
     /*---------------*/
     private void perform(){
+        int N = 512*4;
         ArrayList<Signal> signalArray = new ArrayList<>();
         for (Signal signal : signalList) {
             if (signal.type == Signal.Type.RAW) {
@@ -226,31 +232,37 @@ public class MainActivity extends AppCompatActivity{
             }
         }
 
-        if(signalArray.size()<512){
+        if(signalArray.size()<N){
             return;
         }
 
-//        FFT transform = new FFT(512);
-//        double x[] = new double[512];
-//        double y[] = new double[512];
-//        for(int i=0; i < 512; ++i) {
-//            x[i] = signalArray.get(i).RAW;
-//        }
-//
-//        transform.fft(x, y);
-//        double scale = 512 * 512; // no_of_samples * frequency of data
-//        for(int i=0; i < signalArray.size()/8; ++i){
-//            mSeries.appendData(new DataPoint(graph2LastXValue+=1d, data), true, 40);
-//        }
-//        signalArray.clear();
-//        Signals[] signalArray;
-//        signalArray = new Signals[n];
-//        int j=0;
-//        for(Signals signal : signalsList){
-//            signalArray
-//        }
+        FFT transform = new FFT(N);
+        double x[] = new double[N];
+        double y[] = new double[N];
+        for(int i=0; i < N; ++i) {
+            x[i] = signalArray.get(i).val;
+        }
+
+        transform.fft(x, y);
+        double scale = N * N; // no_of_samples * frequency of data
+        for(int i=0; i < signalArray.size()/8; ++i){
+            mSeries.appendData(new DataPoint(graph2LastXValue+=1d, (x[i]*x[i] + y[i]*y[i])/scale), true, 40);
+        }
+        //signalArray.clear();
     }
 
     public void Clicked(View view) {
+        /*Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_EMAIL, getFileStreamPath(FILE_NAME));
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);*/
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("*/*");
+        String auth = getApplicationContext().getPackageName()+".FileProvider";
+        Uri uri = FileProvider.getUriForFile(this,auth,new File(getFilesDir(),FILE_NAME));
+        sharingIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        sharingIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION|Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(Intent.createChooser(sharingIntent, "Share SENSOR Data"));
     }
 }
