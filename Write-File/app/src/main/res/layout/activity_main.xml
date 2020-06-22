@@ -13,61 +13,72 @@
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+    <ProgressBar
+        android:layout_centerInParent="true"
+        android:id="@+id/writeProgress"
+        android:visibility="gone"
+        android:progressTint="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/connectStatus"
+        android:padding="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="STATUS"/>
+    <Button
+        android:layout_toLeftOf="@+id/stopSensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="START"
+        android:onClick="startSensor"/>
+    <Button
+        android:id="@+id/stopSensor"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="STOP"
+        android:onClick="stopSensor"/>
     <com.jjoe64.graphview.GraphView
+        android:layout_below="@+id/connectStatus"
         android:id="@+id/graph"
         android:layout_width="match_parent"
         android:layout_height="300dp"/>
     <ScrollView
         android:id="@+id/container"
         android:layout_below="@id/graph"
+        android:layout_above="@+id/button_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
             android:id="@+id/loadedData"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hello World!"
-            android:padding="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:padding="16dp"/>
     </ScrollView>
-    <Button
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LOAD"
-        android:onClick="loadFile"/>
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/button_group"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
-            android:id="@+id/start_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="START"
-            android:onClick="startSensor"/>
-        <Button
-            android:layout_toRightOf="@+id/start_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="STOP"
-            android:onClick="stopSensor"/>
-        <Button
-            android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SAVE"
             android:onClick="saveFile"/>
-        <TextView
-            android:layout_below="@+id/start_button"
-            android:id="@+id/connectStatus"
-            android:padding="16dp"
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="STATUS"/>
-    </RelativeLayout>
+            android:text="LOAD"
+            android:onClick="loadFile"/>
+        <Button
+            android:id="@+id/shareData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Share"
+            android:onClick="Clicked" />
+    </LinearLayout>
 </RelativeLayout>

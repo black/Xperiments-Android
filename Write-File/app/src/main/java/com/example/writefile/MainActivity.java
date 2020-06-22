@@ -37,13 +37,13 @@ import devin.com.linkmanager.bean.Power;
 
 public class MainActivity extends AppCompatActivity{
     public static final String TAG ="SENSOR";
-    public static final String FILE_NAME = "link.csv";
+    public static final String FILE_NAME = "EEG.csv";
     private String data;
     private TextView tv,ctv;
     private List<Signal> signalList = new ArrayList<>();
     private LineGraphSeries<DataPoint> mSeries = new LineGraphSeries<>();
     private double graph2LastXValue = 5d;
-    private ProgressBar progressBar;
+    private ProgressBar readProgress,writeProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,9 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         tv = findViewById(R.id.loadedData);
         ctv= findViewById(R.id.connectStatus);
-        progressBar = findViewById(R.id.readProgress);
+        readProgress = findViewById(R.id.readProgress);
+        writeProgress = findViewById(R.id.writeProgress);
+
         /*Permissions*/
         String[] permissions = {
                 Manifest.permission.ACCESS_FINE_LOCATION,
@@ -96,18 +98,23 @@ public class MainActivity extends AppCompatActivity{
                 Toast.makeText(MainActivity.this,output,Toast.LENGTH_LONG).show();
             }
         },signalList);
-        task.setProgressBar(progressBar);
+        task.setProgressBar(writeProgress);
         task.execute();
     }
 
     public void loadFile(View view){
         ReadAsync task = new ReadAsync(getApplicationContext(), new Results() {
             @Override
-            public void processFinish(String output) {
-                tv.setText(output);
+            public void processFinish(final String output) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        tv.setText(output);
+                    }
+                });
             }
         });
-        task.setProgressBar(progressBar);
+        task.setProgressBar(readProgress);
         task.execute();
     }
 
@@ -200,6 +207,7 @@ public class MainActivity extends AppCompatActivity{
                     signalList.add(new Signal(t4, Signal.Type.MIDGAMMA,power.middleGamma));
                     signalList.add(new Signal(t4, Signal.Type.THETA,power.theta));
                     signalList.add(new Signal(t4, Signal.Type.DELTA,power.delta));
+                    Log.d(TAG,"Power:"+  msg.obj);
                     break;
                 case DataType.CODE_ANGLE:
                     Angle angle = (Angle) msg.obj;
@@ -241,5 +249,8 @@ public class MainActivity extends AppCompatActivity{
 //        for(Signals signal : signalsList){
 //            signalArray
 //        }
+    }
+
+    public void Clicked(View view) {
     }
 }

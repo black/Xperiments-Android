@@ -65,7 +65,7 @@ public class WriteAsync extends AsyncTask<String,Integer,String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        bar.setVisibility(View.GONE);
+        bar.setVisibility(View.INVISIBLE);
         results.processFinish("SAVED SUCCESSFULLY");
     }
 

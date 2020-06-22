@@ -2,6 +2,7 @@ package com.example.writefile;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -36,6 +37,7 @@ public class ReadAsync extends AsyncTask<String,Integer,String> {
             String text;
             while((text=br.readLine())!=null){
                 sb.append(text).append("\n");
+                Log.d("RESULT"," <> "+text);
             }
             return sb.toString();
         } catch (FileNotFoundException e) {
@@ -63,7 +65,8 @@ public class ReadAsync extends AsyncTask<String,Integer,String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        bar.setVisibility(View.GONE);
+        bar.setVisibility(View.INVISIBLE);
+        Log.d("RESULT"," >> "+s);
         results.processFinish(s);
     }
 
