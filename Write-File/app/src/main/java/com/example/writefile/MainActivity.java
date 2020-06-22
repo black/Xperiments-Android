@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
@@ -89,30 +90,14 @@ public class MainActivity extends AppCompatActivity{
     };
 
     public void saveFile(View view){
-        FileOutputStream fos = null;
-        try {
-            fos = openFileOutput(FILE_NAME,MODE_WORLD_READABLE);
-            /*fos.write(data.getBytes());*/
-            for(int i = 0; i< signalList.size(); i++){
-                Signal s = signalList.get(i);
-                fos.write(s.toString().getBytes());
+        WriteAsync task = new WriteAsync(getApplicationContext(), new Results() {
+            @Override
+            public void processFinish(String output) {
+                Toast.makeText(MainActivity.this,output,Toast.LENGTH_LONG).show();
             }
-            Log.d("WRITESTATUS","Success");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            Log.d("WRITESTATUS","failed");
-        } catch (IOException e) {
-            e.printStackTrace();
-            Log.d("WRITESTATUS","failed");
-        }finally {
-            if(fos!=null) {
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        },signalList);
+        task.setProgressBar(progressBar);
+        task.execute();
     }
 
     public void loadFile(View view){
@@ -124,30 +109,6 @@ public class MainActivity extends AppCompatActivity{
         });
         task.setProgressBar(progressBar);
         task.execute();
-       /* FileInputStream fis = null;
-        try {
-            fis = openFileInput(FILE_NAME);
-            InputStreamReader isr = new InputStreamReader(fis);
-            BufferedReader br = new BufferedReader(isr);
-            StringBuilder sb = new StringBuilder();
-            String text;
-            while((text=br.readLine())!=null){
-                sb.append(text).append("\n");
-            }
-            tv.setText(sb);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
-            if(fis!=null){
-                try {
-                    fis.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }*/
     }
 
     private void appendToFile(String str) {

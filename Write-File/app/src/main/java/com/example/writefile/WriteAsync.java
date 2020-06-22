@@ -2,50 +2,52 @@ package com.example.writefile;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.List;
 
 import static com.example.writefile.MainActivity.FILE_NAME;
 
-public class ReadAsync extends AsyncTask<String,Integer,String> {
+public class WriteAsync extends AsyncTask<String,Integer,String> {
+    private List<Signal> signalList;
     private ProgressBar bar;
     private Context context;
     private Results results = null;
-    public ReadAsync (Context context,Results results) {
+    public WriteAsync (Context context,Results results,List<Signal> signalList) {
         this.context = context;
         this.results = results;
+        this.signalList = signalList;
     }
+
     public void setProgressBar(ProgressBar bar) {
         this.bar = bar;
     }
 
     @Override
     protected String doInBackground(String... strings) {
-        FileInputStream fis = null;
+        FileOutputStream fos = null;
         try {
-            fis =  this.context.openFileInput(FILE_NAME);
-            InputStreamReader isr = new InputStreamReader(fis);
-            BufferedReader br = new BufferedReader(isr);
-            StringBuilder sb = new StringBuilder();
-            String text;
-            while((text=br.readLine())!=null){
-                sb.append(text).append("\n");
+            fos = context.openFileOutput(FILE_NAME,Context.MODE_PRIVATE);
+            for(int i = 0; i< signalList.size(); i++){
+                Signal s = signalList.get(i);
+                fos.write(s.toString().getBytes());
             }
-            return sb.toString();
+            Log.d("WRITESTATUS","Success");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            Log.d("WRITESTATUS","failed");
         } catch (IOException e) {
             e.printStackTrace();
+            Log.d("WRITESTATUS","failed");
         }finally {
-            if(fis!=null){
+            if(fos!=null) {
                 try {
-                    fis.close();
+                    fos.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -64,7 +66,7 @@ public class ReadAsync extends AsyncTask<String,Integer,String> {
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         bar.setVisibility(View.GONE);
-        results.processFinish(s);
+        results.processFinish("SAVED SUCCESSFULLY");
     }
 
     @Override
