@@ -11,17 +11,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
-import static com.example.writefile.MainActivity.FILE_NAME;
-
 public class WriteAsync extends AsyncTask<String,Integer,String> {
     private List<Signal> signalList;
     private ProgressBar bar;
     private Context context;
+    private String FILE_NAME ="";
     private Results results = null;
-    public WriteAsync (Context context,Results results,List<Signal> signalList) {
+    public WriteAsync (Context context,Results results,List<Signal> signalList,String FILE_NAME) {
         this.context = context;
         this.results = results;
         this.signalList = signalList;
+        this.FILE_NAME = FILE_NAME;
     }
 
     public void setProgressBar(ProgressBar bar) {

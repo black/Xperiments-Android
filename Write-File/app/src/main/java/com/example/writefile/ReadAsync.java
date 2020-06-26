@@ -12,15 +12,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import static com.example.writefile.MainActivity.FILE_NAME;
 
 public class ReadAsync extends AsyncTask<String,Integer,String> {
     private ProgressBar bar;
     private Context context;
     private Results results = null;
-    public ReadAsync (Context context,Results results) {
+    private String FILE_NAME ="";
+    public ReadAsync (Context context,Results results,String FILE_NAME) {
         this.context = context;
         this.results = results;
+        this.FILE_NAME = FILE_NAME;
     }
     public void setProgressBar(ProgressBar bar) {
         this.bar = bar;
