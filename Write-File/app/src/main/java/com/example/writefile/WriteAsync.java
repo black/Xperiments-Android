@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -33,15 +34,15 @@ public class WriteAsync extends AsyncTask<String,Integer,String> {
         FileOutputStream fos = null;
         try {
             fos = context.openFileOutput(FILE_NAME,Context.MODE_PRIVATE|Context.MODE_APPEND);
+//            fos.write(signal.toString().getBytes());
+//            fos.close();
+            BufferedOutputStream bout = new BufferedOutputStream(fos);
+            bout.write(signal.toString().getBytes());
+            bout.close();
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }
-        try {
-            fos.write(signal.toString().getBytes());
-            fos.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return null;
