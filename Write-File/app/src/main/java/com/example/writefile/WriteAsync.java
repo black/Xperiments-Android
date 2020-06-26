@@ -12,15 +12,15 @@ import java.io.IOException;
 import java.util.List;
 
 public class WriteAsync extends AsyncTask<String,Integer,String> {
-    private List<Signal> signalList;
+    private Signal signal;
     private ProgressBar bar;
     private Context context;
     private String FILE_NAME ="";
     private Results results = null;
-    public WriteAsync (Context context,Results results,List<Signal> signalList,String FILE_NAME) {
+    public WriteAsync (Context context,Results results,Signal signal,String FILE_NAME) {
         this.context = context;
         this.results = results;
-        this.signalList = signalList;
+        this.signal = signal;
         this.FILE_NAME = FILE_NAME;
     }
 
@@ -32,26 +32,17 @@ public class WriteAsync extends AsyncTask<String,Integer,String> {
     protected String doInBackground(String... strings) {
         FileOutputStream fos = null;
         try {
-            fos = context.openFileOutput(FILE_NAME,Context.MODE_PRIVATE);
-            for(int i = 0; i< signalList.size(); i++){
-                Signal s = signalList.get(i);
-                fos.write(s.toString().getBytes());
-            }
-            Log.d("WRITESTATUS","Success");
+            fos = context.openFileOutput(FILE_NAME,Context.MODE_PRIVATE|Context.MODE_APPEND);
         } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
-            Log.d("WRITESTATUS","failed");
+        }
+        try {
+            fos.write(signal.toString().getBytes());
+            fos.close();
         } catch (IOException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
-            Log.d("WRITESTATUS","failed");
-        }finally {
-            if(fos!=null) {
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
         return null;
     }

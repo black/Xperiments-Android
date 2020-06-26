@@ -31,7 +31,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import devin.com.linkmanager.LinkManager;
@@ -41,7 +43,7 @@ import devin.com.linkmanager.bean.Power;
 
 public class MainActivity extends AppCompatActivity{
     public static final String TAG ="SENSOR";
-    public static final String FILE_NAME = "EEG.csv";
+    public static String FILE_NAME = "";
     private String data;
     private TextView tv,ctv;
     private List<Signal> signalList = new ArrayList<>();
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity{
     private double graph2LastXValue = 5d;
     private ProgressBar readProgress,writeProgress;
 
+    @SuppressLint("SimpleDateFormat")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity{
         ctv= findViewById(R.id.connectStatus);
         readProgress = findViewById(R.id.readProgress);
         writeProgress = findViewById(R.id.writeProgress);
+        FILE_NAME = new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + "-EEG.csv";
 
         /*Permissions*/
         String[] permissions = {
@@ -96,13 +100,14 @@ public class MainActivity extends AppCompatActivity{
         }
     };
 
-    public void saveFile(View view){
+
+    private void writeData(final Signal data){
         WriteAsync task = new WriteAsync(getApplicationContext(), new Results() {
             @Override
             public void processFinish(String output) {
-                Toast.makeText(MainActivity.this,output,Toast.LENGTH_LONG).show();
+                Log.d("DATA",data.toString());
             }
-        },signalList);
+        },data,FILE_NAME);
         task.setProgressBar(writeProgress);
         task.execute();
     }
@@ -118,31 +123,9 @@ public class MainActivity extends AppCompatActivity{
                     }
                 });
             }
-        });
+        },FILE_NAME);
         task.setProgressBar(readProgress);
         task.execute();
-    }
-
-    private void appendToFile(String str) {
-        File file = getFileStreamPath(FILE_NAME);
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        FileOutputStream writer = null;
-        try {
-            writer = openFileOutput(file.getName(), MODE_APPEND | MODE_WORLD_READABLE);
-            writer.write(str.getBytes());
-            writer.flush();
-            writer.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     /*NUROLINK-----------------*/
@@ -188,31 +171,27 @@ public class MainActivity extends AppCompatActivity{
                     break;
                 case DataType.CODE_ATTENTION:
                     long t1 = System.currentTimeMillis();
-                    signalList.add(new Signal(t1, Signal.Type.ATTENTION,msg.arg1));
-                    Log.d(TAG,"Attention:"+  msg.arg1);
+                    writeData(new Signal(t1, Signal.Type.ATTENTION,msg.arg1));
                     break;
                 case DataType.CODE_MEDITATION:
                     long t2 = System.currentTimeMillis();
-                    signalList.add(new Signal(t2, Signal.Type.MEDITATION,msg.arg1));
-                    Log.d(TAG,"Meditation:"+  msg.arg1);
+                    writeData(new Signal(t2, Signal.Type.MEDITATION,msg.arg1));
                     break;
                 case DataType.CODE_RAW:
                     long t3 = System.currentTimeMillis();
-                    signalList.add(new Signal(t3, Signal.Type.RAW,msg.arg1));
-                    Log.d(TAG,"Raw:"+  msg.arg1);
+                    writeData(new Signal(t3, Signal.Type.RAW,msg.arg1));
                     break;
                 case DataType.CODE_EEGPOWER:
                     Power power = (Power)msg.obj;
                     long t4 = System.currentTimeMillis();
-                    signalList.add(new Signal(t4, Signal.Type.LOALPHA,power.lowAlpha));
-                    signalList.add(new Signal(t4, Signal.Type.HIALPHA,power.highAlpha));
-                    signalList.add(new Signal(t4, Signal.Type.LOBETA,power.lowBeta));
-                    signalList.add(new Signal(t4, Signal.Type.HIBETA,power.highBeta));
-                    signalList.add(new Signal(t4, Signal.Type.LOGAMMA,power.lowGamma));
-                    signalList.add(new Signal(t4, Signal.Type.MIDGAMMA,power.middleGamma));
-                    signalList.add(new Signal(t4, Signal.Type.THETA,power.theta));
-                    signalList.add(new Signal(t4, Signal.Type.DELTA,power.delta));
-                    Log.d(TAG,"Power:"+  msg.obj);
+                    writeData(new Signal(t4, Signal.Type.LOALPHA,power.lowAlpha));
+                    writeData(new Signal(t4, Signal.Type.HIALPHA,power.highAlpha));
+                    writeData(new Signal(t4, Signal.Type.LOBETA,power.lowBeta));
+                    writeData(new Signal(t4, Signal.Type.HIBETA,power.highBeta));
+                    writeData(new Signal(t4, Signal.Type.LOGAMMA,power.lowGamma));
+                    writeData(new Signal(t4, Signal.Type.MIDGAMMA,power.middleGamma));
+                    writeData(new Signal(t4, Signal.Type.THETA,power.theta));
+                    writeData(new Signal(t4, Signal.Type.DELTA,power.delta));
                     break;
                 case DataType.CODE_ANGLE:
                     Angle angle = (Angle) msg.obj;
@@ -251,12 +230,7 @@ public class MainActivity extends AppCompatActivity{
         //signalArray.clear();
     }
 
-    public void Clicked(View view) {
-        /*Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_EMAIL, getFileStreamPath(FILE_NAME));
-        sendIntent.setType("text/plain");
-        startActivity(sendIntent);*/
+    public void shareFile(View view) {
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
         sharingIntent.setType("*/*");
         String auth = getApplicationContext().getPackageName()+".FileProvider";
