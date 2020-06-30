@@ -13,10 +13,12 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.writefile.SavedFiles.FilesActivity;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity{
     public static String FILE_NAME = "";
     private String data;
     private TextView tv,ctv;
+    private WebView wv;
     private List<Signal> signalList = new ArrayList<>();
     private LineGraphSeries<DataPoint> mSeries = new LineGraphSeries<>();
     private double graph2LastXValue = 5d;
@@ -56,7 +59,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tv = findViewById(R.id.loadedData);
+        wv = findViewById(R.id.container);
         ctv= findViewById(R.id.connectStatus);
         readProgress = findViewById(R.id.readProgress);
         writeProgress = findViewById(R.id.writeProgress);
@@ -119,7 +122,7 @@ public class MainActivity extends AppCompatActivity{
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        tv.setText(output);
+                        wv.loadDataWithBaseURL("", output, "text/html", "UTF-8", "");
                     }
                 });
             }
@@ -238,5 +241,10 @@ public class MainActivity extends AppCompatActivity{
         sharingIntent.putExtra(Intent.EXTRA_STREAM, uri);
         sharingIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION|Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivity(Intent.createChooser(sharingIntent, "Share SENSOR Data"));
+    }
+
+    public void showAllFiles(View view) {
+        Intent myIntent = new Intent(MainActivity.this, FilesActivity.class);
+        startActivity(myIntent);
     }
 }

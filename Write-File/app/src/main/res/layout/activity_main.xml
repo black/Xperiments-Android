@@ -44,7 +44,7 @@
         android:id="@+id/graph"
         android:layout_width="match_parent"
         android:layout_height="300dp"/>
-    <ScrollView
+    <!--<ScrollView
         android:id="@+id/container"
         android:layout_below="@id/graph"
         android:layout_above="@+id/button_group"
@@ -56,7 +56,13 @@
             android:layout_height="wrap_content"
             android:text="Hello World!"
             android:padding="16dp"/>
-    </ScrollView>
+    </ScrollView>-->
+    <WebView
+        android:id="@+id/container"
+        android:layout_below="@id/graph"
+        android:layout_above="@+id/button_group"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
     <LinearLayout
         android:id="@+id/button_group"
         android:layout_alignParentBottom="true"
@@ -77,8 +83,13 @@
             android:id="@+id/shareData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
             android:text="Share"
             android:onClick="shareFile" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Files"
+            android:onClick="showAllFiles" />
     </LinearLayout>
 </RelativeLayout>

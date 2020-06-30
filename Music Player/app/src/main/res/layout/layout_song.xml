@@ -3,20 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <ImageView
-        android:id="@+id/cover"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:padding="8dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/ic_play_circle_outline_black_24dp"/>
     <TextView
         android:id="@+id/songTitle"
-        android:layout_toEndOf="@id/cover"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:paddingTop="16dp"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
         android:textColor="@drawable/selected_item"
         android:text="Song Title"/>
     <TextView
@@ -27,4 +22,11 @@
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:text="Song duration"/>
+    <ImageView
+        android:id="@+id/cover"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:padding="8dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_play_circle_outline_black_24dp"/>
 </RelativeLayout>

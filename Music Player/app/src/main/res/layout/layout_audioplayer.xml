@@ -4,17 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center">
-    <com.gauravk.audiovisualizer.visualizer.WaveVisualizer
-        xmlns:custom="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/blast"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        custom:avDensity="0.8"
-        custom:avType="fill"
-        custom:avColor="@color/av_dark_blue"
-        custom:avSpeed="normal"/>
     <SeekBar
-        android:layout_below="@+id/blast"
         android:id="@+id/seekbar_player"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

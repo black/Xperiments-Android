@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private MusicAdapter musicAdapter;
     private List<SongData> songsList;
     private ListView listView;
+    private ProgressBar loader;
 
     //------Media Player ----------
     private static MediaPlayer mediaPlayer;
@@ -45,7 +47,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SeekBar seekbarPayer;
     private TextView playerTime, songTitle;
     private int pos = 0;
-    private WaveVisualizer mVisualizer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         //--------Music Player---------------
-        mVisualizer = findViewById(R.id.blast);
         mediaPlayer = new MediaPlayer();
         playButton = findViewById(R.id.playpause_player);
         prevButton = findViewById(R.id.prev_player);
@@ -61,6 +61,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         seekbarPayer = findViewById(R.id.seekbar_player);
         playerTime = findViewById(R.id.playertime);
         songTitle = findViewById(R.id.songname);
+
+        loader = findViewById(R.id.loading);
+
         songTitle.setSelected(true);
 
         playButton.setOnClickListener(this);
@@ -90,10 +93,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         getAllSongs();
-
-        int audioSessionId = mediaPlayer.getAudioSessionId();
-        if (audioSessionId != -1)
-            mVisualizer.setAudioSessionId(audioSessionId);
     }
 
     @Override
@@ -129,24 +128,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void getAllSongs() {
-        Uri songURI = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
-        String selection = MediaStore.Audio.Media.IS_MUSIC + "!=0";
-        Cursor songCursor = getContentResolver().query(songURI, null, selection, null, null);
-        if (songCursor != null && songCursor.moveToFirst()) {
-            int songTitle = songCursor.getColumnIndex(MediaStore.Audio.Media.TITLE);
-            int songArtist = songCursor.getColumnIndex(MediaStore.Audio.Media.ARTIST);
-            int songUri = songCursor.getColumnIndex(MediaStore.Audio.Media.DATA);
-            int songCover = songCursor.getColumnIndex(MediaStore.Audio.Albums.ALBUM_ID);
-            do {
-                String title = songCursor.getString(songTitle);
-                String artist = songCursor.getString(songArtist);
-                String uri = songCursor.getString(songUri);
-                String img = songCursor.getString(songCover);
-                songsList.add(new SongData(title, artist, uri, img));
-            } while (songCursor.moveToNext());
-            songCursor.close();
-        }
-        musicAdapter.notifyDataSetChanged();
+       ReadAsync task = new ReadAsync(getApplicationContext(), new Results() {
+           @Override
+           public void processFinish(List<SongData> output) {
+               songsList.clear();
+               songsList.addAll(output);
+               musicAdapter.notifyDataSetChanged();
+           }
+       });
+        task.setProgressBar(loader);
+        task.execute();
     }
 
     private void playMusicFile(String filePath,final String title) {
@@ -269,8 +260,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mVisualizer != null)
-            mVisualizer.release();
     }
 }
 
