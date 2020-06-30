@@ -16,6 +16,5 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fileList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"/>
+        android:layout_height="wrap_content"/>
 </LinearLayout>

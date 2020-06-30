@@ -6,22 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/layout_audioplayer"/>
-    <ListView
-        android:id="@+id/songList"
-        android:choiceMode="singleChoice"
-        android:listSelector="@drawable/selected_item"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"/>
-
     <ProgressBar
         android:id="@+id/loading"
-        android:layout_width="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_centerInParent="true"/>
+        android:indeterminate="true"/>
+    <ListView
+        android:id="@+id/songList"
+        android:listSelector="@drawable/selected_item"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 </LinearLayout>

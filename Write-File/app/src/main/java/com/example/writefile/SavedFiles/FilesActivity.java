@@ -20,7 +20,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FilesActivity extends AppCompatActivity {
+import static com.example.writefile.MainActivity.REQ_CODE;
+
+public class FilesActivity extends AppCompatActivity implements OnRVItemClickListener {
     private List<FilePojo> fileList = new ArrayList<>();
     private FileAdapter fileAdapter;
     private ProgressBar fileloader;
@@ -31,10 +33,9 @@ public class FilesActivity extends AppCompatActivity {
 
         fileloader = findViewById(R.id.fileloader);
         RecyclerView listView = findViewById(R.id.fileList);
-        fileAdapter = new FileAdapter(fileList);
+        fileAdapter = new FileAdapter(fileList,this);
         listView.setLayoutManager(new LinearLayoutManager(this));
         listView.setAdapter(fileAdapter);
-
     }
 
     @Override
@@ -55,6 +56,20 @@ public class FilesActivity extends AppCompatActivity {
         },fileloader);
         fileAsync.execute();
     }
+
+    @Override
+    public void onClick(int pos) {
+        Intent intentMessage=new Intent();
+        intentMessage.putExtra("fileName",fileList.get(pos).getFilename());
+        setResult(REQ_CODE,intentMessage);
+        finish();
+    }
+
+    @Override
+    public void onShare(int pos) {
+        shareFile(fileList.get(pos).getFilename());
+    }
+
 
     public void shareFile(String FILE_NAME) {
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);

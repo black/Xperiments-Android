@@ -1,5 +1,6 @@
 package com.example.writefile;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
@@ -44,6 +45,7 @@ import devin.com.linkmanager.bean.DataType;
 import devin.com.linkmanager.bean.Power;
 
 public class MainActivity extends AppCompatActivity{
+    public static final int REQ_CODE = 100;
     public static final String TAG ="SENSOR";
     public static String FILE_NAME = "";
     private String data;
@@ -61,6 +63,7 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         wv = findViewById(R.id.container);
         ctv= findViewById(R.id.connectStatus);
+        tv = findViewById(R.id.fileName);
         readProgress = findViewById(R.id.readProgress);
         writeProgress = findViewById(R.id.writeProgress);
         FILE_NAME = new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + "-EEG.csv";
@@ -115,21 +118,23 @@ public class MainActivity extends AppCompatActivity{
         task.execute();
     }
 
-    public void loadFile(View view){
-        ReadAsync task = new ReadAsync(getApplicationContext(), new Results() {
-            @Override
-            public void processFinish(final String output) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        wv.loadDataWithBaseURL("", output, "text/html", "UTF-8", "");
-                    }
-                });
-            }
-        },FILE_NAME);
-        task.setProgressBar(readProgress);
-        task.execute();
-    }
+//    public void loadFile(View view){
+//        tv.setText(FILE_NAME);
+//        ReadAsync task = new ReadAsync(getApplicationContext(), new Results() {
+//            @Override
+//            public void processFinish(final String output) {
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        Log.d("FileData",output);
+//                        wv.loadDataWithBaseURL("", output, "text/html", "UTF-8", "");
+//                    }
+//                });
+//            }
+//        },FILE_NAME);
+//        task.setProgressBar(readProgress);
+//        task.execute();
+//    }
 
     /*NUROLINK-----------------*/
     public void startSensor(View view){
@@ -233,18 +238,43 @@ public class MainActivity extends AppCompatActivity{
         //signalArray.clear();
     }
 
-    public void shareFile(View view) {
-        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-        sharingIntent.setType("*/*");
-        String auth = getApplicationContext().getPackageName()+".FileProvider";
-        Uri uri = FileProvider.getUriForFile(this,auth,new File(getFilesDir(),FILE_NAME));
-        sharingIntent.putExtra(Intent.EXTRA_STREAM, uri);
-        sharingIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION|Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        startActivity(Intent.createChooser(sharingIntent, "Share SENSOR Data"));
-    }
+//    public void shareFile(View view) {
+//        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+//        sharingIntent.setType("*/*");
+//        String auth = getApplicationContext().getPackageName()+".FileProvider";
+//        Uri uri = FileProvider.getUriForFile(this,auth,new File(getFilesDir(),FILE_NAME));
+//        sharingIntent.putExtra(Intent.EXTRA_STREAM, uri);
+//        sharingIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION|Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//        startActivity(Intent.createChooser(sharingIntent, "Share SENSOR Data"));
+//    }
 
     public void showAllFiles(View view) {
         Intent myIntent = new Intent(MainActivity.this, FilesActivity.class);
-        startActivity(myIntent);
+        startActivityForResult(myIntent,REQ_CODE);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==REQ_CODE) {
+            final String fileName =data.getStringExtra("fileName");
+            Log.d("FILENAME",fileName);
+            tv.setText(fileName);
+            ReadAsync task = new ReadAsync(getApplicationContext(), new Results() {
+                @Override
+                public void processFinish(final String output) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Log.d("FileData", fileName +"\n"+ output);
+                            wv.loadDataWithBaseURL("", output, "text/html", "UTF-8", "");
+                        }
+                    });
+                }
+            }, fileName);
+            task.setProgressBar(readProgress);
+            task.execute();
+        }
+    }
+
 }

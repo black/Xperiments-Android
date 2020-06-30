@@ -43,26 +43,21 @@
         android:layout_below="@+id/connectStatus"
         android:id="@+id/graph"
         android:layout_width="match_parent"
-        android:layout_height="300dp"/>
-    <!--<ScrollView
-        android:id="@+id/container"
-        android:layout_below="@id/graph"
-        android:layout_above="@+id/button_group"
+        android:layout_height="250dp"/>
+    <TextView
+        android:id="@+id/fileName"
+        android:layout_below="@+id/graph"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/loadedData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            android:padding="16dp"/>
-    </ScrollView>-->
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="FILENAME"/>
     <WebView
         android:id="@+id/container"
-        android:layout_below="@id/graph"
+        android:layout_below="@id/fileName"
         android:layout_above="@+id/button_group"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"/>
     <LinearLayout
         android:id="@+id/button_group"
         android:layout_alignParentBottom="true"
@@ -74,17 +69,6 @@
 <!--            android:layout_height="wrap_content"-->
 <!--            android:text="SAVE"-->
 <!--            android:onClick="saveFile"/>-->
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LOAD"
-            android:onClick="loadFile"/>
-        <Button
-            android:id="@+id/shareData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Share"
-            android:onClick="shareFile" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
