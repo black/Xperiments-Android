@@ -118,24 +118,6 @@ public class MainActivity extends AppCompatActivity{
         task.execute();
     }
 
-//    public void loadFile(View view){
-//        tv.setText(FILE_NAME);
-//        ReadAsync task = new ReadAsync(getApplicationContext(), new Results() {
-//            @Override
-//            public void processFinish(final String output) {
-//                runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        Log.d("FileData",output);
-//                        wv.loadDataWithBaseURL("", output, "text/html", "UTF-8", "");
-//                    }
-//                });
-//            }
-//        },FILE_NAME);
-//        task.setProgressBar(readProgress);
-//        task.execute();
-//    }
-
     /*NUROLINK-----------------*/
     public void startSensor(View view){
         startLink();
@@ -238,16 +220,6 @@ public class MainActivity extends AppCompatActivity{
         //signalArray.clear();
     }
 
-//    public void shareFile(View view) {
-//        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-//        sharingIntent.setType("*/*");
-//        String auth = getApplicationContext().getPackageName()+".FileProvider";
-//        Uri uri = FileProvider.getUriForFile(this,auth,new File(getFilesDir(),FILE_NAME));
-//        sharingIntent.putExtra(Intent.EXTRA_STREAM, uri);
-//        sharingIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION|Intent.FLAG_GRANT_READ_URI_PERMISSION);
-//        startActivity(Intent.createChooser(sharingIntent, "Share SENSOR Data"));
-//    }
-
     public void showAllFiles(View view) {
         Intent myIntent = new Intent(MainActivity.this, FilesActivity.class);
         startActivityForResult(myIntent,REQ_CODE);
@@ -276,5 +248,4 @@ public class MainActivity extends AppCompatActivity{
             task.execute();
         }
     }
-
 }
