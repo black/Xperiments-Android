@@ -35,5 +35,4 @@ dependencies {
 
     implementation 'com.karumi:dexter:6.1.0'
     implementation 'com.jjoe64:graphview:4.2.2'
-
 }

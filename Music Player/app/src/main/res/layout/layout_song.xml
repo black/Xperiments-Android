@@ -5,26 +5,38 @@
     android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/cover"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:padding="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:padding="16dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/ic_play_circle_outline_black_24dp"/>
-    <TextView
-        android:id="@+id/songTitle"
+    <LinearLayout
         android:layout_toEndOf="@id/cover"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:paddingTop="16dp"
-        android:textColor="@drawable/selected_item"
-        android:text="Song Title"/>
-    <TextView
-        android:id="@+id/songDuration"
-        android:layout_below="@+id/songTitle"
-        android:layout_toEndOf="@id/cover"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:text="Song duration"/>
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/songTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:textColor="@drawable/selected_item"
+            android:text="@string/song_title"/>
+        <TextView
+            android:id="@+id/songDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@string/song_description"/>
+        <SeekBar
+            android:id="@+id/seekbar_player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:visibility="gone"
+            android:theme="@style/SeekBarColor"/>
+    </LinearLayout>
 </RelativeLayout>

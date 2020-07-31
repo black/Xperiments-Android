@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -32,20 +33,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
     private MusicAdapter musicAdapter;
     private List<SongData> songsList;
     private ListView listView;
+    private ProgressBar loader;
 
     //------Media Player ----------
     private static MediaPlayer mediaPlayer;
     private Handler handler = new Handler();
     private Runnable runnable;
-    private ImageView playButton, prevButton, nextButton;
-    private SeekBar seekbarPayer;
-    private TextView playerTime, songTitle;
-    private int pos = 0;
-    private WaveVisualizer mVisualizer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,19 +50,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         //--------Music Player---------------
-        mVisualizer = findViewById(R.id.blast);
         mediaPlayer = new MediaPlayer();
-        playButton = findViewById(R.id.playpause_player);
-        prevButton = findViewById(R.id.prev_player);
-        nextButton = findViewById(R.id.next_player);
-        seekbarPayer = findViewById(R.id.seekbar_player);
-        playerTime = findViewById(R.id.playertime);
-        songTitle = findViewById(R.id.songname);
-        songTitle.setSelected(true);
-
-        playButton.setOnClickListener(this);
-        prevButton.setOnClickListener(this);
-        nextButton.setOnClickListener(this);
+        loader = findViewById(R.id.loading);
 
         //Permission Check
         int PERMISSIONS_ALL = 1;
@@ -76,24 +62,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (!hasPermissions(this, permissions)) {
             ActivityCompat.requestPermissions(this, permissions, PERMISSIONS_ALL);
         }
+
         songsList = new ArrayList<>();
         musicAdapter = new MusicAdapter(this, songsList);
-
         listView = findViewById(R.id.songList);
         listView.setAdapter(musicAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                pos = position;
-                playMusicFile(songsList.get(position).getUri(), songsList.get(position).getTitle());
-                updateItemInList();
+                playPause(position,view);
             }
         });
         getAllSongs();
-
-        int audioSessionId = mediaPlayer.getAudioSessionId();
-        if (audioSessionId != -1)
-            mVisualizer.setAudioSessionId(audioSessionId);
     }
 
     @Override
@@ -102,54 +82,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getAllSongs();
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.playpause_player:
-                play();
-                break;
-            case R.id.next_player:
-                if (pos < songsList.size() - 1) {
-                    pos++;
-                } else {
-                    pos = 0;
-                }
-                playMusicFile(songsList.get(pos).getUri(), songsList.get(pos).getTitle());
-                break;
-            case R.id.prev_player:
-                if (pos > 0) {
-                    pos--;
-                } else {
-                    pos = songsList.size() - 1;
-                }
-                playMusicFile(songsList.get(pos).getUri(), songsList.get(pos).getTitle());
-                break;
-        }
-        updateItemInList();
-    }
-
     private void getAllSongs() {
-        Uri songURI = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
-        String selection = MediaStore.Audio.Media.IS_MUSIC + "!=0";
-        Cursor songCursor = getContentResolver().query(songURI, null, selection, null, null);
-        if (songCursor != null && songCursor.moveToFirst()) {
-            int songTitle = songCursor.getColumnIndex(MediaStore.Audio.Media.TITLE);
-            int songArtist = songCursor.getColumnIndex(MediaStore.Audio.Media.ARTIST);
-            int songUri = songCursor.getColumnIndex(MediaStore.Audio.Media.DATA);
-            int songCover = songCursor.getColumnIndex(MediaStore.Audio.Albums.ALBUM_ID);
-            do {
-                String title = songCursor.getString(songTitle);
-                String artist = songCursor.getString(songArtist);
-                String uri = songCursor.getString(songUri);
-                String img = songCursor.getString(songCover);
-                songsList.add(new SongData(title, artist, uri, img));
-            } while (songCursor.moveToNext());
-            songCursor.close();
-        }
-        musicAdapter.notifyDataSetChanged();
+       ReadAsync task = new ReadAsync(getApplicationContext(), new Results() {
+           @Override
+           public void processFinish(List<SongData> output) {
+               songsList.clear();
+               songsList.addAll(output);
+               musicAdapter.notifyDataSetChanged();
+           }
+       });
+        task.setProgressBar(loader);
+        task.execute();
     }
 
-    private void playMusicFile(String filePath,final String title) {
+    /*---- Player code -------------*/
+    public void playPause(int pos,View view){
+        if(mediaPlayer.isPlaying()){
+            mediaPlayer.pause();
+        } else{
+            playMusicFile(songsList.get(pos).getUri(), songsList.get(pos).getTitle());
+        }
+        updateItemInList(pos);
+    }
+
+
+
+    private void playMusicFile(String filePath,String title) {
         if (mediaPlayer != null) {
             mediaPlayer.reset();
             try {
@@ -159,37 +117,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onPrepared(MediaPlayer mp) {
                         mp.start();
-                        playButton.setImageResource(R.drawable.ic_pause_circle_outline_black_24dp);
-                        seekbarPayer.setMax(mp.getDuration());
-                        songTitle.setText(title);
                         updateMusicSeekbar();
                     }
                 });
                 mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mp) {
-                        playButton.setImageResource(R.drawable.ic_play_circle_outline_black_24dp);
-                        stopPlayer();
-                    }
-                });
-                seekbarPayer.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        if (fromUser) {
-                            mediaPlayer.seekTo(progress);
-                            seekBar.setProgress(progress);
-                            playerTime.setText(millisecondsToTime(mediaPlayer.getCurrentPosition()));
-                        }
-                    }
-
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-
-                    }
-
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-                        updateMusicSeekbar();
+                        mp.stop();
                     }
                 });
             } catch (IOException e) {
@@ -198,34 +132,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void updateItemInList(){
-        listView.setSelection(pos);
-        listView.setItemChecked(pos,true);
+    private void updateItemInList(int pos){
         musicAdapter.setSelectedPosition(pos);
         musicAdapter.notifyDataSetChanged();
-        int h1 = listView.getHeight();
-        listView.setSelectionFromTop(pos, h1/2);
     }
 
-    private void play() {
-        if (!mediaPlayer.isPlaying()) {
-            mediaPlayer.start();
-            playButton.setImageResource(R.drawable.ic_pause_circle_outline_black_24dp);
 
-        } else {
-            mediaPlayer.pause();
-            playButton.setImageResource(R.drawable.ic_play_circle_outline_black_24dp);
-        }
-    }
-
-    private void stopPlayer() {
+   /* private void stopPlayer() {
         if(mediaPlayer.isPlaying()){
             mediaPlayer.stop();
             mediaPlayer.release();
             mediaPlayer = null;
         }
         handler.removeCallbacks(runnable);
-    }
+    }*/
 
     private void updateMusicSeekbar() {
         if (mediaPlayer.isPlaying()) {
@@ -233,8 +153,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void run() {
                     updateMusicSeekbar();
-                    seekbarPayer.setProgress(mediaPlayer.getCurrentPosition());
-                    playerTime.setText(millisecondsToTime(mediaPlayer.getCurrentPosition()));
+                    musicAdapter.updateSeekbar(mediaPlayer.getCurrentPosition());
+                    musicAdapter.notifyDataSetChanged();
+                    //seekbarPayer.setProgress(mediaPlayer.getCurrentPosition());
+//                    playerTime.setText(millisecondsToTime(mediaPlayer.getCurrentPosition()));
                 }
             };
             handler.postDelayed(runnable, 1000);
@@ -254,6 +176,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return minutes + ":" + secs;
     }
 
+    public void stopPlayer(){
+        mediaPlayer.stop();
+        mediaPlayer.release();
+    }
+
+
     /*Check Permission*/
     public static boolean hasPermissions(Context context, String... permissions) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
@@ -269,8 +197,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mVisualizer != null)
-            mVisualizer.release();
     }
 }
 

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Setting Tile</string>
+    <string name="my_default_tile_label">Beach</string>
+</resources>
