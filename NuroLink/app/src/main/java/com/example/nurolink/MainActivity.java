@@ -12,11 +12,20 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+
+import java.util.List;
 
 import devin.com.linkmanager.LinkManager;
 import devin.com.linkmanager.bean.Angle;
@@ -35,24 +44,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Permission Check
-       int PERMISSIONS_ALL = 1;
         String[] permissions = {
-                Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.BLUETOOTH,
+                Manifest.permission.BLUETOOTH_ADMIN
         };
-        if (!hasPermissions(this, permissions)) {
-            ActivityCompat.requestPermissions(this, permissions, PERMISSIONS_ALL);
-        }
+        Dexter.withContext(this)
+                .withPermissions(permissions)
+                .withListener(permissionsListener)
+                .check();
 
         if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
             Toast.makeText(this, "BLE SUPPORTED ON THIS DEVICE", Toast.LENGTH_LONG).show();
         }
 
         try {
-            LinkManager.getInstance().init(getApplication());
+            LinkManager.getInstance().initBle(getApplication());
         }catch (Exception e){
             e.printStackTrace();
         }
     }
+
+    MultiplePermissionsListener permissionsListener = new MultiplePermissionsListener() {
+        @Override
+        public void onPermissionsChecked(MultiplePermissionsReport report) {
+        }
+
+        @Override
+        public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+
+        }
+    };
 
     public void startDevice(View view) {
         start();
@@ -74,11 +97,14 @@ public class MainActivity extends AppCompatActivity {
             super.handleMessage(msg);
             switch (msg.what){
                 case DataType.CODE_UP_SEND_START:
+                    Log.d("NUROLINK","START" + msg.arg1);
                     break;
                 case DataType.CODE_UP_SEND_ING:
+                    Log.d("NUROLINK","SENDING" + msg.arg1);
                     break;
                 case DataType.CODE_UP_SEND_END:
                     //升级包发送完毕
+                    Log.d("NUROLINK","SENDEND" + msg.arg1);
                     break;
                 case DataType.CODE_UP_SUCCEED:
                     //设备开始升级，等待设备关闭表示设备升级成功
@@ -167,16 +193,5 @@ public class MainActivity extends AppCompatActivity {
         LinkManager.getInstance().close();
     }
 
-    /*Check Permission*/
-    public static boolean hasPermissions(Context context, String... permissions) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
-            for (String permission : permissions) {
-                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
 
 }

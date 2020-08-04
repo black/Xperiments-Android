@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity  implements TextToSpeech.OnI
     private TextToSpeech engine;
     private EditText textMsg;
     private RadioGroup selectLanguage;
-    private int results;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +46,9 @@ public class MainActivity extends AppCompatActivity  implements TextToSpeech.OnI
     }
 
     public void playText(View view) {
-        PlayMessage(textMsg.getText().toString());
+        engine.speak(textMsg.getText().toString(), TextToSpeech.QUEUE_FLUSH, null,null);
     }
 
-    private void PlayMessage(String msg){
-        engine.speak(msg, TextToSpeech.QUEUE_FLUSH, null,null);
-    }
 
     @Override
     public void onStop() {
@@ -73,24 +69,14 @@ public class MainActivity extends AppCompatActivity  implements TextToSpeech.OnI
     @Override
     public void onInit(int status) {
         if(status==TextToSpeech.SUCCESS){
-            if(results == TextToSpeech.LANG_MISSING_DATA
-                    || results== TextToSpeech.LANG_NOT_SUPPORTED){
+            int result = engine.setLanguage(Locale.ENGLISH);
+            if(result == TextToSpeech.LANG_MISSING_DATA
+                    || result== TextToSpeech.LANG_NOT_SUPPORTED){
                 Toast.makeText(this,"Not supported",Toast.LENGTH_LONG).show();
             }
+        }else{
+            Toast.makeText(this,"TTS is missing",Toast.LENGTH_LONG).show();
         }
     }
 
-    @Override
-    protected final void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == TTS_DATA_CHECK)
-        {
-            if (resultCode != TextToSpeech.Engine.CHECK_VOICE_DATA_PASS)
-            {
-                // Voice data doesn't exist
-                final Intent tnt = new Intent(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
-                startActivity(tnt);
-            }
-        }
-    }
 }
