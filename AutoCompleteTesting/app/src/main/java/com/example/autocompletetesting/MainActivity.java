@@ -23,4 +23,4 @@ public class MainActivity extends AppCompatActivity {
         editView.setAdapter(adapter);
         editView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
     }
-}
+}  

@@ -15,23 +15,15 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.demonavdrawer.MainActivity;
 import com.example.demonavdrawer.R;
-import com.example.demonavdrawer.Viewmodels.SettingsViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 public class HomeFragment extends Fragment {
-    private SettingsViewModel settingsViewModel;
     private EditText textMsg;
     private Button button;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        settingsViewModel = new ViewModelProvider(getActivity()).get(SettingsViewModel.class);
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
@@ -47,25 +39,13 @@ public class HomeFragment extends Fragment {
                 MainActivity.getInstance().speak(textMsg.getText().toString(), TextToSpeech.QUEUE_FLUSH, null,null);
             }
         });
-    }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        Log.d("VMA","OnActivityCreated");
-        settingsViewModel.getLanguage().observe(getViewLifecycleOwner(), new Observer<String>() {
+        ((MainActivity)getActivity()).settingsViewModel.getLanguage().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(String s) {
                 Log.d("VMA","LANGUAGE_SELECTED " + s);
-                switch (s){
-                    case "FRENCH":
-                        MainActivity.getInstance().setLanguage(Locale.FRENCH);
-                        break;
-                    case "ENGLISH":
-                        MainActivity.getInstance().setLanguage(Locale.ENGLISH);
-                        break;
-                }
             }
         });
     }
+
 }

@@ -10,13 +10,12 @@
         android:id="@+id/keyvalue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:padding="8dp"
+        android:textSize="14sp"
         android:text="@string/title"/>
     <ImageView
         android:id="@+id/keyimg"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="14dp"
         android:src="@drawable/abc_vector_test"
         android:padding="8dp"/>
 </LinearLayout>

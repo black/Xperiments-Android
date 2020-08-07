@@ -7,9 +7,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.widget.Toast;
 
+import com.example.demonavdrawer.Viewmodels.SettingsViewModel;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     private AppBarConfiguration mAppBarConfiguration;
     private static final int TTS_DATA_CHECK = 101;
     static TextToSpeech engine;
+    public SettingsViewModel settingsViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         NavigationUI.setupWithNavController(navigationView, navController);
 
         engine = new TextToSpeech(this,this);
+        settingsViewModel = new ViewModelProvider(this).get(SettingsViewModel.class);
     }
 
     @Override
