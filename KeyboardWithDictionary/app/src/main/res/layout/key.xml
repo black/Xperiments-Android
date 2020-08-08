@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@drawable/roundcorner"
     android:padding="8dp">
     <TextView
         android:id="@+id/keyvalue"

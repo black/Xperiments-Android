@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.GridView;
 import android.widget.RelativeLayout;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.keyboardwithdictionary.R;
 
 import java.util.ArrayList;
@@ -28,7 +30,7 @@ public class KeyboardRadar extends View {
     List<Box> boxes = new ArrayList<>();
 
 //    private FusionViewModel fusionViewModel;
-    private GridView gridView;
+    private RecyclerView gridView;
     private RelativeLayout ParentView;
 
     public KeyboardRadar(Context context, View v, View ParentView) {
@@ -37,7 +39,7 @@ public class KeyboardRadar extends View {
         this.ctx = context;
         cx = 100;
         cy = 100;
-        this.gridView = (GridView) v;
+        this.gridView = (RecyclerView) v;
         this.gridView.setClickable(false);
         this.gridView.setFocusable(false);
         this.ParentView = (RelativeLayout) ParentView;
@@ -204,17 +206,18 @@ public class KeyboardRadar extends View {
     }
 
     public void triggerItem(int position) {
-        if(gridView != null && gridView.getChildAt(position) != null) {
-            gridView.performItemClick(gridView.getAdapter().getView(position, null, null), position, position);
-            gridView.getChildAt(position).setEnabled(true);
-        }
+       /* if(gridView != null && gridView.getChildAt(position) != null) {
+            *//*gridView.performItemClick(gridView.getAdapter().getView(position, null, null), position, position);
+            gridView.getChildAt(position).setEnabled(true);*//*
+            gridView.findViewHolderForAdapterPosition(position).itemView.performClick();
+        }*/
     }
 
     private void highlightItem(int position, int state) {
-        if(gridView != null && gridView.getChildAt(position) != null) {
+       /* if(gridView != null && gridView.getChildAt(position) != null) {
             gridView.getChildAt(position).setEnabled((state==1)?false:true);
             gridView.getChildAt(position).setPressed((state==1)?true:false);
-        }
+        }*/
     }
 
     private class Box{

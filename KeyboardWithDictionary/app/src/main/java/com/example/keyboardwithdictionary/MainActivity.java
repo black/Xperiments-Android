@@ -2,6 +2,8 @@ package com.example.keyboardwithdictionary;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -10,76 +12,127 @@ import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.keyboardwithdictionary.KeyboardInterface.KeyAdapter;
+import com.example.keyboardwithdictionary.KeyboardInterface.KeyboardRadar;
 import com.example.keyboardwithdictionary.KeyboardInterface.Keys;
+import com.example.keyboardwithdictionary.KeyboardInterface.OnRVItemClickListener;
+import com.example.keyboardwithdictionary.KeyboardInterface.RVAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener{
+@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
     private List<Keys> keysList = new ArrayList<>();
-    private String[] keyVal = { "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
+    private String[] keyVal = {"+", "+", "+", "+", "+", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
             "A", "S", "D", "F", "G", "H", "J", "K", "L", "del",
-            "Z", "X", "C", "V", "B", "N", "M",  "space", "tts", "done",
-            "0","1", "2", "3", "4", "5", "6", "7", "8", "9"};
+            "Z", "X", "C", "V", "B", "N", "M", "space", "tts", "done",
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
     private TextToSpeech engine;
     private GridView gridView;
+    private RecyclerView recyclerView;
+    private RVAdapter rvAdapter;
+    private RelativeLayout viewHolder;
     private KeyAdapter keyAdapter;
     private String msg;
-    private String val ="";
+    private String val = "";
     private List<String> wordList = new ArrayList<>();
+    private TextView message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        engine = new TextToSpeech(this,this);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+        engine = new TextToSpeech(this, this);
+       /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             // On JellyBean & above, you can provide a shortcut and an explicit Locale
             UserDictionary.Words.addWord(this, "MadeUpWord", 10, "Mad", Locale.getDefault());
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
             UserDictionary.Words.addWord(this, "MadeUpWord", 10, UserDictionary.Words.LOCALE_TYPE_CURRENT);
-        }
+        }*/
 
-
-        gridView = findViewById(R.id.keyboardGrid);
-        for(int i=0;i<keyVal.length;i++){
+        viewHolder = findViewById(R.id.keyboardRadar);
+//        gridView = findViewById(R.id.keyboardGrid);
+        recyclerView = findViewById(R.id.keyboardGrid);
+        for (int i = 0; i < keyVal.length; i++) {
             keysList.add(new Keys(keyVal[i]));
         }
-        keyAdapter = new KeyAdapter(this, keysList);
-        gridView.setAdapter(keyAdapter);
+//        keyAdapter = new KeyAdapter(this, keysList);
+//        gridView.setAdapter(keyAdapter);
+        rvAdapter = new RVAdapter(keysList);
+        recyclerView.setAdapter(rvAdapter);
+        GridLayoutManager mLayoutManager = new GridLayoutManager(this, 10);
+        recyclerView.setLayoutManager(mLayoutManager);
 
-        final TextView message = findViewById(R.id.custommessage);
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+        mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (keysList.get(position).getKey() ){
+            public int getSpanSize(int position) {
+                if (position <5) {
+                    return 2;
+                } else {
+                    return 1;
+                }
+            }
+        });
+
+        message = findViewById(R.id.custommessage);
+        rvAdapter.setOnRVItemClickListener(new OnRVItemClickListener() {
+            @Override
+            public void onClickListener(int pos) {
+                switch (keysList.get(pos).getKey()) {
                     case "del":
-                        val = val.length()>0?removeLastChar(val):"";
+                        val = val.length() > 0 ? removeLastChar(val) : "";
                         break;
                     case "tts":
                         PlayMessage(val);
                         break;
                     case "space":
-                        val=val+" ";
+                        val = val + " ";
                         break;
                     case "done":
-                        val ="";
+                        val = "";
                         //prevFragment();
                         break;
                     default:
-                        val=val+keysList.get(position).getKey();
+                        val = val + keysList.get(pos).getKey();
                         break;
                 }
                 message.setText(val);
             }
         });
+//        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                switch (keysList.get(position).getKey() ){
+//                    case "del":
+//                        val = val.length()>0?removeLastChar(val):"";
+//                        break;
+//                    case "tts":
+//                        PlayMessage(val);
+//                        break;
+//                    case "space":
+//                        val=val+" ";
+//                        break;
+//                    case "done":
+//                        val ="";
+//                        //prevFragment();
+//                        break;
+//                    default:
+//                        val=val+keysList.get(position).getKey();
+//                        break;
+//                }
+//                message.setText(val);
+//            }
+//        });
+        RadarControl(recyclerView, viewHolder);
+
     }
 
     private static String removeLastChar(String str) {
@@ -87,8 +140,8 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void PlayMessage(String msg){
-        engine.speak(msg, TextToSpeech.QUEUE_FLUSH, null,null);
+    private void PlayMessage(String msg) {
+        engine.speak(msg, TextToSpeech.QUEUE_FLUSH, null, null);
     }
 
     @Override
@@ -109,12 +162,23 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
     @Override
     public void onInit(int status) {
-        if(status==TextToSpeech.SUCCESS){
+        if (status == TextToSpeech.SUCCESS) {
             int results = engine.setLanguage(Locale.US);
-            if(results == TextToSpeech.LANG_MISSING_DATA
-                    || results== TextToSpeech.LANG_NOT_SUPPORTED){
-                Toast.makeText(this,"Not supported",Toast.LENGTH_LONG).show();
+            if (results == TextToSpeech.LANG_MISSING_DATA
+                    || results == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Toast.makeText(this, "Not supported", Toast.LENGTH_LONG).show();
             }
         }
     }
+
+    private void RadarControl(final RecyclerView gridView, final RelativeLayout viewHolder) {
+        viewHolder.post(new Runnable() {
+            @Override
+            public void run() {
+                KeyboardRadar keyboardRadar = new KeyboardRadar(getApplicationContext(), gridView, viewHolder);
+                viewHolder.addView(keyboardRadar);
+            }
+        });
+    }
+
 }
