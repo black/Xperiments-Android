@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         }
 //        keyAdapter = new KeyAdapter(this, keysList);
 //        gridView.setAdapter(keyAdapter);
-        rvAdapter = new RVAdapter(keysList);
+        rvAdapter = new RVAdapter(keysList,this);
         recyclerView.setAdapter(rvAdapter);
         GridLayoutManager mLayoutManager = new GridLayoutManager(this, 10);
         recyclerView.setLayoutManager(mLayoutManager);
@@ -106,31 +106,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                 message.setText(val);
             }
         });
-//        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                switch (keysList.get(position).getKey() ){
-//                    case "del":
-//                        val = val.length()>0?removeLastChar(val):"";
-//                        break;
-//                    case "tts":
-//                        PlayMessage(val);
-//                        break;
-//                    case "space":
-//                        val=val+" ";
-//                        break;
-//                    case "done":
-//                        val ="";
-//                        //prevFragment();
-//                        break;
-//                    default:
-//                        val=val+keysList.get(position).getKey();
-//                        break;
-//                }
-//                message.setText(val);
-//            }
-//        });
         RadarControl(recyclerView, viewHolder);
 
     }

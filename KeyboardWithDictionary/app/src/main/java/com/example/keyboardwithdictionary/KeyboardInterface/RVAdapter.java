@@ -1,8 +1,10 @@
 package com.example.keyboardwithdictionary.KeyboardInterface;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,8 +18,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ContentViewHolder>
 
     private OnRVItemClickListener onRVItemClickListener;
     private List<Keys> objectList;
-    public RVAdapter(List<Keys> objectList) {
+    private Context context;
+    public RVAdapter(List<Keys> objectList,Context context) {
         this.objectList = objectList;
+        this.context = context;
     }
 
     @NonNull
@@ -30,8 +34,20 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ContentViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull ContentViewHolder holder, int position) {
+
         String title = objectList.get(position).getKey();
-        holder.titleView.setText(title);
+        /* Set values to Views */
+        if(objectList.get(position).getKey()=="del" || objectList.get(position).getKey()=="tts" || objectList.get(position).getKey()=="space"||objectList.get(position).getKey()=="done"){
+           //convertView.setBackgroundResource(R.drawable.key_btn_action);
+            holder.view.setBackgroundResource(R.drawable.key_btn_action);
+            holder.titleView.setVisibility(View.GONE);
+            holder.imageView.setImageResource(context.getResources().getIdentifier("key_"+objectList.get(position).getKey(),"drawable",context.getPackageName()));
+        }else{
+           // convertView.setBackgroundResource(R.drawable.key_btn_normal);
+            holder.imageView.setVisibility(View.GONE);
+            holder.titleView.setText(title);
+
+        }
     }
 
     @Override
@@ -41,9 +57,13 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ContentViewHolder>
 
     public static class ContentViewHolder extends RecyclerView.ViewHolder{
         TextView titleView;
+        ImageView imageView;
+        View view;
         public ContentViewHolder(@NonNull View itemView,final OnRVItemClickListener listener) {
             super(itemView);
+            view = itemView;
             titleView = itemView.findViewById(R.id.keyvalue);
+            imageView = itemView.findViewById(R.id.keyimg);
             itemView.setBackgroundResource(R.drawable.key_btn_normal);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

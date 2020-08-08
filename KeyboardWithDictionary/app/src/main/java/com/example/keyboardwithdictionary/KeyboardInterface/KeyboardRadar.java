@@ -193,7 +193,6 @@ public class KeyboardRadar extends View {
 
     public void triggerItem(int position) {
         if(gridView != null && gridView.getChildAt(position) != null) {
-            //*gridView.performItemClick(gridView.getAdapter().getView(position, null, null), position, position);
             gridView.getChildAt(position).setEnabled(true);
             gridView.findViewHolderForAdapterPosition(position).itemView.performClick();
         }
