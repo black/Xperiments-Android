@@ -44,6 +44,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ContentViewHolder>
         public ContentViewHolder(@NonNull View itemView,final OnRVItemClickListener listener) {
             super(itemView);
             titleView = itemView.findViewById(R.id.keyvalue);
+            itemView.setBackgroundResource(R.drawable.key_btn_normal);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

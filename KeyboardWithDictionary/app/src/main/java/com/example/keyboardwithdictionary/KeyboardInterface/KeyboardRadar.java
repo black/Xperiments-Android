@@ -184,20 +184,6 @@ public class KeyboardRadar extends View {
                 triggerItem(i);
             }
         }
-        /*for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 10; j++) {
-                int index = j+i*10;
-                int cw = fw / 10;
-                int ch = fh / 4;
-                int fx = j*cw;
-                int fy = i*ch+safezone;
-                if (fx < x && x < fx + cw && fy < y && y < fy + ch) {
-                    highlightItem(index,1);
-                    triggerItem(index);
-                    //fusionSliderViewModel.setTriggered(new String[]{"intermediate", String.valueOf(index)});
-                }
-            }
-        }*/
     }
 
     private void drawRadar(Canvas canvas){
@@ -206,18 +192,18 @@ public class KeyboardRadar extends View {
     }
 
     public void triggerItem(int position) {
-       /* if(gridView != null && gridView.getChildAt(position) != null) {
-            *//*gridView.performItemClick(gridView.getAdapter().getView(position, null, null), position, position);
-            gridView.getChildAt(position).setEnabled(true);*//*
+        if(gridView != null && gridView.getChildAt(position) != null) {
+            //*gridView.performItemClick(gridView.getAdapter().getView(position, null, null), position, position);
+            gridView.getChildAt(position).setEnabled(true);
             gridView.findViewHolderForAdapterPosition(position).itemView.performClick();
-        }*/
+        }
     }
 
     private void highlightItem(int position, int state) {
-       /* if(gridView != null && gridView.getChildAt(position) != null) {
+        if(gridView != null && gridView.getChildAt(position) != null) {
             gridView.getChildAt(position).setEnabled((state==1)?false:true);
             gridView.getChildAt(position).setPressed((state==1)?true:false);
-        }*/
+        }
     }
 
     private class Box{
