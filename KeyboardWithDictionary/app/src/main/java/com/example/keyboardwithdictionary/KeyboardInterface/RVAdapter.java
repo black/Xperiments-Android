@@ -29,6 +29,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ContentViewHolder>
     public ContentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view  = inflater.inflate(R.layout.key,parent,false);
+        int height = parent.getMeasuredHeight() / 5;
+        view.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height));
         return new ContentViewHolder(view,onRVItemClickListener);
     }
 

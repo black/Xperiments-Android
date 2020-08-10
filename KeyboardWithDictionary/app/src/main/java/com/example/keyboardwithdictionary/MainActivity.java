@@ -7,16 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.UserDictionary;
 import android.speech.tts.TextToSpeech;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.keyboardwithdictionary.KeyboardInterface.KeyAdapter;
 import com.example.keyboardwithdictionary.KeyboardInterface.KeyboardRadar;
 import com.example.keyboardwithdictionary.KeyboardInterface.Keys;
 import com.example.keyboardwithdictionary.KeyboardInterface.OnRVItemClickListener;
@@ -39,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     private RecyclerView recyclerView;
     private RVAdapter rvAdapter;
     private RelativeLayout viewHolder;
-    private KeyAdapter keyAdapter;
     private String msg;
     private String val = "";
     private List<String> wordList = new ArrayList<>();

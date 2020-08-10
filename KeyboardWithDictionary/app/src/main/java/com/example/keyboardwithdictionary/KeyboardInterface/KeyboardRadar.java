@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class KeyboardRadar extends View {
+    private boolean enableGrid = false;
     private int level = 3;
     private int selectedInterface;
     private Context ctx;
@@ -64,8 +65,8 @@ public class KeyboardRadar extends View {
         //canvas.drawColor(Color.RED);
         width = getWidth();
         height = getHeight();
-        fw = width;
-        fh = height-safezone;
+        fw = width-2*safezone;
+        fh = height;
         if(initialized){
             setup(fw/10,fh/5);
             initialized = false;
@@ -88,7 +89,7 @@ public class KeyboardRadar extends View {
             step++;
             pressed=false;
         }
-        drawGrid(canvas);
+        if(enableGrid)drawGrid(canvas);
         invalidate();
     }
 
@@ -97,7 +98,7 @@ public class KeyboardRadar extends View {
             for (int i = 0; i < (j < 1 ? 5 : 10); i++) {
                 int x = i * (j<1?w*2:w);
                 int y = j * h;
-                boxes.add(new Box(x, y, j<1?w*2:w, h));
+                boxes.add(new Box(x+safezone, y, j<1?w*2:w, h));
             }
         }
     }

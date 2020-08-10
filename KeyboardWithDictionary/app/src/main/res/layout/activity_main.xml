@@ -16,30 +16,20 @@
         android:textSize="21sp"
         android:textColor="#000"/>
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-       <!-- <GridView
-            android:id="@+id/keyboardGrid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:verticalSpacing="8dp"
-            android:horizontalSpacing="8dp"
-            android:paddingTop="64dp"
-            android:paddingEnd="16dp"
-            android:paddingStart="16dp"
-            android:paddingBottom="16dp"
-            android:numColumns="10"
-            android:scrollbars="none"/>-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/keyboardGrid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingEnd="64dp"
+            android:paddingStart="64dp"
             android:numColumns="auto_fit"
             />
         <RelativeLayout
             android:id="@+id/keyboardRadar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-    </RelativeLayout>
+    </FrameLayout>
 </LinearLayout>
