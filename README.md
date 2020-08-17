@@ -14,3 +14,8 @@
 ## Music Player
 
 ![](https://github.com/black/Android-Xperiments/blob/master/Preview/music-player.gif)
+
+
+## ViewPager with Dynamic Views
+
+![](https://github.com/black/Android-Xperiments/blob/master/Preview/ViewPager-DynamicViews.gif)
