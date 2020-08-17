@@ -1,3 +1,5 @@
 # Android-Xperiments
 
-recreated the repository because of a bug
+## RecyclerView-Grids
+
+![](https://github.com/black/Android-Xperiments/blob/master/recycler-view-grid.gif)
