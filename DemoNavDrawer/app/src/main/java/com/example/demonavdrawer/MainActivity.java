@@ -3,7 +3,6 @@ package com.example.demonavdrawer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
 import android.view.Menu;
 import android.widget.Toast;
 
@@ -22,9 +21,9 @@ import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
-    private AppBarConfiguration mAppBarConfiguration;
     private static final int TTS_DATA_CHECK = 101;
     static TextToSpeech engine;
+    private AppBarConfiguration mAppBarConfiguration;
     public SettingsViewModel settingsViewModel;
 
     @Override

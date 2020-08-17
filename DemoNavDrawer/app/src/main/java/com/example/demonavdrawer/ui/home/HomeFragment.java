@@ -19,6 +19,8 @@ import androidx.lifecycle.Observer;
 import com.example.demonavdrawer.MainActivity;
 import com.example.demonavdrawer.R;
 
+import java.util.Locale;
+
 public class HomeFragment extends Fragment {
     private EditText textMsg;
     private Button button;
@@ -43,7 +45,14 @@ public class HomeFragment extends Fragment {
         ((MainActivity)getActivity()).settingsViewModel.getLanguage().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                Log.d("VMA","LANGUAGE_SELECTED " + s);
+                switch (s){
+                    case "English":
+                        MainActivity.getInstance().setLanguage(Locale.ENGLISH);
+                        break;
+                    case "French":
+                        MainActivity.getInstance().setLanguage(Locale.FRENCH);
+                        break;
+                }
             }
         });
     }
