@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         Thread background = new Thread(new Runnable() {
             @Override
             public void run() {
-                for(int i =0;i<60;i++){
+                for(int i =0;i<10;i++){
                     final int finalI = i;
                     runOnUiThread(new Runnable() {
                         @Override
