@@ -23,3 +23,7 @@
 ## App onboarding demo 
 
 ![](https://github.com/black/Android-Xperiments/blob/master/Preview/onboarding-demo.gif)
+
+## ViewModel to send data between Nav-Drawer-Fragments to change language for TTS 
+
+![](https://github.com/black/Android-Xperiments/blob/master/Preview/ViewModel_language.gif)
