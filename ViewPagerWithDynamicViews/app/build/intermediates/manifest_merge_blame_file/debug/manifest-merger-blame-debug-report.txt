@@ -6,53 +6,53 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="16"
-8-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml
+8-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="30" />
-9-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml
+9-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:5:5-19:19
+11-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:5:5-19:19
 12        android:allowBackup="true"
-12-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:6:9-35
+12-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.1.0] C:\Users\BLACK\.gradle\caches\transforms-2\files-2.1\76f2b6439d16df60df3177021482ee5a\core-1.1.0\AndroidManifest.xml:24:18-86
+13-->[androidx.core:core:1.1.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\76f2b6439d16df60df3177021482ee5a\core-1.1.0\AndroidManifest.xml:24:18-86
 14        android:debuggable="true"
 15        android:icon="@mipmap/ic_launcher"
-15-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:7:9-43
+15-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:7:9-43
 16        android:label="@string/app_name"
-16-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:8:9-41
+16-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:8:9-41
 17        android:roundIcon="@mipmap/ic_launcher_round"
-17-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:9:9-54
+17-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:9:9-54
 18        android:supportsRtl="true"
-18-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:10:9-35
+18-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:10:9-35
 19        android:testOnly="true"
 20        android:theme="@style/AppTheme" >
-20-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:11:9-40
+20-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:11:9-40
 21        <activity android:name="com.example.viewpagerwithdynamicviews.MainActivity" >
-21-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:12:9-18:20
-21-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:12:19-47
+21-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:12:9-18:20
+21-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:12:19-47
 22            <intent-filter>
-22-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:13:13-17:29
+22-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:13:13-17:29
 23                <action android:name="android.intent.action.MAIN" />
-23-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:14:17-69
-23-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:14:25-66
+23-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:14:17-69
+23-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:14:25-66
 24
 25                <category android:name="android.intent.category.LAUNCHER" />
-25-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:16:17-77
-25-->C:\Users\BLACK\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:16:27-74
+25-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:16:17-77
+25-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\ViewPagerWithDynamicViews\app\src\main\AndroidManifest.xml:16:27-74
 26            </intent-filter>
 27        </activity>
 28
 29        <provider
-29-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\BLACK\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
+29-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
 30            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-30-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\BLACK\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
+30-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
 31            android:authorities="com.example.viewpagerwithdynamicviews.lifecycle-process"
-31-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\BLACK\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
+31-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
 32            android:exported="false"
-32-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\BLACK\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
+32-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
 33            android:multiprocess="true" />
-33-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\BLACK\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
+33-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
 34    </application>
 35
 36</manifest>
