@@ -4,6 +4,11 @@
 
 ![](https://github.com/black/Android-Xperiments/blob/master/Preview/recycler-view-grid.gif)
 
+## RecyclerView-Grids Animation
+
+![](https://github.com/black/Android-Xperiments/blob/master/Preview/recycler%20view%20grid%20animation.gif)
+
+
 ## GraphView
 
 ![](https://github.com/black/Android-Xperiments/blob/master/Preview/graph-view.gif)
