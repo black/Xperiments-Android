@@ -1,6 +1,5 @@
 package com.example.asynctaskfileioexample;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.AsyncTask;
@@ -8,14 +7,9 @@ import android.os.AsyncTask;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class AsyncBaseClass extends AsyncTask<String,Void,Void> {
 
