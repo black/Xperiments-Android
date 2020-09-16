@@ -8,6 +8,8 @@
 
 ![](https://github.com/black/Android-Xperiments/blob/master/Preview/recycler%20view%20grid%20animation.gif)
 
+## RecyclerView with Multiple layout(Different layout for different content type)
+![](https://github.com/black/Android-Xperiments/blob/master/Preview/RecyclerView%20with%20different%20layout.gif)
 
 ## GraphView
 
