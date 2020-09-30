@@ -102,7 +102,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             }
         });
         RadarControl(recyclerView, viewHolder);
-
     }
 
     private static String removeLastChar(String str) {
