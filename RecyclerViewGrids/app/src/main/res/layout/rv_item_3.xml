@@ -9,9 +9,11 @@
         android:id="@+id/rv_tile_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        android:text="DUMMY"/>
     <ImageView
         android:id="@+id/rv_img_3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:src="@drawable/key_del"/>
 </LinearLayout>
