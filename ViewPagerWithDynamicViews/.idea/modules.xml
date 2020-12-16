@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ViewPagerWithDynamicViews.iml" filepath="$PROJECT_DIR$/.idea/modules/ViewPagerWithDynamicViews.iml" group="ViewPagerWithDynamicViews" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="ViewPagerWithDynamicViews/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ViewPagerWithDynamicViews.iml" filepath="$PROJECT_DIR$/.idea/modules/ViewPagerWithDynamicViews.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ViewPagerWithDynamicViews.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ViewPagerWithDynamicViews.app.iml" />
     </modules>
   </component>
 </project>
