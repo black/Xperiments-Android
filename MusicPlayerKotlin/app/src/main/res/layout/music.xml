@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+    <ImageView
+        android:id="@+id/cover"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="16dp" />
+    <TextView
+        android:id="@+id/song_title"
+        android:layout_toEndOf="@id/cover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:maxLines="1"
+        android:text="Song Title"/>
+    <TextView
+        android:id="@+id/song_duration"
+        android:layout_below="@+id/song_title"
+        android:layout_toEndOf="@id/cover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:maxLines="1"
+        android:alpha="0.5"
+        android:layout_marginEnd="16dp"
+        android:text="00:00"/>
+    <TextView
+        android:id="@+id/song_artist"
+        android:layout_below="@+id/song_title"
+        android:layout_toEndOf="@id/song_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:maxLines="1"
+        android:alpha="0.5"
+        android:text="Song Artist"/>
+</RelativeLayout>

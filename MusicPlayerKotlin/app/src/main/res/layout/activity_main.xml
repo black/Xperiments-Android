@@ -1,0 +1,19 @@
+<LinearLayout android:layout_width="350dp"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginEnd="@dimen/spacing"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <include
+        android:id="@+id/playerAudio"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginBottom="8dp"
+        layout="@layout/layout_audioplayer"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/musicListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/roundcorner_playlist"
+        tools:listitem="@layout/music"/>
+</LinearLayout>

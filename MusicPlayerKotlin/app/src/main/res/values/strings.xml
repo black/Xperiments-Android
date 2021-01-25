@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Music Player-Kotlin</string>
+    <string name="song_title">Song title</string>
+    <string name="storage_permission_rationale_title">Title</string>
+    <string name="storage_permission_rationale_message">Message</string>
+</resources>
