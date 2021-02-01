@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">NURO LINK</string>
-    <string name="BLANK">BLANK</string>
-    <string name="defaultValue">000</string>
-    <string name="ble_not_supported">BLE IS NOT SUPPORTED</string>
-</resources>

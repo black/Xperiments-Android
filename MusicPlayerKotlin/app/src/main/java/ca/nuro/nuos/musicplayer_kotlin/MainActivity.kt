@@ -29,7 +29,6 @@ import java.io.IOException
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityMainBinding
-
     private var mediaPlayer: MediaPlayer?=null
     private var musicList = arrayListOf<Song>()
     private var musicAdapter: MusicAdapter? = null

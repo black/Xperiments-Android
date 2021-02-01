@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Pix</string>
+    <string name="storage_permission_rationale_title">Title</string>
+    <string name="storage_permission_rationale_message">Ration Message</string>
+</resources>
