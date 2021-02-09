@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list_mode">
+        <item>@string/array_mode_1</item>
+        <item>@string/array_mode_2</item>
+        <item>@string/array_mode_3</item>
+    </string-array>
+    <string-array name="list_quality">
+        <item>@string/array_quality_1</item>
+        <item>@string/array_quality_2</item>
+    </string-array>
+    <string-array name="list_acceleration">
+        <item>@string/array_ac_range_0</item>
+        <item>@string/array_ac_range_1</item>
+        <item>@string/array_ac_range_2</item>
+        <item>@string/array_ac_range_3</item>
+    </string-array>
+    <string-array name="list_gyroscope">
+        <item>@string/array_gy_range_0</item>
+        <item>@string/array_gy_range_1</item>
+        <item>@string/array_gy_range_2</item>
+        <item>@string/array_gy_range_3</item>
+    </string-array>
+</resources>

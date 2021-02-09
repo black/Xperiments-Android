@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    tools:context=".MainActivity"
+    android:baselineAligned="false">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="@string/text_label_mode" />
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="@string/text_label_quality" />
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="@string/text_label_acceleration" />
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="@string/text_label_gyroscope" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <Spinner
+            android:id="@+id/spinner_select_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/list_mode"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"/>
+        <Spinner
+            android:id="@+id/spinner_select_quality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/list_quality"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"/>
+        <Spinner
+            android:id="@+id/spinner_select_acceleration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:entries="@array/list_acceleration"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"/>
+        <Spinner
+            android:id="@+id/spinner_select_gyro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:entries="@array/list_gyroscope"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"/>
+    </LinearLayout>
+
+</LinearLayout>

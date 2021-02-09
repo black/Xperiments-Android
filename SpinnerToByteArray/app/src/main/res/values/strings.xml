@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">SpinnerToByteArray</string>
+    <string name="text_label_mode">MODE</string>
+    <string name="array_mode_1">Standard</string>
+    <string name="array_mode_2">Full</string>
+    <string name="array_mode_3">Quaternion</string>
+
+    <string name="text_label_quality">QUALITY</string>
+    <string name="array_quality_1">100Hz</string>
+    <string name="array_quality_2">50Hz</string>
+
+    <string name="text_label_acceleration">ACCEL</string>
+    <string name="array_ac_range_0"> 2g</string>
+    <string name="array_ac_range_1"> 4g</string>
+    <string name="array_ac_range_2"> 8g</string>
+    <string name="array_ac_range_3">16g</string>
+
+    <string name="text_label_gyroscope">GYRO</string>
+    <string name="array_gy_range_0"> 250dps</string>
+    <string name="array_gy_range_1"> 500dps</string>
+    <string name="array_gy_range_2">1000dps</string>
+    <string name="array_gy_range_3">2000dps</string>
+</resources>

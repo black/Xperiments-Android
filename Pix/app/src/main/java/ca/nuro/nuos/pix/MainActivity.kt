@@ -4,8 +4,11 @@ import android.Manifest
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
+import ca.nuro.nuos.musicplayer_kotlin.extensions.OnRVItemClickListener
 import ca.nuro.nuos.pix.databinding.ActivityMainBinding
+import ca.nuro.nuos.pix.extensions.Folder
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -16,6 +19,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityMainBinding
 
+    private val folderList = arrayListOf<Folder>()
+    private var folderAdapter: FolderAdapter? =null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -23,21 +29,23 @@ class MainActivity : AppCompatActivity() {
 
         /*Permissions*/
         val permissions = listOf(
-                Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.BLUETOOTH_ADMIN,
-                Manifest.permission.BLUETOOTH,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.CAMERA,
-                Manifest.permission.RECORD_AUDIO
+                Manifest.permission.READ_EXTERNAL_STORAGE
         )
         validatePermission(permissions)
+
+        folderAdapter = FolderAdapter(this,folderList)
+        binding.folderView.adapter = folderAdapter
+
+        folderAdapter?.setOnItemClickListener(object : OnRVItemClickListener {
+            override fun OnItemClick(pos: Int) {
+                Log.d("FOLDER_NAME",folderList[pos].title)
+            }
+        })
     }
 
     override fun onResume() {
         super.onResume()
-        imgInit()
     }
 
     private fun imgInit(){
