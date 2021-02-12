@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Kotlin File Writer</string>
+    <string name="data">Data Title</string>
+    <string name="storage_permission_rationale_title">Title\'</string>
+    <string name="storage_permission_rationale_message">Message</string>
+    <string name="file_name">FileName</string>
+    <string name="_00_mb">00</string>
+</resources>

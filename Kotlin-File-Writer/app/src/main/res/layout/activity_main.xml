@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="21sp"
+        android:text="@string/data" />
+    <TextView
+        android:id="@+id/testData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="54sp"
+        android:text="Hello World!"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startWrite"
+        android:text="START"/>
+    <Button
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:onClick="viewFile"
+        android:text="VIEW FILE"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fileListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/file"/>
+</LinearLayout>
