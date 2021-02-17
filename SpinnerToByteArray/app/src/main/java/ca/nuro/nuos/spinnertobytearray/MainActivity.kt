@@ -4,7 +4,9 @@ import android.app.Dialog
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
+import android.widget.AdapterView
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import ca.nuro.nuos.spinnertobytearray.databinding.ActivityMainBinding
@@ -20,8 +22,25 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        getItemMode()
-        getItemPrams()
+
+        binding.spinnerSelectMode.setSelection(1)
+        binding.spinnerSelectMode.onItemSelectedListener =  object:
+            AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                var vass = getItemMode()
+                Log.d("SpinnerVal",  "Value: "+ vass[0] + "\t" +vass[1] )
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+        }
     }
 
     private fun getItemMode(): ByteArray {

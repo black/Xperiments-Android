@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AlertDialog
@@ -59,11 +60,11 @@ class MainActivity : AppCompatActivity()  {
         binding.fileListView.layoutManager = LinearLayoutManager(this)
         fileAdapter!!.setOnItemShareListener(object : OnItemClickListener {
             override fun onLoad(pos: Int) {
-                println("DebugLoad $pos")
+                Log.d("DebugAction:","Load $pos")
             }
 
             override fun onShare(pos: Int) {
-                println("DebugShare $pos")
+                Log.d("DebugAction:", "Share $pos")
                 shareFile(pos)
             }
 
@@ -80,17 +81,19 @@ class MainActivity : AppCompatActivity()  {
 
     fun viewFile(view: View) {
         readRoutine()
+        fileList.clear()
+        fileAdapter?.notifyDataSetChanged()
     }
 
     private var i:Int = 0
     private fun startWriting(){
         handler.post(object : Runnable {
             override fun run() {
-                binding.testData.text = i.toString()
-                writeRoutine(i.toString())
+                binding.testData.text = "Data: $i"
+                writeRoutine("Data: $i")
                 i += 1
                 if (writing) {
-                    handler.postDelayed(this, 100)
+                    handler.postDelayed(this, 10)
                 } else {
                     handler.removeCallbacks(this)
                 }
@@ -107,12 +110,11 @@ class MainActivity : AppCompatActivity()  {
     private fun writeToFile(data: String){
         var fos: FileOutputStream? = null
         try {
-            fos = openFileOutput(FILE_NAME, MODE_PRIVATE or MODE_APPEND)
+            fos = this.openFileOutput(FILE_NAME, MODE_PRIVATE or MODE_APPEND)
             val bout = BufferedOutputStream(fos)
             bout.write(data.toByteArray())
             bout.close()
         } catch (e: FileNotFoundException) {
-            // TODO Auto-generated catch block
             e.printStackTrace()
         } catch (e: IOException) {
             e.printStackTrace()
@@ -130,8 +132,8 @@ class MainActivity : AppCompatActivity()  {
         val dir: File = filesDir
         val subFiles = dir.listFiles()
         if (subFiles!=null){
-            for (file in subFiles){
-                fileList.add(FileObj(file.name, (file.length() / (1024 * 1024)).toString() + " MB"))
+            for (item in subFiles){
+                fileList.add(FileObj(item.name, (item.length() / (1024 * 1024)).toString() + " MB"))
             }
         }
     }
@@ -148,14 +150,14 @@ class MainActivity : AppCompatActivity()  {
         getFileToShare(fileList[pos].fileName)
     }
 
-    private fun getFileToShare(FILE_NAME: String?) {
+    private fun getFileToShare(fileName: String) {
         val sharingIntent = Intent(Intent.ACTION_SEND)
         sharingIntent.type = "*/*"
-        val auth: String = getPackageName() + ".FileProvider"
+        val auth = "$packageName.FileProvider"
         val uri = FileProvider.getUriForFile(
             this,
             auth,
-            File(getFilesDir(), FILE_NAME)
+            File(filesDir, fileName)
         )
         sharingIntent.putExtra(Intent.EXTRA_STREAM, uri)
         sharingIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION or Intent.FLAG_GRANT_READ_URI_PERMISSION)

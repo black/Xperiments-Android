@@ -17,7 +17,7 @@ class FileAdapter(private val respArray: ArrayList<FileObj>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContentViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.file, parent, false)
-        return ContentViewHolder(itemView, onItemClickListener!!)
+        return onItemClickListener?.let { ContentViewHolder(itemView, it) }!!
     }
 
     override fun onBindViewHolder(holder: ContentViewHolder, position: Int) {
@@ -36,16 +36,11 @@ class FileAdapter(private val respArray: ArrayList<FileObj>) :
         private val share:ImageView = itemView.findViewById(R.id.shareFile)
         private val load:ImageView = itemView.findViewById(R.id.loadFile)
         init {
-            val position: Int = adapterPosition
             share.setOnClickListener {
-                if (position != RecyclerView.NO_POSITION) {
-                    listener.onShare(adapterPosition)
-                }
+                listener.onShare(adapterPosition)
             }
             load.setOnClickListener {
-                if (position != RecyclerView.NO_POSITION) {
-                    listener.onLoad(adapterPosition)
-                }
+                listener.onLoad(adapterPosition)
             }
         }
     }
@@ -53,6 +48,4 @@ class FileAdapter(private val respArray: ArrayList<FileObj>) :
     fun setOnItemShareListener(listener: OnItemClickListener) {
         onItemClickListener = listener
     }
-
-
 }
