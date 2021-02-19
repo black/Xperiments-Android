@@ -52,7 +52,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/list_mode"
-            android:prompt="@string/array_mode_2"
             android:spinnerMode="dropdown"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"/>
@@ -61,7 +60,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/list_quality"
-            android:prompt="@string/array_quality_2"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"/>
         <Spinner

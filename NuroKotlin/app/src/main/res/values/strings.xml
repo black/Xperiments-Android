@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">NuroKotlin</string>
-    <string name="storage_permission_rationale_title">Title</string>
-    <string name="storage_permission_rationale_message">Rational Message</string>
-    <string name="version">Version</string>
-</resources>
