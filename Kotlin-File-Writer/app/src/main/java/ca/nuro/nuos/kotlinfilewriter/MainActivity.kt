@@ -61,14 +61,11 @@ class MainActivity : AppCompatActivity() {
 
 
         with(mPath) {
-
             fileDir = File(this.absolutePath)
-
             with(fileDir) {
                 if (!this!!.exists())
-                    this?.mkdir()
+                    this.mkdir()
             }
-
         }
 
         /*Permissions*/
