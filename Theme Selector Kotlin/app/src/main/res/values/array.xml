@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Mode ListPreference -->
+    <string-array name="dark_mode_entries">
+        <item>System Theme</item>
+        <item>Light Theme</item>
+        <item>DarkTheme</item>
+        <item>Auto Battery Dark Mode</item>
+        <item>Custom One</item>
+    </string-array>
+
+    <string-array name="dark_mode_values">
+        <item>MODE_NIGHT_FOLLOW_SYSTEM</item>
+        <item>MODE_NIGHT_NO</item>
+        <item>MODE_NIGHT_YES</item>
+        <item>MODE_NIGHT_AUTO_BATTERY</item>
+        <item>CUSTOM_THEME</item>
+    </string-array>
+
+</resources>
