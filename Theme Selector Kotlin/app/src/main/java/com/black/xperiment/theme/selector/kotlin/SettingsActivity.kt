@@ -45,7 +45,6 @@ class SettingsActivity : AppCompatActivity(),SharedPreferences.OnSharedPreferenc
             .unregisterOnSharedPreferenceChangeListener(this)
     }
 
-
     class SettingsFragment : PreferenceFragmentCompat() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey)
