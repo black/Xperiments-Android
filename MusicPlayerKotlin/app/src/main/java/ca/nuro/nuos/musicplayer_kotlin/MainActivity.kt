@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.DialogInterface
 import android.database.Cursor
 import android.media.MediaPlayer
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -24,6 +25,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.File
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
@@ -97,24 +99,34 @@ class MainActivity : AppCompatActivity() {
 
     /* ----------Media player methods---------- */
 
-    fun playContentUri(uri: String, songName: String) {
-        mediaPlayer?.stop()
-        mediaPlayer?.reset()
+    fun playContentUri(uri: Uri, songName: String) {
         try {
-            mediaPlayer = MediaPlayer().apply {
-                setDataSource(uri)
-                prepare()
-                binding.playerAudio.songname.text = songName
-                playerUI(true, R.drawable.ic_pause_circle_outline_24px)
+            if(mediaPlayer != null && mediaPlayer!!.isPlaying) {
+                mediaPlayer?.stop()
+                mediaPlayer?.reset()
             }
-            mediaPlayer!!.start()
-            initSeekbar()
-            mediaPlayer!!.setOnCompletionListener {
-                playerUI(false, R.drawable.ic_play_circle_outline_24px)
+            mediaPlayer = MediaPlayer().apply {
+                stop()
+                reset()
+                setDataSource(applicationContext,uri)
+                prepare()
+                setOnPreparedListener {
+                    start()
+                    initSeekbar()
+                    binding.playerAudio.songname.text = songName
+                    playerUI(true, R.drawable.ic_pause_circle_outline_24px)
+                }
+                setOnCompletionListener {
+                    reset()
+                    playerUI(false, R.drawable.ic_play_circle_outline_24px)
+                }
             }
         } catch (e: IOException) {
-            mediaPlayer = null
             mediaPlayer?.release()
+            mediaPlayer = null
+        } finally {
+            mediaPlayer?.release()
+            mediaPlayer = null
         }
     }
 
@@ -184,7 +196,7 @@ class MainActivity : AppCompatActivity() {
 
     private suspend fun getSongs() {
         musicList.clear()
-        val songCursor: Cursor? = contentResolver.query(
+        val cursor: Cursor? = contentResolver.query(
             MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
             null,
             MediaStore.Audio.Media.IS_MUSIC,
@@ -192,24 +204,25 @@ class MainActivity : AppCompatActivity() {
             null
         )
 
-        while (songCursor != null && songCursor.moveToNext()) {
+        while (cursor != null && cursor.moveToNext()) {
             val songTitle =
-                songCursor.getString(songCursor.getColumnIndex(MediaStore.Audio.Media.TITLE))
+                    cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE))
             val songDuration =
-                songCursor.getLong(songCursor.getColumnIndex(MediaStore.Audio.Media.DURATION))
+                    cursor.getLong(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION))
             val songArtist =
-                songCursor.getString(songCursor.getColumnIndex(MediaStore.Audio.Media.ARTIST))
+                    cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST))
             val songCover =
-                songCursor.getString(songCursor.getColumnIndex(MediaStore.Audio.Albums.ALBUM_ID))
-            val songUri = songCursor.getString(songCursor.getColumnIndex(MediaStore.Audio.Media.DATA))
-            println("SongURL " + songUri)
+                    cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Albums.ALBUM_ID))
+            var mediaId =  cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Albums._ID))
+            val songUri = Uri.parse( MediaStore.Audio.Media.EXTERNAL_CONTENT_URI.toString() + File.separator + mediaId)
+            println("SongURL $songUri")
             val music = Song(
-                songCover,
-                songTitle,
-                songUri,
-                songArtist,
-                songDuration,
-                false
+                    songCover,
+                    songTitle,
+                    songUri,
+                    songArtist,
+                    songDuration,
+                    false
             )
             musicList.add(music)
         }
