@@ -1,0 +1,2 @@
+rootProject.name = "Status Bar Widget"
+include ':app'
