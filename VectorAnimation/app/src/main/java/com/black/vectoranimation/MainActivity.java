@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        ImageView rocketImage = (ImageView) findViewById(R.id.animationView);
-//        rocketImage.setBackgroundResource(R.drawable.rocket_thrust);
-//        rocketAnimation = (AnimationDrawable) rocketImage.getBackground();
-//        rocketAnimation.start();
+        ImageView rocketImage = (ImageView) findViewById(R.id.animationView);
+        rocketImage.setBackgroundResource(R.drawable.rocket_thrust);
+        rocketAnimation = (AnimationDrawable) rocketImage.getBackground();
+        rocketAnimation.start();
 
         /* Working Code */
         ImageView rocketImage = findViewById(R.id.animationView);

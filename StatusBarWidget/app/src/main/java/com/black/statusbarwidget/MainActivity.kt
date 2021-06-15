@@ -1,13 +1,16 @@
 package com.black.statusbarwidget
 
+import android.app.Notification
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.graphics.*
 import android.graphics.drawable.AnimationDrawable
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.activity.viewModels
@@ -15,8 +18,8 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat
 import com.black.statusbarwidget.NotificationWidget.Companion.CHANNEL_1_ID
+import com.black.statusbarwidget.NotificationWidget.Companion.CHANNEL_2_ID
 import com.black.statusbarwidget.viewmodels.SignalViewModel
 
 
@@ -44,12 +47,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun observers(){
         signalViewModel.getMeraki().observe(this,{
-            Log.d("NotificationValue","Meraki ${it}")
             val merakiNotification = NotificationCompat.Builder(this,CHANNEL_1_ID).apply {
                 setContentTitle("Meraki ${it}")
                 val icon = resources.getIdentifier("ic_power_$it", "drawable", packageName)
                 setSmallIcon(icon)
-                priority = NotificationCompat.PRIORITY_DEFAULT
+                priority = NotificationCompat.PRIORITY_HIGH
             }
 
             val PROGRESS_MAX = 100
@@ -63,6 +65,16 @@ class MainActivity : AppCompatActivity() {
         })
 
         signalViewModel.getTonoka().observe(this,{
+            val tonokaNotification = NotificationCompat.Builder(this,CHANNEL_2_ID).apply {
+                setContentTitle("Tonoka ${it}")
+                setSmallIcon(R.drawable.animation)
+                priority = NotificationCompat.PRIORITY_HIGH
+            }
+
+            NotificationManagerCompat.from(this).apply {
+                notify(2, tonokaNotification.build())
+            }
+
             /*Log.d("NotificationValue","Tonoka ${it}")
             val tonokaNotification = NotificationCompat.Builder(this,CHANNEL_2_ID)
                 .setSmallIcon(R.drawable.ic_baseline_accessibility_24)
@@ -71,6 +83,10 @@ class MainActivity : AppCompatActivity() {
                 .build()
             notificationManager?.notify(1,tonokaNotification)*/
         })
+        signalViewModel.getGorku().observe(this,{
+
+        })
+
     }
 
     private var i: Int = 0
@@ -79,13 +95,14 @@ class MainActivity : AppCompatActivity() {
             if(i<3)i += 1
             else i=0
             signalViewModel.setMeraki(i)
-            signalViewModel.setTonoka(i * 2)
-            handler.postDelayed(this, 500)
+            signalViewModel.setTonoka(i )
+            signalViewModel.setGorku(i)
+            handler.postDelayed(this, 200)
         }
     }
     private fun startWriting() {
         if (writing) {
-            handler.postDelayed(runnableCode, 500)
+            handler.postDelayed(runnableCode, 200)
         } else {
             handler.removeCallbacks(runnableCode)
         }
@@ -96,5 +113,25 @@ class MainActivity : AppCompatActivity() {
         (view as Button).text = if (writing) "STOP" else "START"
         startWriting()
     }
+
+   /* private fun generateNotification(message: String) {
+        val icon: Int = R.drawable.ic_status
+        val mytime = System.currentTimeMillis()
+
+        val notificationManager = applicationContext.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        val notification = Notification(icon, message, mytime)
+        val title = applicationContext.getString(R.string.app_name) // Here you can pass the value of your TextView
+        val notificationIntent = Intent(applicationContext, SplashScreen::class.java)
+        notificationIntent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP
+                or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        val intent = PendingIntent.getActivity(
+            applicationContext, 0,
+            notificationIntent, 0
+        )
+        notification.setLatestEventInfo(applicationContext, title, message, intent)
+        notification.flags = notification.flags or Notification.FLAG_AUTO_CANCEL
+
+        notificationManager.notify(0, notification)
+    }*/
 
 }

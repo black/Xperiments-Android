@@ -1,0 +1,2 @@
+rootProject.name = "Animated Icons"
+include ':app'
