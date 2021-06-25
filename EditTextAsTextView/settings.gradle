@@ -1,0 +1,2 @@
+rootProject.name = "EditText As TextView"
+include ':app'

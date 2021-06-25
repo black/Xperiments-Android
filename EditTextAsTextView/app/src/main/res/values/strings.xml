@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">EditText As TextView</string>
+    <string name="question">Questions</string>
+    <string name="edit_question">edit question</string>
+</resources>
