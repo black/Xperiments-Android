@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="64dp"
+    tools:context=".MainActivity">
+
+<!--    <me.tankery.lib.circularseekbar.CircularSeekBar-->
+<!--        android:id="@+id/progressCircular"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="300dp"/>-->
+    <com.marcinmoskala.arcseekbar.ArcSeekBar
+        android:id="@+id/progressCircular"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:progressBackgroundColor="@color/cardview_dark_background"
+        app:progressBackgroundWidth="20dp"
+        app:progress="100"
+        app:progressWidth="20dp"
+        app:roundEdges="true" />
+    <SeekBar
+        android:padding="64dp"
+        android:id="@+id/seekbarProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
