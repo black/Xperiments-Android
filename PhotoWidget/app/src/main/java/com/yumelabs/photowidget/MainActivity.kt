@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             binding.imageList.addItemDecoration(
                 SpacesItemDecoration(
                     count,
-                    resources.getDimensionPixelSize(R.dimen.spacing_none),
+                    resources.getDimensionPixelSize(R.dimen.spacing_img),
                     false
                 )
             )

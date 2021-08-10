@@ -3,5 +3,6 @@
     <dimen name="widget_margin">0dp</dimen>
     <dimen name="spacing">16dp</dimen>
     <dimen name="spacing_none">0dp</dimen>
+    <dimen name="spacing_img">2dp</dimen>
 
 </resources>

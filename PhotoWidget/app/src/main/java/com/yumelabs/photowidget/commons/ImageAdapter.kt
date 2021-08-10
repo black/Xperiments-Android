@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.request.RequestOptions
 import com.yumelabs.photowidget.R
 import com.yumelabs.photowidget.extensions.GlideApp
 import java.io.IOException
@@ -36,6 +37,7 @@ class ImageAdapter(
         try {
             GlideApp.with(context)
                 .load(currentItem.filePath)
+                .apply(RequestOptions().centerCrop())
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.ic_broken_image_black_24dp)
                 .into(holder.imageView)
