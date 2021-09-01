@@ -6,7 +6,8 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-feature    android:name="android.hardware.bluetooth_le" android:required="true" />
+    <uses-feature    android:name="android.hardware.bluetooth_le" android:required="true"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,11 +15,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BluetoothDataStreme">
-        <service
-            android:name=".ble.BLEDeviceConnectionServices"
-            android:enabled="true"
-            android:exported="true"></service>
-
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
     <TextView
         android:id="@+id/bleStatus"
         android:layout_width="match_parent"
@@ -19,10 +18,16 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:text="0000"/>
+    <Button
+        android:id="@+id/scanDevices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SCAN"/>
     <ProgressBar
         android:id="@+id/scanProgress"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:indeterminate="true"
+        android:visibility="gone"
         android:max="10"
         android:padding="16dp"
         android:layout_width="match_parent"

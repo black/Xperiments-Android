@@ -6,14 +6,25 @@ import android.bluetooth.le.ScanFilter
 import android.bluetooth.le.ScanResult
 import android.bluetooth.le.ScanSettings
 import android.content.Context
+import android.os.Build
 import android.os.Handler
+import android.util.Log
+import com.yumelabs.bluetoothdatastreme.MainActivity.Companion.TAG
 import com.yumelabs.bluetoothdatastreme.ble.interfaces.BleConnectStatus
+import com.yumelabs.bluetoothdatastreme.ble.interfaces.BleData
 import com.yumelabs.bluetoothdatastreme.ble.interfaces.BleDeviceInterface
+import android.content.Intent
+import com.yumelabs.bluetoothdatastreme.ble.DeviceProfile.Companion.ACTION_GATT_SERVICES_DISCOVERED
+
+
+// Top level declaration
+private const val GATT_MAX_MTU_SIZE = 517
 
 class BLEMethods(var context: Context,
                  var handler: Handler,
                  bleDevice: BleDeviceInterface,
-                 bleConnectStatus: BleConnectStatus
+                 bleConnectStatus: BleConnectStatus,
+                 bleData: BleData
 ){
     private var bluetoothGatt: BluetoothGatt?=null
     private var bluetoothGattCharacteristic: BluetoothGattCharacteristic?=null
@@ -22,6 +33,8 @@ class BLEMethods(var context: Context,
     }
     private var bleDevice: BleDeviceInterface? = null
     private var bleConnectStatus: BleConnectStatus? = null
+    private var isScanning = false
+
 
     init {
         this.bleDevice = bleDevice
@@ -29,6 +42,9 @@ class BLEMethods(var context: Context,
     }
 
     fun startBleScan() {
+        if(isScanning){
+            stopBleScan()
+        }
          val scanFilter = ScanFilter.Builder().build()
          val scanFilters:MutableList<ScanFilter> = mutableListOf()
          scanFilters.add(scanFilter)
@@ -45,9 +61,7 @@ class BLEMethods(var context: Context,
             override fun onScanResult(callbackType: Int, result: ScanResult?) {
                 super.onScanResult(callbackType, result)
                 val bluetoothDevice = result?.device
-                if(bluetoothDevice!= null)  {
-                    bleDevice.getBleDevice(bluetoothDevice)
-                }
+                bleDevice.onBleDevice(bluetoothDevice!!)
             }
 
             override fun onBatchScanResults(results: MutableList<ScanResult>?) {
@@ -61,26 +75,52 @@ class BLEMethods(var context: Context,
     }
 
     fun connectBle(bleDevice: BluetoothDevice){
-        bluetoothGatt = bleDevice.connectGatt(context,false, bluetoothGattCallback)
+        bleConnectStatus?.onStatus("CONNECTING...")
+        // this fixed the status code 133
+        bluetoothGatt = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            bleDevice.connectGatt(context,false, bluetoothGattCallback,BluetoothDevice.TRANSPORT_LE)
+        }else{
+            bleDevice.connectGatt(context,false, bluetoothGattCallback)
+        }
     }
 
     private val bluetoothGattCallback:BluetoothGattCallback by lazy{
         object:BluetoothGattCallback(){
             override fun onConnectionStateChange(gatt: BluetoothGatt?, status: Int, newState: Int) {
-                if(newState==BluetoothProfile.STATE_CONNECTED){
-                    bluetoothGatt?.discoverServices()
-                    bleConnectStatus.status("CONNECTED")
+                if (status == BluetoothGatt.GATT_SUCCESS) {
+                    if(newState==BluetoothProfile.STATE_CONNECTED){
+                       bluetoothGatt = gatt
+                       handler.post{
+                           bluetoothGatt?.discoverServices()
+                       }
+                        bleConnectStatus.onStatus("CONNECTED")
+                    }else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
+                        bleConnectStatus.onStatus("DISCONNECTED")
+                        gatt?.close()
+                    }
                 }else{
-                    bleConnectStatus.status("FAILED")
+                    bleConnectStatus.onStatus("FAILED")
+                    gatt?.close()
                 }
             }
 
             override fun onServicesDiscovered(gatt: BluetoothGatt?, status: Int) {
                 super.onServicesDiscovered(gatt, status)
-                val service = gatt?.getService(DeviceProfile.SERVICE_UUID)
-                bluetoothGattCharacteristic = service?.getCharacteristic(DeviceProfile.CHARACTERISTIC_STATE_UUID)
-                gatt?.setCharacteristicNotification(bluetoothGattCharacteristic,true)
-                // readData()
+                when (status) {
+                    BluetoothGatt.GATT_SUCCESS -> {
+                        broadcastUpdate(ACTION_GATT_SERVICES_DISCOVERED);
+                       // Log.d(TAG, "Read characteristic $value")
+                    }
+                    BluetoothGatt.GATT_READ_NOT_PERMITTED -> {
+                       // Log.d(TAG, "Read not permitted for $uuid!")
+                    }
+                    else -> {
+                     //   Log.d(TAG, "Characteristic read failed for $uuid, error: $status")
+                    }
+                }
+//                if(status==BluetoothGatt.GATT_SUCCESS){
+//                    broadcastUpdate(ACTION_GATT_SERVICES_DISCOVERED);
+//                }
             }
 
             override fun onCharacteristicRead(
@@ -89,6 +129,23 @@ class BLEMethods(var context: Context,
                 status: Int
             ) {
                 super.onCharacteristicRead(gatt, characteristic, status)
+                bluetoothGattCharacteristic = characteristic
+                val value = characteristic?.value
+                val uuid = characteristic?.uuid
+                when (status) {
+                    BluetoothGatt.GATT_SUCCESS -> {
+                        if (value != null) {
+                            bleData.onBleData(value.toHexString())
+                        }
+                        Log.d(TAG, "Read characteristic $value")
+                    }
+                    BluetoothGatt.GATT_READ_NOT_PERMITTED -> {
+                        Log.d(TAG, "Read not permitted for $uuid!")
+                    }
+                    else -> {
+                        Log.d(TAG, "Characteristic read failed for $uuid, error: $status")
+                    }
+                }
             }
 
             override fun onCharacteristicWrite(
@@ -124,12 +181,38 @@ class BLEMethods(var context: Context,
         }
     }
 
-    fun readDataStream(){
+    fun ByteArray.toHexString(): String =
+        joinToString(separator = " ", prefix = "0x") { String.format("%02X", it) }
 
+    fun BluetoothGattCharacteristic.isReadable(): Boolean =
+        containsProperty(BluetoothGattCharacteristic.PROPERTY_READ)
+
+    fun BluetoothGattCharacteristic.isWritable(): Boolean =
+        containsProperty(BluetoothGattCharacteristic.PROPERTY_WRITE)
+
+    fun BluetoothGattCharacteristic.isWritableWithoutResponse(): Boolean =
+        containsProperty(BluetoothGattCharacteristic.PROPERTY_WRITE_NO_RESPONSE)
+
+    fun BluetoothGattCharacteristic.containsProperty(property: Int): Boolean {
+        return properties and property != 0
     }
 
-    fun disConnectBle() {
-
+    private fun broadcastUpdate(action: String) {
+        val intent = Intent(action)
+        // sendBroadcast(intent)
     }
+
+//    private fun readBatteryLevel() {
+//        val batteryLevelChar = gatt
+//            .getService(batteryServiceUuid)?.getCharacteristic(batteryLevelChar)
+//        if (batteryLevelChar?.isReadable() == true) {
+//            gatt.readCharacteristic(batteryLevelChar)
+//        }
+//    }
 
 }
+
+/*
+   https://punchthrough.com/android-ble-guide/
+   https://punchthrough.com/android-ble-guide/
+*/

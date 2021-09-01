@@ -25,10 +25,11 @@ import com.yumelabs.bluetoothdatastreme.ui.OnItemClickListener
 import java.util.*
 import com.yumelabs.bluetoothdatastreme.ble.BLEMethods
 import com.yumelabs.bluetoothdatastreme.ble.interfaces.BleConnectStatus
+import com.yumelabs.bluetoothdatastreme.ble.interfaces.BleData
 import com.yumelabs.bluetoothdatastreme.ble.interfaces.BleDeviceInterface
 
 
-class MainActivity : AppCompatActivity(),BleConnectStatus,BleDeviceInterface {
+class MainActivity : AppCompatActivity(),BleConnectStatus,BleDeviceInterface,BleData {
 
     companion object{
         val TAG = "BT_SCANNER"
@@ -60,51 +61,72 @@ class MainActivity : AppCompatActivity(),BleConnectStatus,BleDeviceInterface {
         )
         validatePermission(permissions)
 
-        bleMethods = BLEMethods(this,handler,this,this)
+        bleMethods = BLEMethods(this,handler,this,this,this)
         bleDeviceAdapter = BLEDeviceAdapter(deviceList)
         binding.deviceListView.adapter = bleDeviceAdapter
         binding.deviceListView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         bleDeviceAdapter?.setOnItemClickListener(object : OnItemClickListener {
             override fun onItemClick(pos: Int) {
-                bleMethods?.connectBle(deviceList[pos])
+                runOnUiThread(Runnable {
+                    Toast.makeText(applicationContext,"${deviceList[pos]}",Toast.LENGTH_SHORT).show()
+                    bleMethods?.connectBle(deviceList[pos])
+                })
             }
 
             override fun onLongItemClick(pos: Int) {
 
             }
         })
+
+        binding.scanDevices.setOnClickListener {
+            if(bluetoothAdapter.isEnabled){
+                runOnUiThread(Runnable {
+                    bleMethods?.startBleScan()
+                    binding.scanProgress.visibility = VISIBLE
+                    handler.postDelayed({
+                        bleMethods?.stopBleScan()
+                        binding.scanProgress.visibility = GONE
+                    }, 10000)
+                })
+
+            }else{
+                Log.d(TAG, "BT is disabled")
+                val btIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+                startActivityForResult(btIntent, BLUETOOTH_REQUEST_CODE)
+            }
+        }
     }
 
     private var i = 0
     override fun onResume() {
         super.onResume()
-        if(bluetoothAdapter.isEnabled){
-            bleMethods?.startBleScan()
-            handler.postDelayed({
-                bleMethods?.stopBleScan()
-                binding.scanProgress.visibility = GONE
-            }, 10000)
-
-        }else{
-            Log.d(TAG, "BT is disabled")
-            val btIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
-            startActivityForResult(btIntent, BLUETOOTH_REQUEST_CODE)
-        }
     }
 
 
-    override fun status(connectStatus: String) {
-        binding.bleStatus.text = connectStatus
+    override fun onStatus(connectStatus: String) {
+        runOnUiThread(Runnable {
+            binding.bleStatus.text = connectStatus
+        })
     }
 
-    override fun getBleDevice(bleDevice: BluetoothDevice) {
+    override fun onBleDevice(bleDevice: BluetoothDevice) {
         if(!deviceList.contains(bleDevice)){
-            deviceList.add(bleDevice)
-            bleDeviceAdapter?.notifyDataSetChanged()
-            binding.scanProgress.visibility = VISIBLE
+            runOnUiThread(Runnable {
+                deviceList.add(bleDevice)
+                bleDeviceAdapter?.notifyDataSetChanged()
+                binding.scanProgress.visibility = VISIBLE
+            })
+            Log.d(TAG," Device name:  ${bleDevice.name} - Device id: ${bleDevice.address}")
         }
-        Log.d(TAG," Device name:  ${bleDevice.name} - Device id: ${bleDevice.address}")
     }
+
+    override fun onBleData(data:String) {
+        runOnUiThread(Runnable {
+            binding.bleData.text = "${data}"
+        })
+    }
+
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when(requestCode){
