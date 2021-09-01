@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Bluetooth DataStreme</string>
+    <string name="storage_permission_rationale_title">Title</string>
+    <string name="storage_permission_rationale_message">Description</string>
+    <string name="device_name">Device Name</string>
+    <string name="mac_id">00:00:00:00:00:00</string>
+</resources>
