@@ -5,14 +5,15 @@ import java.util.*
 class DeviceProfile {
 
     companion object{
-        val ACTION_GATT_CONNECTED = "com.example.bluetooth.le.ACTION_GATT_CONNECTED"
-        val ACTION_GATT_DISCONNECTED = "com.example.bluetooth.le.ACTION_GATT_DISCONNECTED"
-        val ACTION_GATT_SERVICES_DISCOVERED = "com.yumelabs.bluetoothdatastreme.bleACTION_GATT_SERVICES_DISCOVERED"
-        val ACTION_DATA_AVAILABLE = "com.example.bluetooth.le.ACTION_DATA_AVAILABLE"
-        val EXTRA_DATA = "com.example.bluetooth.le.EXTRA_DATA"
+        val ACTION_GATT_CONNECTED = "com.yumelabs.bluetoothdatastreme.ble.ACTION_GATT_CONNECTED"
+        val ACTION_GATT_DISCONNECTED = "com.yumelabs.bluetoothdatastreme.ble.ACTION_GATT_DISCONNECTED"
+        val ACTION_GATT_SERVICES_DISCOVERED = "com.yumelabs.bluetoothdatastreme.ble.ACTION_GATT_SERVICES_DISCOVERED"
+        val ACTION_DATA_AVAILABLE = "com.yumelabs.bluetoothdatastreme.ble.ACTION_DATA_AVAILABLE"
+        val EXTRA_DATA = "com.yumelabs.bluetoothdatastreme.ble.EXTRA_DATA"
 
         var SERVICE_UUID = UUID.fromString("0000ffe1-0000-1000-8000-00805f9b34fb")
         var CHARACTERISTIC_STATE_UUID = UUID.fromString("0000ffe1-0000-1000-8000-00805f9b34fb")
+        var DESCRIPTOR_UUID = UUID.fromString("0000ffe1-0000-1000-8000-00805f9b34fb")
         var POWER_STATE_UUID = UUID.fromString("0000ffe1-0000-1000-8000-00805f9b34fb")
         val batteryServiceUuid = UUID.fromString("0000180f-0000-1000-8000-00805f9b34fb")
         val batteryLevelCharUuid = UUID.fromString("00002a19-0000-1000-8000-00805f9b34fb")

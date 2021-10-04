@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LET CONCEPT"/>
+        <TextView
+            android:id="@+id/let_concept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="8dp"
+            android:text="00"/>
+        <Button
+            android:layout_below="@+id/let_concept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LET UPDATE"
+            android:onClick="letUpdate"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ALSO CONCEPT"/>
+        <TextView
+            android:id="@+id/also_concept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="8dp"
+            android:text="00"/>
+        <Button
+            android:layout_below="@+id/also_concept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ALSO UPDATE"
+            android:onClick="alsoUpdate"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WITH CONCEPT"/>
+        <TextView
+            android:id="@+id/with_concept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="8dp"
+            android:text="00"/>
+        <Button
+            android:layout_below="@+id/with_concept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WITH UPDATE"
+            android:onClick="withUpdate"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="APPLY CONCEPT"/>
+        <TextView
+            android:id="@+id/apply_concept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="8dp"
+            android:text="00"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/apply_concept"
+            android:onClick="applyUpdate"
+            android:text="APPLY UPDATE" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RUN CONCEPT"/>
+        <TextView
+            android:id="@+id/run_concept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="8dp"
+            android:text="00"/>
+        <Button
+            android:layout_below="@+id/run_concept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RUN UPDATE"
+            android:onClick="runUpdate"/>
+    </RelativeLayout>
+</LinearLayout>

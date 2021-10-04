@@ -15,6 +15,11 @@ import com.yumelabs.bluetoothdatastreme.ble.interfaces.BleData
 import com.yumelabs.bluetoothdatastreme.ble.interfaces.BleDeviceInterface
 import android.content.Intent
 import com.yumelabs.bluetoothdatastreme.ble.DeviceProfile.Companion.ACTION_GATT_SERVICES_DISCOVERED
+import android.bluetooth.BluetoothGattCharacteristic
+
+import android.bluetooth.BluetoothGattService
+import android.bluetooth.BluetoothGattDescriptor
+import com.yumelabs.bluetoothdatastreme.ble.DeviceProfile.Companion.DESCRIPTOR_UUID
 
 
 // Top level declaration
@@ -108,7 +113,23 @@ class BLEMethods(var context: Context,
                 super.onServicesDiscovered(gatt, status)
                 when (status) {
                     BluetoothGatt.GATT_SUCCESS -> {
-                        broadcastUpdate(ACTION_GATT_SERVICES_DISCOVERED);
+                        // broadcastUpdate(ACTION_GATT_SERVICES_DISCOVERED);
+                       // BluetoothGatt.printGattTable()
+//                        for (service in services) {
+//                            if (service.uuid != UUID_TARGET_SERVICE) continue
+//                            val gattCharacteristics = service.characteristics
+//
+//                            // Loops through available Characteristics.
+//                            for (gattCharacteristic in gattCharacteristics) {
+//                                if (gattCharacteristic.uuid != UUID_TARGET_CHARACTERISTIC) continue
+//                                val charaProp = gattCharacteristic.properties
+//                                if (charaProp or BluetoothGattCharacteristic.PROPERTY_NOTIFY > 0) {
+//                                    setCharacteristicNotification(gattCharacteristic, true)
+//                                } else {
+//                                    Log.w(TAG, "Characteristic does not support notify")
+//                                }
+//                            }
+//                        }
                        // Log.d(TAG, "Read characteristic $value")
                     }
                     BluetoothGatt.GATT_READ_NOT_PERMITTED -> {
@@ -181,6 +202,36 @@ class BLEMethods(var context: Context,
         }
     }
 
+    private fun BluetoothGatt.printGattTable() {
+        if (services.isEmpty()) {
+            Log.i("printGattTable", "No service and characteristic available, call discoverServices() first?")
+            return
+        }
+        services.forEach { service ->
+            val characteristicsTable = service.characteristics.joinToString(
+                separator = "\n|--",
+                prefix = "|--"
+            ) { it.uuid.toString() }
+            Log.i("printGattTable", "\nService ${service.uuid}\nCharacteristics:\n$characteristicsTable"
+            )
+        }
+    }
+
+    fun setCharacteristicNotification(
+        characteristic: BluetoothGattCharacteristic,
+        enabled: Boolean
+    ) {
+        if (bluetoothGatt == null) {
+            Log.d(TAG, "BluetoothAdapter not initialized")
+            return
+        }
+        bluetoothGatt?.setCharacteristicNotification(characteristic, enabled)
+        val descriptor = characteristic.getDescriptor(DESCRIPTOR_UUID)
+        descriptor.value =
+            if (enabled) BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE else BluetoothGattDescriptor.DISABLE_NOTIFICATION_VALUE
+        bluetoothGatt?.writeDescriptor(descriptor)
+    }
+
     fun ByteArray.toHexString(): String =
         joinToString(separator = " ", prefix = "0x") { String.format("%02X", it) }
 
@@ -199,8 +250,9 @@ class BLEMethods(var context: Context,
 
     private fun broadcastUpdate(action: String) {
         val intent = Intent(action)
-        // sendBroadcast(intent)
+       // sendBroadcast(intent)
     }
+
 
 //    private fun readBatteryLevel() {
 //        val batteryLevelChar = gatt
