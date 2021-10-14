@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_eog"
+        android:title="@string/action_eog"
+        android:icon="@drawable/ic_action_eog_not_found"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_power_eog"
+        android:title="@string/action_eog"
+        app:actionLayout="@layout/power_progress"
+        app:showAsAction="always" />
+</menu>
