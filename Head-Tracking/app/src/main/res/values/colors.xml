@@ -54,4 +54,18 @@
 
     <color name="fillGraphLow">#7000E5FF</color>
     <color name="strokeGraphLow">#00E5FF</color>
+
+    <!-- Graph Colors -->
+    <color name="one">#D50000</color>
+    <color name="oneL">#E57373</color>
+    <color name="two">#005E51</color>
+    <color name="twoL">#4DD0E1</color>
+    <color name="three">#4A148C</color>
+    <color name="threeL">#7A4A148C</color>
+    <color name="four">#FFAB00</color>
+    <color name="five">#304FFE</color>
+    <color name="six">#00C853</color>
+    <color name="seven">#80CBC4</color>
+    <color name="eight">#000</color>
+    <color name="nine">#000</color>
 </resources>
