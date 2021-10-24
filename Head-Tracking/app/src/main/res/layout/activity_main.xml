@@ -13,6 +13,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <TextView
+                android:id="@+id/eyeMoveDirection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Eye Direction : 0"/>
             <com.jjoe64.graphview.GraphView
                 android:id="@+id/accXPlot"
                 android:layout_width="match_parent"

@@ -34,6 +34,8 @@ import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import java.util.ArrayList
+import com.black.xperiments.headtracking.direction.EyeMovementDirection
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -60,6 +62,16 @@ class MainActivity : AppCompatActivity() {
     private var seriesRoll = LineGraphSeries<DataPoint>()
 
     private var graphLastXValue = 5.0
+
+    private var eyeMovementDirection: EyeMovementDirection?=null
+    private var eyeMove = "center"
+    private var leftCount = 0
+    private var rightCount = 0
+    private var prevDir = 0
+    private var pitchPrev = 0
+    private var yawPrev = 0
+    private var rollPrev = 0
+    private var someCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -140,7 +152,36 @@ class MainActivity : AppCompatActivity() {
             seriesYaw.appendData(DataPoint(graphLastXValue, it.yaw.toDouble()), true, 100)
             seriesRoll.appendData(DataPoint(graphLastXValue, it.roll.toDouble()), true, 100)
             graphLastXValue += 1.0
+            eyeMovementDirection = EyeMovementDirection(it)
+
+            if(it.eyeMoveLeft>0 || it.eyeMoveRight>0){
+                someCount = it.eyeMoveLeft-it.eyeMoveRight
+            }
+             binding.eyeMoveDirection.text =  "${someCount}  ${ if(someCount>0) "right" else "left"}"
+
+
+//            if(it.eyeMoveRight==0 && it.eyeMoveLeft==0){
+//                binding.eyeMoveDirection.text =  eyeMove+"but it is"+ if(eyeMove=="right") "left" else "right"
+//            }
+
+            //  val dir = eyeMovementDirection?.getHorizontalDirection()
+
+//            binding.eyeMoveDirection.text =  when(it){
+//                (it.eyeMoveLeft?>0) -> {
+//                    "Left"
+//                }
+//                (it.eyeMoveRight?>0)-> {
+//                    "Right"
+//                }
+//                else->{
+//                     "center"
+//                }
+//            }
         })
+    }
+
+    private fun checkIfThis(value:Int,threshold:Int):Boolean{
+        return value>threshold
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
