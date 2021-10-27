@@ -46,8 +46,8 @@ class HeadTracker (
             val yp = r * sin(Math.toRadians(pitch.toDouble())) + l
             drawPitch(it, xp.toFloat(), yp.toFloat())
 
-            val xy = r * cos(Math.toRadians(yaw.toDouble()-30)) + l
-            val yy = r * sin(Math.toRadians(yaw.toDouble()-30)) + l
+            val xy = r * cos(Math.toRadians(yaw.toDouble())) + l
+            val yy = r * sin(Math.toRadians(yaw.toDouble())) + l
             drawYaw(it, xy.toFloat(), yy.toFloat())
 
             val xr = r * cos(-Math.toRadians(roll.toDouble()+90)) + l
@@ -55,13 +55,8 @@ class HeadTracker (
             drawRoll(it, xr.toFloat(), yr.toFloat())
         }
 
-
-
-
         invalidate()
     }
-
-
 
     private fun drawPitch(canvas: Canvas, x: Float, y: Float) {
         ellipse(canvas,l.toFloat(),y,15f,Color.BLACK)
