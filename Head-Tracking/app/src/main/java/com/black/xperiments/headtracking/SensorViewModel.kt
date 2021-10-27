@@ -12,7 +12,6 @@ class SensorViewModel: ViewModel()  {
 
     /*-----------------EOG------------------*/
 
-
     // EEG Connection Status
     fun setEOGConnect(msg: String) {
         eogConnect.postValue(msg)

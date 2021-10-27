@@ -19,7 +19,9 @@ import android.widget.ProgressBar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.viewpager.widget.ViewPager
 import com.black.xperiments.headtracking.databinding.ActivityMainBinding
+import com.black.xperiments.headtracking.views.ViewPagerAdapter
 import com.jins_jp.meme.MemeConnectListener
 import com.jins_jp.meme.MemeLib
 import com.jins_jp.meme.MemeRealtimeListener
@@ -34,14 +36,15 @@ import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import java.util.ArrayList
-import com.black.xperiments.headtracking.direction.EyeMovementDirection
+import com.black.xperiments.headtracking.views.eye.EyeMovementDirection
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-    private val sensorViewModel: SensorViewModel by viewModels()
     private val TAG = "SENSORVAL"
+
+    private val sensorViewModel: SensorViewModel by viewModels()
     /*Common variables*/
     private val handler = Handler(Looper.getMainLooper())
     private var memeLib: MemeLib? = null
@@ -53,25 +56,7 @@ class MainActivity : AppCompatActivity() {
     private var eogPowerPrev = 0
     private var eogPowerProgressView: ProgressBar? = null
 
-    /* Plotting*/
-    private var seriesAccX = LineGraphSeries<DataPoint>()
-    private var seriesAccY = LineGraphSeries<DataPoint>()
-    private var seriesAccZ = LineGraphSeries<DataPoint>()
-    private var seriesPitch = LineGraphSeries<DataPoint>()
-    private var seriesYaw = LineGraphSeries<DataPoint>()
-    private var seriesRoll = LineGraphSeries<DataPoint>()
-
-    private var graphLastXValue = 5.0
-
-    private var eyeMovementDirection: EyeMovementDirection?=null
-    private var eyeMove = "center"
-    private var leftCount = 0
-    private var rightCount = 0
-    private var prevDir = 0
-    private var pitchPrev = 0
-    private var yawPrev = 0
-    private var rollPrev = 0
-    private var someCount = 0
+    private val titles = arrayOf("Eye Tracking", "Head Tracking")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,38 +87,34 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             eogInit()
         }
-        initGraphs()
         observers()
-    }
+        val pagerAdapter = ViewPagerAdapter(supportFragmentManager)
+        binding.viewsPager.apply {
+            adapter = pagerAdapter
+            currentItem = 0
+            addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+                override fun onPageScrolled(
+                    position: Int,
+                    positionOffset: Float,
+                    positionOffsetPixels: Int
+                ) {
+                    actionBar?.subtitle = titles[position]
+                }
 
-    private fun initGraphs(){
-        setSeries(seriesAccX, R.color.oneL, 3, R.color.one)
-        setSeries(seriesAccY, R.color.one, 3, R.color.one)
-        setSeries(seriesAccZ, R.color.twoL, 3, R.color.two)
-        setSeries(seriesPitch, R.color.two, 3, R.color.two)
-        setSeries(seriesYaw, R.color.threeL, 3, R.color.threeL)
-        setSeries(seriesRoll, R.color.three, 3, R.color.three)
+                override fun onPageSelected(position: Int) {
 
-        binding.root.post {
-            binding.accXPlot.addSeries(seriesAccX)
-            binding.accYPlot.addSeries(seriesAccY)
-            binding.accZPlot.addSeries(seriesAccZ)
-            binding.pitchPlot.addSeries(seriesPitch)
-            binding.yawPlot.addSeries(seriesYaw)
-            binding.rollPlot.addSeries(seriesRoll)
+                }
 
-            setGraph(binding.accXPlot, 100, "Acc X")
-            setGraph(binding.accYPlot, 100, "Acc y")
-            setGraph(binding.accZPlot, 100, "Acc Z")
-            setGraph(binding.pitchPlot, 100, "Pitch")
-            setGraph(binding.yawPlot, 100, "Yaw")
-            setGraph(binding.rollPlot, 100, "Roll")
+                override fun onPageScrollStateChanged(state: Int) {
+                    /* set toolbar title here */
+                }
+            })
         }
+
     }
+
 
     private fun observers(){
-
-        /* EOG */
         sensorViewModel.getEOGConnect().observe(this, {
             eogSensor = it
             invalidateOptionsMenu()
@@ -143,45 +124,6 @@ class MainActivity : AppCompatActivity() {
             eogPowerProgressView?.progress = it
         })
 
-        sensorViewModel.getEOGAllData().observe(this,{
-            Log.d(TAG,"ACC-> aclX ${it.accX } aclY ${it.accY} aclZ ${it.accZ} GYRO -> P:${it.pitch} Y:${it.yaw} R:${it.roll}")
-            seriesAccX.appendData(DataPoint(graphLastXValue, it.accX.toDouble()), true, 100)
-            seriesAccY.appendData(DataPoint(graphLastXValue, it.accY.toDouble()), true, 100)
-            seriesAccZ.appendData(DataPoint(graphLastXValue, it.accZ.toDouble()), true, 100)
-            seriesPitch.appendData(DataPoint(graphLastXValue, it.pitch.toDouble()), true, 100)
-            seriesYaw.appendData(DataPoint(graphLastXValue, it.yaw.toDouble()), true, 100)
-            seriesRoll.appendData(DataPoint(graphLastXValue, it.roll.toDouble()), true, 100)
-            graphLastXValue += 1.0
-            eyeMovementDirection = EyeMovementDirection(it)
-
-            if(it.eyeMoveLeft>0 || it.eyeMoveRight>0){
-                someCount = it.eyeMoveLeft-it.eyeMoveRight
-            }
-             binding.eyeMoveDirection.text =  "${someCount}  ${ if(someCount>0) "right" else "left"}"
-
-
-//            if(it.eyeMoveRight==0 && it.eyeMoveLeft==0){
-//                binding.eyeMoveDirection.text =  eyeMove+"but it is"+ if(eyeMove=="right") "left" else "right"
-//            }
-
-            //  val dir = eyeMovementDirection?.getHorizontalDirection()
-
-//            binding.eyeMoveDirection.text =  when(it){
-//                (it.eyeMoveLeft?>0) -> {
-//                    "Left"
-//                }
-//                (it.eyeMoveRight?>0)-> {
-//                    "Right"
-//                }
-//                else->{
-//                     "center"
-//                }
-//            }
-        })
-    }
-
-    private fun checkIfThis(value:Int,threshold:Int):Boolean{
-        return value>threshold
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -337,45 +279,4 @@ class MainActivity : AppCompatActivity() {
         vibrator.vibrate(320L)
     }
 
-    private fun setSeries(
-        series: LineGraphSeries<DataPoint>,
-        color: Int,
-        thickness: Int,
-        background: Int
-    ) {
-        val paint = Paint()
-        paint.isAntiAlias = true
-        paint.strokeWidth = thickness.toFloat()
-        paint.color = ContextCompat.getColor(this, color)
-        series.setCustomPaint(paint)
-        series.color = ContextCompat.getColor(this, color)
-        series.thickness = thickness
-//
-    }
-
-    private fun setGraph(graph: GraphView, max: Int, graphName: String) {
-        graph.title = graphName
-        graph.viewport.isXAxisBoundsManual = true
-        graph.viewport.setMinX(0.0)
-        graph.viewport.setMaxX(max.toDouble())
-        graph.viewport.isScalable = true
-//        graph.viewport.isYAxisBoundsManual = true
-//        graph.viewport.isXAxisBoundsManual = true
-        graph.gridLabelRenderer.gridStyle = GridLabelRenderer.GridStyle.HORIZONTAL
-        graph.gridLabelRenderer.labelFormatter = object : DefaultLabelFormatter() {
-            override fun formatLabel(value: Double, isValueX: Boolean): String {
-                return if (isValueX) {
-                    // show normal x values
-                    super.formatLabel(value, isValueX)
-                } else {
-                    // show currency for y values
-                    if (value > 1000) {
-                        super.formatLabel((value / 10000), isValueX) + " K"
-                    } else {
-                        super.formatLabel(value, isValueX)
-                    }
-                }
-            }
-        }
-    }
 }

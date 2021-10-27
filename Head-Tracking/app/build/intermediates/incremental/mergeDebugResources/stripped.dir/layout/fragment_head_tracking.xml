@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".views.head.HeadTrackingFragment">
+    <RelativeLayout
+        android:id="@+id/headTrackerView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/accXPlot"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"/>
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/accYPlot"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"/>
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/accZPlot"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"/>
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/pitchPlot"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"/>
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/yawPlot"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"/>
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/rollPlot"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

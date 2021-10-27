@@ -3,4 +3,6 @@
     <string name="storage_permission_rationale_title">Some Title</string>
     <string name="storage_permission_rationale_message">some Message</string>
     <string name="action_eog">EOG SENSOR</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

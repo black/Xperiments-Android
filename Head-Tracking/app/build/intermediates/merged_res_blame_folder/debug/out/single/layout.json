@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_eye_tracking.xml",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\layout\\fragment_eye_tracking.xml"
+    },
+    {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\dialog_eog.xml",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\layout\\dialog_eog.xml"
+    },
+    {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_head_tracking.xml",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\layout\\fragment_head_tracking.xml"
+    },
+    {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\power_progress.xml",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\layout\\power_progress.xml"
+    },
+    {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\layout\\activity_main.xml"
+    }
+]
