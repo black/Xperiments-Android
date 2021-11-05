@@ -71,19 +71,16 @@ class EyeTrackingFragment : Fragment(R.layout.fragment_eye_tracking),
                 }, 5000)
             }
 
+    //      eyeMovementDirection = EyeMovementDirection(it)
+            leftEyeMove.appendData(DataPoint(graphLastXValue, it.eyeMoveLeft.toDouble()), true, 100)
+            rightEyeMove.appendData(DataPoint(graphLastXValue, it.eyeMoveRight.toDouble()), true, 100)
+            graphLastXValue += 1.0
 
+    //      if(it.eyeMoveLeft>0 || it.eyeMoveRight>0){
+    //          someCount = it.eyeMoveLeft-it.eyeMoveRight
+    //      }
 
-
-//            eyeMovementDirection = EyeMovementDirection(it)
-              leftEyeMove.appendData(DataPoint(graphLastXValue, it.eyeMoveLeft.toDouble()), true, 100)
-              rightEyeMove.appendData(DataPoint(graphLastXValue, it.eyeMoveRight.toDouble()), true, 100)
-              graphLastXValue += 1.0
-//
-//            if(it.eyeMoveLeft>0 || it.eyeMoveRight>0){
-//                someCount = it.eyeMoveLeft-it.eyeMoveRight
-//            }
             binding?.eyeMoveDirection?.text =  "Left: ${leftStarted} --- Right: ${rightStarted}"
-
         })
     }
 

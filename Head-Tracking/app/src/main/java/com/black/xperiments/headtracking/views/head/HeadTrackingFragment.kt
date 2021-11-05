@@ -31,7 +31,6 @@ class HeadTrackingFragment : Fragment(R.layout.fragment_head_tracking),
     private var seriesRoll = LineGraphSeries<DataPoint>()
     private var graphLastXValue = 5.0
     private var graphPlotters:GraphPlotters?=null
-    private var headMovementDirection: HeadMovementDirection?=null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -65,7 +64,6 @@ class HeadTrackingFragment : Fragment(R.layout.fragment_head_tracking),
         graphPlotters?.setSeries(seriesPitch, R.color.two, 3, R.color.two)
         graphPlotters?.setSeries(seriesYaw, R.color.threeL, 3, R.color.threeL)
         graphPlotters?.setSeries(seriesRoll, R.color.three, 3, R.color.three)
-
 
         binding?.accXPlot?.apply {
             addSeries(seriesAccX)

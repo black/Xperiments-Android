@@ -30,46 +30,40 @@ class HeadTracker (
             pitch = it.pitch
             yaw = it.yaw
             roll = it.roll
-
-            Log.d(TAG,"P:${pitch} Y:${yaw} R:${roll}")
         }
     }
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        canvas?.drawColor(Color.argb(0, 0, 0, 0))
-        //get the position of the tip
-
 
         canvas?.let {
-            val xp = r * cos(Math.toRadians(pitch.toDouble())) + l
-            val yp = r * sin(Math.toRadians(pitch.toDouble())) + l
-            drawPitch(it, xp.toFloat(), yp.toFloat())
-
-            val xy = r * cos(Math.toRadians(yaw.toDouble())) + l
-            val yy = r * sin(Math.toRadians(yaw.toDouble())) + l
-            drawYaw(it, xy.toFloat(), yy.toFloat())
-
-            val xr = r * cos(-Math.toRadians(roll.toDouble()+90)) + l
-            val yr = r * sin(-Math.toRadians(roll.toDouble()+90)) + l
-            drawRoll(it, xr.toFloat(), yr.toFloat())
+            it.drawColor(Color.argb(0, 0, 0, 0))
+            drawPitch(it,pitch.toDouble()*2,Color.BLACK)
+            drawYaw(it, yaw.toDouble()*2,Color.BLACK)
+            drawRoll(it,roll.toDouble()+90,Color.BLACK)
         }
 
         invalidate()
     }
 
-    private fun drawPitch(canvas: Canvas, x: Float, y: Float) {
-        ellipse(canvas,l.toFloat(),y,15f,Color.BLACK)
+    private fun drawPitch(canvas: Canvas,ang:Double,color: Int) {
+        val x = (r * cos(Math.toRadians(ang)) + l).toFloat()
+        val y = (r * sin(Math.toRadians(ang)) + l).toFloat()
+        ellipse(canvas, l.toFloat(),y,15f,color)
         line(canvas, l.toFloat(),l.toFloat()-r, l.toFloat(), l.toFloat()+r)
     }
 
-    private fun drawYaw(canvas: Canvas, x: Float, y: Float) {
-        ellipse(canvas,x,l.toFloat(),15f,Color.BLACK)
+    private fun drawYaw(canvas: Canvas,ang:Double,color: Int) {
+        val x = (r * cos(Math.toRadians(ang)) + l).toFloat()
+        val y = (r * sin(Math.toRadians(ang)) + l).toFloat()
+        ellipse(canvas,x,l.toFloat(),15f,color)
         line(canvas, l.toFloat()-r,l.toFloat(), l.toFloat()+r, l.toFloat())
     }
 
-    private fun drawRoll(canvas: Canvas, x: Float, y: Float) {
-        ellipse(canvas,x,y,15f,Color.BLACK)
+    private fun drawRoll(canvas: Canvas,ang:Double,color:Int) {
+        val x = (r * cos(-Math.toRadians(ang)) + l).toFloat()
+        val y = (r * sin(-Math.toRadians(ang)) + l).toFloat()
+        ellipse(canvas,x,y,15f,color)
         line(canvas, l.toFloat(),l.toFloat(), x, y)
     }
 
