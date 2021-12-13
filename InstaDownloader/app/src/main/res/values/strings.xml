@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">InstaDownloader</string>
+    <string name="storage_permission_rationale_title">Storage permission</string>
+    <string name="storage_permission_rationale_message">Storage permission</string>
+</resources>
