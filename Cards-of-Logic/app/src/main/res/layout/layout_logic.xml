@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent"
+    android:layout_height="350dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="5dp"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="16dp"
+        android:elevation="5dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="32dp"
+            android:background="@color/lightishGrey">
+            <ImageView
+                android:id="@+id/logicImage"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"/>
+            <TextView
+                android:id="@+id/logic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"/>
+            <TextView
+                android:id="@+id/explanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

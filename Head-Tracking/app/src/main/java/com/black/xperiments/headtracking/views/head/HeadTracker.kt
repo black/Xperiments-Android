@@ -5,11 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import android.view.View
-import androidx.recyclerview.widget.RecyclerView
 import com.black.xperiments.headtracking.SensorViewModel
 import kotlin.math.cos
 import kotlin.math.sin
@@ -42,7 +38,6 @@ class HeadTracker (
             drawYaw(it, yaw.toDouble()*2,Color.BLACK)
             drawRoll(it,roll.toDouble()+90,Color.BLACK)
         }
-
         invalidate()
     }
 

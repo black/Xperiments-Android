@@ -43,7 +43,7 @@
 22        android:allowBackup="true"
 22-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Head-Tracking\app\src\main\AndroidManifest.xml:16:9-35
 23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-23-->[androidx.core:core:1.6.0] C:\Users\abhik\.gradle\caches\transforms-3\7cabb0b7df62f3b93c656c79795a54ee\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+23-->[androidx.core:core:1.6.0] C:\Users\abhik\.gradle\caches\transforms-3\34a13941992aa67b124a08eddf3ba8dd\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
 24        android:debuggable="true"
 25        android:icon="@mipmap/ic_launcher"
 25-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Head-Tracking\app\src\main\AndroidManifest.xml:17:9-43
@@ -74,11 +74,11 @@
 38            </intent-filter>
 39        </activity>
 40        <activity
-40-->[com.karumi:dexter:6.2.1] C:\Users\abhik\.gradle\caches\transforms-3\de0975c166cbef11ca0b38f01a22107f\transformed\jetified-dexter-6.2.1\AndroidManifest.xml:27:9-29:72
+40-->[com.karumi:dexter:6.2.1] C:\Users\abhik\.gradle\caches\transforms-3\378109c74a6c57acae0949f36d46abce\transformed\jetified-dexter-6.2.1\AndroidManifest.xml:27:9-29:72
 41            android:name="com.karumi.dexter.DexterActivity"
-41-->[com.karumi:dexter:6.2.1] C:\Users\abhik\.gradle\caches\transforms-3\de0975c166cbef11ca0b38f01a22107f\transformed\jetified-dexter-6.2.1\AndroidManifest.xml:28:13-60
+41-->[com.karumi:dexter:6.2.1] C:\Users\abhik\.gradle\caches\transforms-3\378109c74a6c57acae0949f36d46abce\transformed\jetified-dexter-6.2.1\AndroidManifest.xml:28:13-60
 42            android:theme="@style/Dexter.Internal.Theme.Transparent" />
-42-->[com.karumi:dexter:6.2.1] C:\Users\abhik\.gradle\caches\transforms-3\de0975c166cbef11ca0b38f01a22107f\transformed\jetified-dexter-6.2.1\AndroidManifest.xml:29:13-69
+42-->[com.karumi:dexter:6.2.1] C:\Users\abhik\.gradle\caches\transforms-3\378109c74a6c57acae0949f36d46abce\transformed\jetified-dexter-6.2.1\AndroidManifest.xml:29:13-69
 43    </application>
 44
 45</manifest>

@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\abhik\\.gradle\\caches\\transforms-3\\a41f65a1b182ec9e11a9bbe3d48996cb\\transformed\\appcompat-1.3.1\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\abhik\\.gradle\\caches\\transforms-3\\3635929ce294ed48dd750166b4f97fc5\\transformed\\appcompat-1.3.1\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\abhik\\.gradle\\caches\\transforms-3\\e1f2176833963668a3ace0ccd29f7871\\transformed\\media-1.0.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\abhik\\.gradle\\caches\\transforms-3\\20452460b235ef085ced670cd391a5cd\\transformed\\media-1.0.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

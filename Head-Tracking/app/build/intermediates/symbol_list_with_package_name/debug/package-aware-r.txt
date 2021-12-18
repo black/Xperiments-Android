@@ -653,22 +653,6 @@ attr listPreferredItemPaddingRight
 attr listPreferredItemPaddingStart
 attr logo
 attr logoDescription
-attr lottie_autoPlay
-attr lottie_cacheComposition
-attr lottie_colorFilter
-attr lottie_enableMergePathsForKitKatAndAbove
-attr lottie_fallbackRes
-attr lottie_fileName
-attr lottie_imageAssetsFolder
-attr lottie_loop
-attr lottie_progress
-attr lottie_rawRes
-attr lottie_renderMode
-attr lottie_repeatCount
-attr lottie_repeatMode
-attr lottie_scale
-attr lottie_speed
-attr lottie_url
 attr materialAlertDialogBodyTextStyle
 attr materialAlertDialogTheme
 attr materialAlertDialogTitleIconStyle
@@ -1306,6 +1290,7 @@ color mtrl_textinput_disabled_color
 color mtrl_textinput_filled_box_default_background_color
 color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
+color nav_state_list
 color negative
 color nine
 color notification_action_color_filter
@@ -1767,6 +1752,7 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen spacing
 dimen subtitle_corner_radius
 dimen subtitle_outline_width
 dimen subtitle_shadow_offset
@@ -1895,10 +1881,12 @@ drawable ic_clock_black_24dp
 drawable ic_close_24
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_foreground
+drawable ic_menu_24
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_tile_more
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -1932,7 +1920,11 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable resp_simple
+drawable state_normal
+drawable state_pressed
 drawable test_custom_background
+drawable tile_normal
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -2019,7 +2011,7 @@ id allStates
 id always
 id animateToEnd
 id animateToStart
-id animationView
+id answers
 id antiClockwise
 id anticipate
 id arc
@@ -2029,7 +2021,6 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
-id automatic
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -2146,7 +2137,6 @@ id group_divider
 id grouping
 id groups
 id guideline
-id hardware
 id headTrackerView
 id header_title
 id hideable
@@ -2180,7 +2170,6 @@ id line3
 id linear
 id listMode
 id list_item
-id lottie_layer_name
 id masked
 id match_constraint
 id match_parent
@@ -2282,8 +2271,11 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
-id restart
-id reverse
+id resp_description
+id resp_img
+id resp_more
+id resp_title
+id responseView
 id reverseSawtooth
 id right
 id rightToLeft
@@ -2330,7 +2322,6 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
-id software
 id south
 id spacer
 id special_effects_controller_view_tag
@@ -2598,6 +2589,8 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+layout tile_intermediate
+layout tile_simple
 menu main
 mipmap ic_launcher
 mipmap ic_launcher_foreground
@@ -2710,6 +2703,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string res_yes
 string search_menu_title
 string status_bar_notification_info_overflow
 string storage_permission_rationale_message
@@ -3521,7 +3515,6 @@ styleable LinearLayoutCompat android_gravity android_orientation android_baselin
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight
 styleable LinearProgressIndicator indeterminateAnimationType indicatorDirectionLinear
 styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerticalOffset
-styleable LottieAnimationView lottie_autoPlay lottie_cacheComposition lottie_colorFilter lottie_enableMergePathsForKitKatAndAbove lottie_fallbackRes lottie_fileName lottie_imageAssetsFolder lottie_loop lottie_progress lottie_rawRes lottie_renderMode lottie_repeatCount lottie_repeatMode lottie_scale lottie_speed lottie_url
 styleable MaterialAlertDialog backgroundInsetBottom backgroundInsetEnd backgroundInsetStart backgroundInsetTop
 styleable MaterialAlertDialogTheme materialAlertDialogBodyTextStyle materialAlertDialogTheme materialAlertDialogTitleIconStyle materialAlertDialogTitlePanelStyle materialAlertDialogTitleTextStyle
 styleable MaterialAutoCompleteTextView android_inputType

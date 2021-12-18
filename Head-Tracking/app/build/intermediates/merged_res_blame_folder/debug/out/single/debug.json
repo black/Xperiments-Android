@@ -16,6 +16,14 @@
         "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\layout\\fragment_head_navigation.xml"
     },
     {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\layout_tile_simple.xml.flat",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\layout\\tile_simple.xml"
+    },
+    {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\drawable_resp_simple.xml.flat",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\drawable\\resp_simple.xml"
+    },
+    {
         "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\layout_power_progress.xml.flat",
         "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\layout\\power_progress.xml"
     },
@@ -36,8 +44,20 @@
         "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\drawable\\ic_action_eog_not_found.xml"
     },
     {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\drawable_tile_normal.xml.flat",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\drawable\\tile_normal.xml"
+    },
+    {
         "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
         "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\layout_tile_intermediate.xml.flat",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\layout\\tile_intermediate.xml"
+    },
+    {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\drawable_state_normal.xml.flat",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\drawable\\state_normal.xml"
     },
     {
         "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_head_tracking.xml.flat",
@@ -50,6 +70,10 @@
     {
         "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_ic_launcher_foreground.png.flat",
         "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\color_nav_state_list.xml.flat",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\color\\nav_state_list.xml"
     },
     {
         "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_action_eog_failed.xml.flat",
@@ -68,12 +92,20 @@
         "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\drawable\\ic_action_eog_disconnected.xml"
     },
     {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_tile_more.xml.flat",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\drawable\\ic_tile_more.xml"
+    },
+    {
         "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_action_power_progress.xml.flat",
         "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\drawable\\ic_action_power_progress.xml"
     },
     {
         "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_head.xml.flat",
         "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\layout\\fragment_head.xml"
+    },
+    {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_menu_24.xml.flat",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\drawable\\ic_menu_24.xml"
     },
     {
         "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_ic_launcher_foreground.png.flat",
@@ -114,5 +146,9 @@
     {
         "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_ic_launcher_foreground.png.flat",
         "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\merged_res\\debug\\drawable_state_pressed.xml.flat",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\drawable\\state_pressed.xml"
     }
 ]

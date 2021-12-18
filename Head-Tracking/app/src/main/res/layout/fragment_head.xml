@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".views.head3d.Head3DFragment">
-
-
-
-</LinearLayout>
+    android:id="@+id/answers"
+    android:padding="16dp"
+    tools:context="views.head3d.Head3DFragment">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/responseView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/tile_simple"/>
+    <RelativeLayout
+        android:id="@+id/headTrackerView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

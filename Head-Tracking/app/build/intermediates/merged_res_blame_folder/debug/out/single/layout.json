@@ -4,6 +4,14 @@
         "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\layout\\fragment_eye_tracking.xml"
     },
     {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\tile_intermediate.xml",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\layout\\tile_intermediate.xml"
+    },
+    {
+        "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\tile_simple.xml",
+        "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\layout\\tile_simple.xml"
+    },
+    {
         "merged": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_head_navigation.xml",
         "source": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\Head-Tracking\\app\\src\\main\\res\\layout\\fragment_head_navigation.xml"
     },

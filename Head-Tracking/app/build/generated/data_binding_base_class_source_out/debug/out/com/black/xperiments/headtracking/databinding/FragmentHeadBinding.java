@@ -4,12 +4,12 @@ package com.black.xperiments.headtracking.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import com.airbnb.lottie.LottieAnimationView;
 import com.black.xperiments.headtracking.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -17,20 +17,28 @@ import java.lang.String;
 
 public final class FragmentHeadBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final RelativeLayout rootView;
 
   @NonNull
-  public final LottieAnimationView animationView;
+  public final RelativeLayout answers;
 
-  private FragmentHeadBinding(@NonNull LinearLayout rootView,
-      @NonNull LottieAnimationView animationView) {
+  @NonNull
+  public final RelativeLayout headTrackerView;
+
+  @NonNull
+  public final RecyclerView responseView;
+
+  private FragmentHeadBinding(@NonNull RelativeLayout rootView, @NonNull RelativeLayout answers,
+      @NonNull RelativeLayout headTrackerView, @NonNull RecyclerView responseView) {
     this.rootView = rootView;
-    this.animationView = animationView;
+    this.answers = answers;
+    this.headTrackerView = headTrackerView;
+    this.responseView = responseView;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public RelativeLayout getRoot() {
     return rootView;
   }
 
@@ -55,13 +63,22 @@ public final class FragmentHeadBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.animationView;
-      LottieAnimationView animationView = ViewBindings.findChildViewById(rootView, id);
-      if (animationView == null) {
+      RelativeLayout answers = (RelativeLayout) rootView;
+
+      id = R.id.headTrackerView;
+      RelativeLayout headTrackerView = ViewBindings.findChildViewById(rootView, id);
+      if (headTrackerView == null) {
         break missingId;
       }
 
-      return new FragmentHeadBinding((LinearLayout) rootView, animationView);
+      id = R.id.responseView;
+      RecyclerView responseView = ViewBindings.findChildViewById(rootView, id);
+      if (responseView == null) {
+        break missingId;
+      }
+
+      return new FragmentHeadBinding((RelativeLayout) rootView, answers, headTrackerView,
+          responseView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -1,11 +1,15 @@
-com/black/xperiments/headtracking/databinding/FragmentHeadTrackingBinding.java
- com.black.xperiments.headtracking.databinding.FragmentHeadTrackingBinding
 com/black/xperiments/headtracking/BuildConfig.java
  com.black.xperiments.headtracking.BuildConfig
+com/black/xperiments/headtracking/databinding/FragmentHeadTrackingBinding.java
+ com.black.xperiments.headtracking.databinding.FragmentHeadTrackingBinding
 com/black/xperiments/headtracking/databinding/DialogEogBinding.java
  com.black.xperiments.headtracking.databinding.DialogEogBinding
+com/black/xperiments/headtracking/databinding/TileIntermediateBinding.java
+ com.black.xperiments.headtracking.databinding.TileIntermediateBinding
 com/black/xperiments/headtracking/databinding/ActivityMainBinding.java
  com.black.xperiments.headtracking.databinding.ActivityMainBinding
+com/black/xperiments/headtracking/databinding/TileSimpleBinding.java
+ com.black.xperiments.headtracking.databinding.TileSimpleBinding
 com/black/xperiments/headtracking/databinding/PowerProgressBinding.java
  com.black.xperiments.headtracking.databinding.PowerProgressBinding
 com/black/xperiments/headtracking/databinding/FragmentHeadNavigationBinding.java

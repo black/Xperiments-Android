@@ -1,0 +1,137 @@
+[{
+        "index": 0,
+        "image": "some url",
+        "title": "Who are you to talk?",
+        "explanation": "Rejecting an argument because the person advancing it fails to practice what he or she preaches.",
+        "example": "Marta: “ You should not be eating that... it has been scientifically proven that eating fat burgers are no good for your health.”. Mark: “You eat fat burgers all the time so that can’ t be true” ",
+        "conclusion": "It doesn’t matter (to the truth claim of the argument at least) if Marta follows her own advice or not. While it might appear that the reason she does not follow her own advice is that she doesn’t believe it’s true, it could also be that those fat burgers are just too damn irresistible."
+    },
+    {
+        "index": 1,
+        "image": "some url",
+        "title": "The Red Herring Fallacy",
+        "explanation": "An arguer tries to sidetrack his or her audience by raising an irrelevant issue and then claims that the original issue has effectively been settled by the irrelevant diversion.",
+        "example": "There is a good deal of talk these days about the need to eliminate pesticides from our fruits and vegetables. But many of these foods are essential to our health. Carrots are an excellent source of vitamin A, broccoli is rich in iron, and oranges and grapefruits have lots of Vitamin C.",
+        "conclusion": "Plans to eliminate or reduce pesticides probably don’t entail stopping the production of common vegetables: the suggestion that they do is an irrelevant red herring."
+    },
+    {
+        "index": 2,
+        "image": "some url",
+        "title": "The Strawman Fallacy",
+        "explanation": "Someone distorts or caricatures an opponent’s arguments or views, and then attacks the weakened version rather than the real argument.",
+        "example": "Margaret: “We have to do something about greenhouse gases. The government should raise vehicle fuel efficiency standards to cut down the amount of CO2 we release over the next 20 years”.  Roger: “Margaret’ s solution would be a disaster.It would kill the economy.How would people get to work without cars ? ”",
+        "conclusion": "Roger claims that Margaret is proposing measures that would eliminate cars. Margaret has not said anything equivalent to that. It’s a strawman."
+    }, {
+        "index": 3,
+        "image": "some url",
+        "title": "The Ad Hominem",
+        "explanation": "Rejecting someone’s argument by attacking the person rather than evaluating their argument on its merits.",
+        "example": "Using someone's education level as a means to exploit and degrade the opposer's argument - ''You didn't even finish high school. How could you possibly know about this?''",
+        "conclusion": "This type of personal attack fallacy is often witnessed in debates in courtrooms and politics. Often, the attack is based on a person's social, political, or religious views. Either way, ad hominem fallacy attacks undermine the case and are to be avoided at all costs. You'll see why as we explore ad hominem examples below."
+    }, {
+        "index": 4,
+        "image": "some url",
+        "title": "Fallacious Appeal to Authority",
+        "explanation": "Insisting that a claim is true simply because a valid authority or expert on the issue said it was true, without any other supporting evidence offered.",
+        "example": "Richard Dawkins, an evolutionary biologist and perhaps the foremost expert in the field, says that evolution is true. Therefore, it's true.",
+        "conclusion": "Richard Dawkins certainly knows about evolution, and he can confidently tell us that it is true, but that doesn't make it true. What makes it true is the preponderance of evidence for the theory."
+    }, {
+        "index": 5,
+        "image": "some url",
+        "title": "The Fallacy of Composition",
+        "explanation": "Arguing that what is true of the parts must be true of the whole. (All of the parts of the object O have the property P. Therefore, O has the property P.)",
+        "example": "If you stand up at a concert, you can usually see better. You may then directly infer that if everyone stands up, everyone can see better",
+        "conclusion": "But you know it doesn't work that way and will lead to obscured views for the majority of attendees. Therefore, what might be true for one individual in the crowd is not true for the whole crowd."
+    }, {
+        "index": 6,
+        "image": "some url",
+        "title": "The Fallacy of Division",
+        "explanation": "Arguing that what is true of the whole must be true of the parts. (The opposite of the fallacy of composition: Object O has the property P. Therefore all the parts of the object O have the property P.)",
+        "example": "Men are, on average, taller than women. Therefore, Tim Cook is taller than Maria Sharapova.",
+        "conclusion": "Tim would have to be taller than 188cm/6ft 2in to be taller than Sharapova: he’s not (Tim Cook's height is 183cm)."
+    }, {
+        "index": 7,
+        "image": "some url",
+        "title": "Equivocation",
+        "explanation": "A key word is used in two or more senses in the same argument and the apparent success of the argument depends on the shift in meaning.",
+        "example": "Any law can be repealed by the proper legal authority. The law of gravity is a law. Therefore, the law of gravity can be repealed by the proper legal authority.",
+        "conclusion": "When the two senses of ‘law’ (laws regulating human conduct vs. uniformities of nature) are made explicit, it is apparent that the first premise is irrelevant, hence a fallacious argument."
+    }, {
+        "index": 8,
+        "image": "some url",
+        "title": "Appeal to Popularity",
+        "explanation": "Arguing that a claim must be true because lots of people believe it.",
+        "example": "Low carb diets must be healthy. All my friends are trying them and losing tons of weight!",
+        "conclusion": ""
+    }, {
+        "index": 9,
+        "image": "some url",
+        "title": "Appeal to Tradition",
+        "explanation": "Something is accepted as true or better because it's the ''way it's always been done.''",
+        "example": "Marriage has traditionally been between a man and a woman; therefore, gay marriage should not be allowed.",
+        "conclusion": "Very often traditions stem from religious and/or archaic beliefs, and until people question the logic and reasoning behind such traditions, people who are negatively affected by such traditions will continue to suffer. Just because it was acceptable in past cultures and times, does not mean it is acceptable today. Think racism, sexism, slavery, and corporal punishment."
+    }, {
+        "index": 10,
+        "image": "some url",
+        "title": "Appeal to Ignorance",
+        "explanation": "The arguer asserts that a claim must be true because no one has proven it false, or that a claim must be false because no one has proven it to be true.",
+        "example": "There must be intelligent life on other planets: No one has proven there isn’t.",
+        "conclusion": "Both claims assume that the lack of evidence for (or against) a claim is good reason to believe that the claim is false (or true). Ignorance – in the sense of a lack of knowledge – features as part of the proof of the conclusion. But in general, the mere fact that a claim has not yet been proven is not enough reason to think that claim is false."
+    }, {
+        "index": 11,
+        "image": "some url",
+        "title": "Appeals to Emotion",
+        "explanation": "An arguer attempts to evoke feelings of pity or compassion, when such feelings are not logically relevant to the arguer’s conclusion.",
+        "example": "Student to Lecturer: I know I missed most of the lectures and all of my tutorials. But my family will be really upset if I fail this course. Can’t you find a few more marks?",
+        "conclusion": ""
+    }, {
+        "index": 12,
+        "image": "some url",
+        "title": "Begging the Question",
+        "explanation": "When the premises that are meant to support an argument already assume that the conclusion is true",
+        "example": "Freedom of the press is one of the most important hallmarks of a modern, open society because modern, open societies value the ability of the press to report what's happening.",
+        "conclusion": "If you start from a place where the conclusion being argued is already assumed true, then you're not really making an argument at all. There is no supporting evidence. The important to note about fallacies like begging the question is that the argument they're trying to make isn't necessarily wrong; it's just poorly constructed or supported. In this case, the second half of the sentence simply restates the first half in reverse order. It would be akin to saying that the Civic is a car made by Honda because Honda makes a car called the Civic."
+    }, {
+        "index": 13,
+        "image": "some url",
+        "title": "False Dilemma",
+        "explanation": "Occurs when an argument presents two options and gives the impression that only one of them may be true, never both, and that there are no other possible options.",
+        "example": "Either Shakespeare wrote all the plays attributed to him, or Bacon did. There’s good reason to think Shakespeare didn’t write all the plays attributed to him. Therefore, Bacon wrote all the plays attributed to Shakespeare.",
+        "conclusion": "It’s possible that Shakespeare didn’t write all of the plays attributed to him, but that doesn’t mean Bacon did: there are other possibilities."
+    }, {
+        "index": 14,
+        "image": "some url",
+        "title": "Decision Point Fallacy",
+        "explanation": "Sometimes the conditions that make the use of a term appropriate vary along a continuum and there is no sharp cut off between circumstances in which the term is correctly applied and those in which it is not.",
+        "example": "One grain of wheat doesn’t make a heap. Suppose 1 million does. Take one away. Surely we still have a heap: if a million makes a heap, surely 999,999 does too. One grain can’t turn a heap into a non-heap. Take another away. Surely we still have a heap: if 999,999 does, surely 999,998 does too. One grain … etc. Take another away. Surely we still have a heap …. etc etc etc. But one grain doesn’ t make a difference,hen it seems that we will be forced to conclude that 1 grain does make a heap.But that means we can’ t talk about heaps of wheat at all: we don’ t know when we can describe a collection of grains of wheat as a heap and when we can’ t.",
+        "conclusion": "If an arguer claims that because we cannot identify a precise cut-off or decision point, we cannot distinguish between correct and incorrect uses of the term, they are arguing fallaciously. But we can tell the difference between people who are bald and not bald, between heaps and non-heaps, and embryos and babies, even if we can’t tell exactly when something stopped being one thing and became the other."
+    }, {
+        "index": 15,
+        "image": "some url",
+        "title": "The Slippery Slope Fallacy",
+        "explanation": "Arguers say that an innocent-looking first step should not be taken because once taken, it will be impossible not to take the next, and the next, and so on, until you end up in a position you don’t want to be in.",
+        "example": "Don’t get a credit card. If you do, you’ll be tempted to spend money you don’t have. Then you’ll max out your card. Then you’ll be in real debt. You’ll have to start gambling in the hope of getting a big win. But you’ll normally lose. Then you’ll have to steal money to cover your losses. Then your partner will leave you. And you won’t be able to feed the dog, and it’ll die. And it would be bad if the dog died. So you mustn’t get a credit card.",
+        "conclusion": "Slippery Slope arguments are fallacious if it is possible to stop at one of the steps: couldn’t I get a credit card with a maximum, or exercise a bit of control, or get the local animal protection society to help me feed the dog?"
+    }, {
+        "index": 16,
+        "image": "some url",
+        "title": "Hasty Generalisations",
+        "explanation": "Drawing a conclusion based on a small sample size, rather than looking at statistics that are much more in line with the typical or average situation.",
+        "example": "Andrew Wakefield claimed to have shown a correlation between the MMR vaccine, bowel disorders and autism, but – among other flaws – his research focused on children already thought to have the conditions he claimed were caused by the vaccine.",
+        "conclusion": "The claim that smoking carries significant health risks isn’t falsified by a single case and trials drawing population wide conclusions must recruit representative study-populations."
+    }, {
+        "index": 17,
+        "image": "some url",
+        "title": "Faulty Analogies",
+        "explanation": "The conclusion of an argument depends upon a comparison between two (or more) things that are not actually similar in relevant respects, or without pointing out how the two differ and why it does or does not matter.",
+        "example": "I need a new car. My last three cars have all been reliable, and they were blue. So I’m going to buy a blue car.",
+        "conclusion": "Are visits to after-hours medical clinics with a sick child analogous to visits to a gas station or a restaurant?"
+    }, {
+        "index": 18,
+        "image": "some url",
+        "title": "The Fallacy Fallacy!",
+        "explanation": "The fallacy of inferring that merely because an argument contains a fallacy, its conclusion must be false.",
+        "example": "Bob told me that I shouldn’t steal because everyone knows that stealing is wrong, but I recognised immediately that argument contained the popularity fallacy, so I concluded that it was ok to steal the apple.",
+        "conclusion": "The conclusion of an argument may be true, even if the argument contains a fallacy. Finding a fallacy just means that the arguer needs to look for other, better reasons in support of their conclusion."
+    }
+]
