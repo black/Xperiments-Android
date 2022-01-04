@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Bluetooth-Server</string>
+    <string name="storage_permission_rationale_title">TItle</string>
+    <string name="storage_permission_rationale_message">Message</string>
 </resources>
