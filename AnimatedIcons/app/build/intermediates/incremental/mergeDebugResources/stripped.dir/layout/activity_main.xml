@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GIF into Glide"/>
+    <ImageView
+        android:id="@+id/fromGif"
+        android:layout_width="54dp"
+        android:layout_height="54dp"/>
+   <View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+       android:paddingBottom="16dp"
+    android:background="@color/black"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Animated Drawable With GIF"/>
+    <ImageView
+        android:id="@+id/fromAnimatedGif"
+        android:layout_width="54dp"
+        android:layout_height="54dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingBottom="16dp"
+        android:background="@color/black"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Animated Drawable With Frames"/>
+    <ImageView
+        android:id="@+id/fromAnimatedDrawable"
+        android:layout_width="54dp"
+        android:layout_height="54dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingBottom="16dp"
+        android:background="@color/black"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Animated Drawable With Frames With Controls"/>
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggleSignals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:singleSelection="true">
+        <Button
+            android:id="@+id/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_dir_left"
+            style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+            />
+        <Button
+            android:id="@+id/right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_dir_right"
+            style="@style/Widget.App.Button.OutlinedButton.IconOnly"/>
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+    <ImageView
+        android:id="@+id/fromAnimatedDrawableWithControls"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:background="@drawable/ic_sun_0"/>
+
+</LinearLayout>

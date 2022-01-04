@@ -1,7 +1,7 @@
-com/black/xperiments/headtracking/BuildConfig.java
- com.black.xperiments.headtracking.BuildConfig
 com/black/xperiments/headtracking/databinding/FragmentHeadTrackingBinding.java
  com.black.xperiments.headtracking.databinding.FragmentHeadTrackingBinding
+com/black/xperiments/headtracking/BuildConfig.java
+ com.black.xperiments.headtracking.BuildConfig
 com/black/xperiments/headtracking/databinding/DialogEogBinding.java
  com.black.xperiments.headtracking.databinding.DialogEogBinding
 com/black/xperiments/headtracking/databinding/TileIntermediateBinding.java

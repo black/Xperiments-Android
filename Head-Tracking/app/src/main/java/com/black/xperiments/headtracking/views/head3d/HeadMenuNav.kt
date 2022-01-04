@@ -5,8 +5,6 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.RelativeLayout
@@ -19,7 +17,7 @@ class HeadMenuNav (
     respView: RecyclerView,
     context:Context,
     parent:RelativeLayout,
-    sensorViewModel: SensorViewModel
+    var sensorViewModel: SensorViewModel
 ): View(context)  {
     private var respView: RecyclerView?=null
     private var l = 300
@@ -27,10 +25,17 @@ class HeadMenuNav (
     private var pitch = 0.0f
     private var yaw = 0.0f
     private var roll = 0.0f
-    private var rollThreshold = arrayListOf(0.0f,0.0f,0.0f)
-    private var pitchThreshold = arrayListOf(0.0f,0.0f,0.0f)
+    private var rollThreshold = arrayListOf(0.0f,0.0f)
+    private var pitchThreshold = arrayListOf(0.0f,0.0f)
+    private var isSetThreshold = false
+    private var colIndex:Float = 0.0f
+    private var maxColumns  = 3
+    private var rowIndex:Float = 0.0f
+    private var maxRows = 3
+    private var speedScan = 0.01f
+    private var horizontalMargin = 10
+    private var verticalMargin = 30
     private var clicked = false
-    private var index = 0
 
     init {
         this.respView = respView
@@ -42,9 +47,7 @@ class HeadMenuNav (
         }
 
         parent.setOnClickListener {
-            clicked = true
-            rollThreshold[0] = roll
-            pitchThreshold[0] = pitch
+            isSetThreshold = true
         }
     }
 
@@ -52,25 +55,67 @@ class HeadMenuNav (
         super.onDraw(canvas)
         canvas?.let {
             it.drawColor(Color.argb(0, 0, 0, 0))
-            drawRoll(it,roll.toDouble()+90,Color.BLACK)
-            drawPitch(it,roll.toDouble()+90, pitch.toDouble()*2,Color.BLACK)
 
-            if(clicked){
-                drawRoll(it,rollThreshold[0].toDouble()+90,Color.MAGENTA)
-                drawPitch(it,roll.toDouble()+90,pitchThreshold[0].toDouble()*4, Color.CYAN)
+            val rollPos = roll+90
+            val pitchPos = pitch*4
+
+            drawRoll(it,rollPos.toDouble(),Color.BLACK)
+            drawPitch(it,rollPos.toDouble(), pitchPos.toDouble(),Color.BLACK)
+
+            // set roll thresholds
+            if(isSetThreshold){
+                rollThreshold[0] = (rollPos)-horizontalMargin
+                rollThreshold[1] = (rollPos)+horizontalMargin
+
+                pitchThreshold[0] = pitchPos-verticalMargin
+                pitchThreshold[1] = pitchPos+verticalMargin
+
+                isSetThreshold = false
             }
 
-            if(rollThreshold[0]<roll ){
-                if(index<8)index++
-                else index= 0
+            drawRoll(it,rollThreshold[0].toDouble(),Color.MAGENTA)
+            drawRoll(it,rollThreshold[1].toDouble(),Color.MAGENTA)
+
+            drawPitch(it,rollPos.toDouble(),pitchThreshold[0].toDouble(), Color.CYAN)
+            drawPitch(it,rollPos.toDouble(),pitchThreshold[1].toDouble(), Color.CYAN)
+
+            if(rollPos<rollThreshold[0]){
+                // increase the col index value
+                if(colIndex<maxColumns-1)colIndex+=speedScan
+                else colIndex = maxColumns.toFloat()-1
             }
 
-            for(i in 0..9){
-                if (index == i){
-                    highlightItem(index, 1)
-                }
-                else highlightItem(i, 0)
+            if(rollThreshold[1]<rollPos){
+                // decrease the col index value
+                if(0<colIndex) colIndex-=speedScan
+                else colIndex = 0.0f
             }
+
+            if(pitchPos<pitchThreshold[0]){
+                // decrease the row index value
+                if(0<rowIndex)rowIndex-=speedScan
+                else rowIndex = 0.0f
+            }
+
+            if(pitchThreshold[1]<pitchPos) {
+                // increase the col index value
+                if(rowIndex<maxRows-1)rowIndex+=speedScan
+                else rowIndex = maxRows.toFloat()-1
+            }
+
+            val idx = colIndex.toInt() + rowIndex.toInt()*maxColumns
+            sensorViewModel.setHighLightTileIndex(idx)
+
+//            for(i in 0..8){
+//                if (idx == i){
+//                    highlightItem(idx, 1)
+//                    if (clicked) {
+//                        clicked = false
+//                        triggerItem(0)
+//                    }
+//                }
+//                else highlightItem(i, 0)
+//            }
         }
 
         invalidate()
@@ -111,20 +156,20 @@ class HeadMenuNav (
     }
 
     // highlight
-    private fun highlightItem(position: Int, state: Int) {
-        respView?.getChildAt(position)?.apply{
-            isEnabled = state != 1
-            isPressed = state == 1
-        }
-    }
+//    private fun highlightItem(position: Int, state: Int) {
+//        respView?.getChildAt(position)?.apply{
+//            isEnabled = state != 1
+//            isPressed = state == 1
+//        }
+//    }
 
     // activate
-    private fun triggerItem(position: Int) {
-        respView?.apply {
-            getChildAt(position).isEnabled = true
-            findViewHolderForAdapterPosition(position)?.itemView?.performClick()
-        }
-    }
+//    private fun triggerItem(position: Int) {
+//        respView?.apply {
+//            getChildAt(position).isEnabled = true
+//            findViewHolderForAdapterPosition(position)?.itemView?.performClick()
+//        }
+//    }
 
 
 }

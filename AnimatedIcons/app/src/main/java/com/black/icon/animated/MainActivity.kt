@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                     if(index<4)index++
                 }
             }
-            animatedDrawableWithControls(R.drawable.animation,binding.fromAnimatedDrawableWithControls)
+            animatedDrawableWithControls(R.drawable.animation,binding.fromAnimatedDrawableWithControls,index)
         }
     }
 
@@ -56,11 +56,11 @@ class MainActivity : AppCompatActivity() {
         animatedDrawable?.start()
     }
 
-    private fun animatedDrawableWithControls(res:Int, imgView: ImageView){
+    private fun animatedDrawableWithControls(res:Int, imgView: ImageView,pos:Int){
         imgView.setBackgroundResource(res)
         val animatedDrawable: AnimationDrawable? = imgView.background as AnimationDrawable?
         //animatedDrawable?.start() // probably needed
-        animatedDrawable?.selectDrawable(index)
+        animatedDrawable?.selectDrawable(pos)
     }
 
     private fun animatedIconBuildWithCanvasToBitmap(){

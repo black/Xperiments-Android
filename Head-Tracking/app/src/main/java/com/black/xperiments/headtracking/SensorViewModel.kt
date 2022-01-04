@@ -9,6 +9,9 @@ class SensorViewModel: ViewModel()  {
     private val eogPower: MutableLiveData<Int> = MutableLiveData()
     private val eogConnect: MutableLiveData<String> = MutableLiveData()
     private val eogAllData: MutableLiveData<MemeRealtimeData> = MutableLiveData()
+    private val tileIndex: MutableLiveData<Int> = MutableLiveData()
+    private val trigger: MutableLiveData<String> = MutableLiveData()
+    private val message: MutableLiveData<String> = MutableLiveData()
 
     /*-----------------EOG------------------*/
 
@@ -29,5 +32,25 @@ class SensorViewModel: ViewModel()  {
         eogAllData.postValue(msg)
     }
     fun getEOGAllData() = eogAllData
+
+    // Tile index
+    fun setHighLightTileIndex(msg: Int) {
+        tileIndex.postValue(msg)
+    }
+    fun getHighLightTileIndex() = tileIndex
+
+
+    // Tile trigger
+    fun setTrigger(msg: String) {
+        trigger.value = msg
+    }
+    fun getTrigger() = trigger
+
+    //-----Play Message
+    fun setMessage(msg: String) {
+        message.value = msg
+    }
+
+    fun getMessage() = message
 
 }

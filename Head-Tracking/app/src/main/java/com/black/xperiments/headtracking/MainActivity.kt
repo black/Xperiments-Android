@@ -8,14 +8,12 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Vibrator
+import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.ProgressBar
+import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
@@ -35,16 +33,17 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
-import java.util.ArrayList
 import com.black.xperiments.headtracking.views.eye.EyeMovementDirection
+import java.util.*
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener  {
     private lateinit var binding: ActivityMainBinding
 
     private val TAG = "SENSORVAL"
 
     private val sensorViewModel: SensorViewModel by viewModels()
+
     /*Common variables*/
     private val handler = Handler(Looper.getMainLooper())
     private var memeLib: MemeLib? = null
@@ -57,6 +56,7 @@ class MainActivity : AppCompatActivity() {
     private var eogPowerProgressView: ProgressBar? = null
 
     private val titles = arrayOf("Eye Tracking", "Head Tracking")
+    private var engine: TextToSpeech? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -111,6 +111,12 @@ class MainActivity : AppCompatActivity() {
             })
         }
 
+        /* This is/was here because it was skipping frames*/
+        handler.postDelayed({
+            engine = TextToSpeech(this, this)
+            observers()
+        }, 200)//delayed by 200ms
+
     }
 
 
@@ -122,6 +128,24 @@ class MainActivity : AppCompatActivity() {
 
         sensorViewModel.getEOGPower().observe(this, {
             eogPowerProgressView?.progress = it
+        })
+
+        sensorViewModel.getEOGAllData().observe(this,{
+            if (eogPowerPrev!=it.powerLeft) {
+                eogPowerPrev = it.powerLeft
+                sensorViewModel.setEOGPower(it.powerLeft)
+            }
+           // pauseSystemMethod(it)
+            val blinkStrength = it.blinkStrength
+           // sensorViewModel.setBlink(blinkStrength)
+            if (blinkStrength > 20) {
+                sensorViewModel.setTrigger("head")
+            }
+        })
+
+        /* Message Player */
+        sensorViewModel.getMessage().observe(this, {
+            playMessage(it)
         })
 
     }
@@ -277,6 +301,33 @@ class MainActivity : AppCompatActivity() {
     fun vibrate() {
         val vibrator = getSystemService(VIBRATOR_SERVICE) as Vibrator
         vibrator.vibrate(320L)
+    }
+
+    private fun playMessage(msg: String) {
+        engine!!.speak(msg, TextToSpeech.QUEUE_FLUSH, null, null)
+    }
+
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            val results = engine!!.setLanguage(Locale.US)
+            if (results == TextToSpeech.LANG_MISSING_DATA
+                || results == TextToSpeech.LANG_NOT_SUPPORTED
+            ) {
+                Toast.makeText(this, "Not supported", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        destroyEngine()
+    }
+
+    private fun destroyEngine() {
+        if (engine != null) {
+            engine!!.stop()
+            engine!!.shutdown()
+        }
     }
 
 }

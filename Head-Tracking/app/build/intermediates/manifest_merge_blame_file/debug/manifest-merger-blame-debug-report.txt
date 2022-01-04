@@ -7,7 +7,7 @@
 7    <uses-sdk
 8        android:minSdkVersion="21"
 8-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Head-Tracking\app\src\main\AndroidManifest.xml
-9        android:targetSdkVersion="30" />
+9        android:targetSdkVersion="31" />
 9-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Head-Tracking\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
@@ -43,7 +43,7 @@
 22        android:allowBackup="true"
 22-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Head-Tracking\app\src\main\AndroidManifest.xml:16:9-35
 23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-23-->[androidx.core:core:1.6.0] C:\Users\abhik\.gradle\caches\transforms-3\34a13941992aa67b124a08eddf3ba8dd\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+23-->[androidx.core:core:1.7.0] C:\Users\abhik\.gradle\caches\transforms-3\d560c4a192d5cdf8e7cf8f3d0a64abaa\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 24        android:debuggable="true"
 25        android:icon="@mipmap/ic_launcher"
 25-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Head-Tracking\app\src\main\AndroidManifest.xml:17:9-43
@@ -79,6 +79,28 @@
 41-->[com.karumi:dexter:6.2.1] C:\Users\abhik\.gradle\caches\transforms-3\378109c74a6c57acae0949f36d46abce\transformed\jetified-dexter-6.2.1\AndroidManifest.xml:28:13-60
 42            android:theme="@style/Dexter.Internal.Theme.Transparent" />
 42-->[com.karumi:dexter:6.2.1] C:\Users\abhik\.gradle\caches\transforms-3\378109c74a6c57acae0949f36d46abce\transformed\jetified-dexter-6.2.1\AndroidManifest.xml:29:13-69
-43    </application>
-44
-45</manifest>
+43
+44        <provider
+44-->[androidx.emoji2:emoji2:1.0.0] C:\Users\abhik\.gradle\caches\transforms-3\e5f3204ed666cf6cbbd0d89709d75173\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+45            android:name="androidx.startup.InitializationProvider"
+45-->[androidx.emoji2:emoji2:1.0.0] C:\Users\abhik\.gradle\caches\transforms-3\e5f3204ed666cf6cbbd0d89709d75173\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+46            android:authorities="com.black.xperiments.headtracking.androidx-startup"
+46-->[androidx.emoji2:emoji2:1.0.0] C:\Users\abhik\.gradle\caches\transforms-3\e5f3204ed666cf6cbbd0d89709d75173\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+47            android:exported="false" >
+47-->[androidx.emoji2:emoji2:1.0.0] C:\Users\abhik\.gradle\caches\transforms-3\e5f3204ed666cf6cbbd0d89709d75173\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+48            <meta-data
+48-->[androidx.emoji2:emoji2:1.0.0] C:\Users\abhik\.gradle\caches\transforms-3\e5f3204ed666cf6cbbd0d89709d75173\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+49                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+49-->[androidx.emoji2:emoji2:1.0.0] C:\Users\abhik\.gradle\caches\transforms-3\e5f3204ed666cf6cbbd0d89709d75173\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+50                android:value="androidx.startup" />
+50-->[androidx.emoji2:emoji2:1.0.0] C:\Users\abhik\.gradle\caches\transforms-3\e5f3204ed666cf6cbbd0d89709d75173\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+51            <meta-data
+51-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\abhik\.gradle\caches\transforms-3\3ea8427566ab1a3f6451290689722358\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+52                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+52-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\abhik\.gradle\caches\transforms-3\3ea8427566ab1a3f6451290689722358\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+53                android:value="androidx.startup" />
+53-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\abhik\.gradle\caches\transforms-3\3ea8427566ab1a3f6451290689722358\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+54        </provider>
+55    </application>
+56
+57</manifest>

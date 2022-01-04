@@ -1,0 +1,16 @@
+com/black/icon/animated/extensions/GlideApp.java
+ com.black.icon.animated.extensions.GlideApp
+com/black/icon/animated/extensions/GlideOptions.java
+ com.black.icon.animated.extensions.GlideOptions
+com/black/icon/animated/BuildConfig.java
+ com.black.icon.animated.BuildConfig
+com/bumptech/glide/GeneratedRequestManagerFactory.java
+ com.bumptech.glide.GeneratedRequestManagerFactory
+com/bumptech/glide/GeneratedAppGlideModuleImpl.java
+ com.bumptech.glide.GeneratedAppGlideModuleImpl
+com/black/icon/animated/extensions/GlideRequests.java
+ com.black.icon.animated.extensions.GlideRequests
+com/black/icon/animated/databinding/ActivityMainBinding.java
+ com.black.icon.animated.databinding.ActivityMainBinding
+com/black/icon/animated/extensions/GlideRequest.java
+ com.black.icon.animated.extensions.GlideRequest

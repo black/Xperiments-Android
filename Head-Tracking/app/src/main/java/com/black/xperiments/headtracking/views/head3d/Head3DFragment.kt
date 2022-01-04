@@ -28,6 +28,7 @@ class Head3DFragment : Fragment(R.layout.fragment_head),
     private val sensorViewModel: SensorViewModel by activityViewModels()
     private var rvAdapter: RVTileAdapter?=null
     private var tileList = arrayListOf<FakeTile>()
+    private var clicked = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,7 +55,7 @@ class Head3DFragment : Fragment(R.layout.fragment_head),
         rvAdapter?.setOnItemClickListener(object : OnRVItemClickListener {
             override fun onItemClick(pos: Int) {
                 if (tileList.size > 0) {
-                  //  fusionViewModel.setMessage(tileList[pos].description)
+                    sensorViewModel.setMessage(tileList[pos].description)
                 }
             }
             override fun onLongItemClick(pos: Int) {
@@ -63,6 +64,35 @@ class Head3DFragment : Fragment(R.layout.fragment_head),
         })
 
         createFakeMenu()
+        observers()
+    }
+
+    private fun observers(){
+        sensorViewModel.getTrigger().observeForever{
+            if(it=="head")clicked=true
+        }
+
+        sensorViewModel.getHighLightTileIndex().observe(viewLifecycleOwner){
+            for(i in 0..tileList.size){
+                if (it == i){
+                    highlightItem(it, 1)
+                    if (clicked) {
+                        clicked = false
+                        if (tileList.size > 0) {
+                            sensorViewModel.setMessage(tileList[it].description)
+                        }
+                    }
+                }
+                else highlightItem(i, 0)
+            }
+        }
+    }
+
+    private fun highlightItem(position: Int, state: Int) {
+        binding?.responseView?.getChildAt(position)?.apply{
+            isEnabled = state != 1
+            isPressed = state == 1
+        }
     }
 
     private fun createFakeMenu(){
