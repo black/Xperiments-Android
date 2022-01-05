@@ -8,22 +8,30 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="START BT"
-        android:onClick="turnOnBluetooth"/>
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="START BT"
+            android:onClick="turnOnBluetooth"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="START SCAN"
-        android:onClick="scanBluetoothDevices"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="START SCAN"
+            android:onClick="scanBluetoothDevices"/>
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/deviceListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
+        android:layout_height="match_parent"
+        android:background="@color/black5"
+        android:layout_weight="1"
+        tools:listitem="@layout/device_view"/>
 
 </LinearLayout>

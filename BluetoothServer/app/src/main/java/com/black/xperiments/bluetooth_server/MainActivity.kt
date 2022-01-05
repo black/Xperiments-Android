@@ -2,7 +2,6 @@ package com.black.xperiments.bluetooth_server
 
 import android.Manifest
 import android.bluetooth.BluetoothDevice
-import android.content.DialogInterface
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,6 +10,11 @@ import android.os.Looper
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.black.xperiments.bluetooth_server.bluetooth.BluetoothDeviceAdapter
+import com.black.xperiments.bluetooth_server.bluetooth.BluetoothDeviceInterface
+import com.black.xperiments.bluetooth_server.bluetooth.BluetoothHelper
+import com.black.xperiments.bluetooth_server.bluetooth.OnClickListener
 import com.black.xperiments.bluetooth_server.databinding.ActivityMainBinding
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
@@ -18,18 +22,17 @@ import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 
-class MainActivity : AppCompatActivity(),BluetoothDeviceInterface {
+class MainActivity : AppCompatActivity(), BluetoothDeviceInterface {
 
     private lateinit var binding: ActivityMainBinding
 
     private var TAG = "BT_debug"
-    private val UUID = "e012079a-6bfd-11ec-90d6-0242ac120003"
 
     private val handler= Handler(Looper.getMainLooper())
     private var counter = 0
     private var time = 1L
-    private var bluetoothHelper:BluetoothHelper?=null
-    private var bluetoothDeviceAdapter:BluetoothDeviceAdapter?=null
+    private var bluetoothHelper: BluetoothHelper?=null
+    private var bluetoothDeviceAdapter: BluetoothDeviceAdapter?=null
     private var deviceList = arrayListOf<BluetoothDevice>()
 
     @RequiresApi(Build.VERSION_CODES.S)
@@ -48,18 +51,21 @@ class MainActivity : AppCompatActivity(),BluetoothDeviceInterface {
             Manifest.permission.ACCESS_FINE_LOCATION
         )
         validatePermission(permissions)
-
-        bluetoothDeviceAdapter = BluetoothDeviceAdapter(this, deviceList)
-        binding.deviceListView.apply {
-            adapter = bluetoothDeviceAdapter
-        }
-        bluetoothDeviceAdapter?.setOnItemClickListener(object :OnClickListener{
-            override fun onItemClick(pos: Int) {
-
-            }
-        })
         bluetoothHelper = BluetoothHelper(this)
         bluetoothHelper?.setBluetoothDeviceListener(this)
+
+        bluetoothDeviceAdapter = BluetoothDeviceAdapter(deviceList)
+
+        binding.deviceListView.apply {
+            layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL, false)
+            adapter = bluetoothDeviceAdapter
+        }
+
+        bluetoothDeviceAdapter?.setOnItemClickListener(object : OnClickListener {
+            override fun onItemClick(pos: Int) {
+                bluetoothHelper?.connectDevice(deviceList[pos])
+            }
+        })
     }
 
     override fun onDestroy() {
@@ -95,9 +101,11 @@ class MainActivity : AppCompatActivity(),BluetoothDeviceInterface {
     }
 
     override fun onDevice(device: BluetoothDevice) {
-         deviceList.add(device)
-         Log.d(TAG,"MainActivity ${device.address} ${device.name}")
-         bluetoothDeviceAdapter?.notifyDataSetChanged()
+        if(!deviceList.contains(device)) {
+            deviceList.add(device)
+            bluetoothDeviceAdapter?.notifyItemChanged(deviceList.size-1)
+            Log.d(TAG,"${device.address} ${device.name}")
+        }
     }
 
     private fun validatePermission(permissions: List<String>) {

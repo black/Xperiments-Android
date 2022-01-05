@@ -1,4 +1,4 @@
-package com.black.xperiments.bluetooth_server
+package com.black.xperiments.bluetooth_server.bluetooth
 
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
@@ -12,7 +12,7 @@ import android.util.Log
 class BluetoothHelper(var context:Context) {
     private var TAG = "BT_debug"
     private var bluetoothAdapter:BluetoothAdapter?=null
-    private var bluetoothDeviceInterface:BluetoothDeviceInterface?=null
+    private var bluetoothDeviceInterface: BluetoothDeviceInterface?=null
 
     init {
         val bluetoothManager = context.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
@@ -26,28 +26,6 @@ class BluetoothHelper(var context:Context) {
 
     fun stopBlueTooth(){
         context.unregisterReceiver(broadCastReceiver)
-    }
-
-    private val broadCastReceiver:BroadcastReceiver  = object: BroadcastReceiver() {
-        override fun onReceive(context: Context?, intent: Intent?) {
-                val action = intent?.action
-                if(action==BluetoothAdapter.ACTION_STATE_CHANGED){
-                    when(intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,BluetoothAdapter.ERROR)){
-                        BluetoothAdapter.STATE_OFF ->{
-                            Log.d(TAG,"OFF")
-                        }
-                        BluetoothAdapter.STATE_TURNING_OFF ->{
-                            Log.d(TAG,"TURNING OFF")
-                        }
-                        BluetoothAdapter.STATE_ON ->{
-                            Log.d(TAG,"ON")
-                        }
-                        BluetoothAdapter.STATE_TURNING_ON ->{
-                            Log.d(TAG,"TURNING ON")
-                        }
-                    }
-                }
-        }
     }
 
     private fun checkBlueTooth(){
@@ -74,6 +52,35 @@ class BluetoothHelper(var context:Context) {
         context.registerReceiver(deviceDiscoveryBroadCastReceiver,discoverDeviceIntentFinished)
     }
 
+    fun connectDevice(device: BluetoothDevice){
+        bluetoothAdapter?.cancelDiscovery()
+        device.createBond()
+    }
+
+    // Check Bluetooth State broadcast receiver
+    private val broadCastReceiver:BroadcastReceiver  = object: BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            val action = intent?.action
+            if(action==BluetoothAdapter.ACTION_STATE_CHANGED){
+                when(intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,BluetoothAdapter.ERROR)){
+                    BluetoothAdapter.STATE_OFF ->{
+                        Log.d(TAG,"OFF")
+                    }
+                    BluetoothAdapter.STATE_TURNING_OFF ->{
+                        Log.d(TAG,"TURNING OFF")
+                    }
+                    BluetoothAdapter.STATE_ON ->{
+                        Log.d(TAG,"ON")
+                    }
+                    BluetoothAdapter.STATE_TURNING_ON ->{
+                        Log.d(TAG,"TURNING ON")
+                    }
+                }
+            }
+        }
+    }
+
+    // Discover broadcast receiver
     private val deviceDiscoveryBroadCastReceiver:BroadcastReceiver  = object: BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val action = intent?.action
@@ -83,6 +90,27 @@ class BluetoothHelper(var context:Context) {
             }else if(action==BluetoothAdapter.ACTION_DISCOVERY_FINISHED){
                 Log.d(TAG,"Helper Discovery Ended")
             }
+        }
+    }
+
+    // Pairing broadcast receiver
+    private val devicePairBroadCastReceiver:BroadcastReceiver  = object: BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            val action = intent?.action
+            if(action==BluetoothDevice.ACTION_BOND_STATE_CHANGED){
+                val device: BluetoothDevice  = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)!!
+                when(device.bondState){
+                    BluetoothDevice.BOND_BONDED ->{
+                        Log.d(TAG,"Connected")
+                    }
+                    BluetoothDevice.BOND_BONDING ->{
+                        Log.d(TAG,"Connecting")
+                    }
+                    BluetoothDevice.BOND_NONE ->{
+                        Log.d(TAG,"Disconnected")
+                    }
+                }
+          }
         }
     }
 
