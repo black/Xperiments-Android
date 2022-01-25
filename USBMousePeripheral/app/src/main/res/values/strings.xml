@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">USB Mouse Peripheral</string>
+    <string name="storage_permission_rationale_title">Title</string>
+    <string name="storage_permission_rationale_message">Message</string>
+</resources>

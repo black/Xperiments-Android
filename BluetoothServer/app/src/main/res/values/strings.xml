@@ -2,4 +2,9 @@
     <string name="app_name">Bluetooth-Server</string>
     <string name="storage_permission_rationale_title">TItle</string>
     <string name="storage_permission_rationale_message">Message</string>
+
+    <string name="char_uuid_emergency">SomeValue</string>
+    <string name="char_uuid_emergency_call">SomeValue</string>
+    <string name="char_uuid_missed_calls">SomeValue</string>
+    <string name="btn_scan">SCAN</string>
 </resources>

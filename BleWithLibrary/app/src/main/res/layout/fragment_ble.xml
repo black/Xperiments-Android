@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".BleFragment">
+    <RelativeLayout
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/activationType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BLE Devices"
+            android:textAllCaps="true"
+            android:layout_centerVertical="true"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/startData"
+            android:layout_toStartOf="@+id/dismissFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:text="START"/>
+
+        <ImageView
+            android:id="@+id/dismissFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:background="@drawable/ic_baseline_close_24"
+            android:padding="8dp" />
+    </RelativeLayout>
+    <ProgressBar
+        android:layout_below="@+id/titleBar"
+        android:id="@+id/scanProgress"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:indeterminate="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_marginBottom="16dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/scanProgress"
+        android:id="@+id/deviceListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/device_view"/>
+</RelativeLayout>

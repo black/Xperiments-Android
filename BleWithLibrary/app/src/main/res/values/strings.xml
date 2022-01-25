@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BleWithLibrary</string>
+    <string name="storage_permission_rationale_title">Titile</string>
+    <string name="storage_permission_rationale_message">Message</string>
+    <string name="action_scan">SCAN</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

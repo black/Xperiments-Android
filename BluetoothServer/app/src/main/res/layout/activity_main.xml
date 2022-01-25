@@ -8,30 +8,119 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btn_scan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="START BT"
-            android:onClick="turnOnBluetooth"/>
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/btn_scan" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:text="START SCAN"
-            android:onClick="scanBluetoothDevices"/>
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/deviceListView"
+    <Button
+        android:id="@+id/btn_read_connection"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black5"
-        android:layout_weight="1"
-        tools:listitem="@layout/device_view"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_scan"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:text="Read CONNECTION " />
+
+
+    <Button
+        android:id="@+id/btn_read_emergency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_read_connection"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="READ EMERGENCY" />
+
+    <Button
+        android:id="@+id/btn_read_battery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_read_emergency"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="READ BATTERY" />
+
+    <Button
+        android:id="@+id/btn_write_emergency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/btn_read_battery"
+        android:layout_marginBottom="8dp"
+        android:text="Write Emergency"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+    <Button
+        android:id="@+id/btn_write_connection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/btn_write_emergency"
+        android:layout_marginBottom="8dp"
+        android:text="Write Connection"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/btn_write_battery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/btn_write_connection"
+        android:layout_marginBottom="8dp"
+        android:text="Write Battery Level"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_write_battery"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView" />
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="START BT"-->
+<!--            android:onClick="turnOnBluetooth"/>-->
+
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="8dp"-->
+<!--            android:text="START SCAN"-->
+<!--            android:onClick="scanBluetoothDevices"/>-->
+<!--    </LinearLayout>-->
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/deviceListView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@color/black5"-->
+<!--        android:layout_weight="1"-->
+<!--        tools:listitem="@layout/device_view"/>-->
 
 </LinearLayout>
