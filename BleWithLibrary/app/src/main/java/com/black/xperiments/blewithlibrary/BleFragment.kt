@@ -1,9 +1,6 @@
 package com.black.xperiments.blewithlibrary
 
-import android.bluetooth.BluetoothDevice
-import android.bluetooth.BluetoothGatt
-import android.bluetooth.BluetoothGattCharacteristic
-import android.bluetooth.BluetoothProfile
+import android.bluetooth.*
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -21,7 +18,6 @@ import com.ederdoski.simpleble.interfaces.BleCallback
 import com.ederdoski.simpleble.models.BluetoothLE
 import com.ederdoski.simpleble.utils.BluetoothLEHelper
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import java.lang.Byte.decode
 import java.util.*
 
 
@@ -34,15 +30,15 @@ class BleFragment : BottomSheetDialogFragment(),
     private var handler = Handler(Looper.getMainLooper())
 
     // EOG Sensor UUID and Characteristics
-    private var ADVERTISE_SERVICE_EOG_UUID = "f5dc3761-ce15-4449-8cfa-7af6ad175056"
-    private var READ_EOG_CHARACTERISTIC_UUID = "f5dc3764-ce15-4449-8cfa-7af6ad175056"
-    private var WRITABLE_EOG_CHARACTERISTIC_UUID = "f5dc3762-ce15-4449-8cfa-7af6ad175056"
+//    private var ADVERTISE_SERVICE_EOG_UUID = "f5dc3761-ce15-4449-8cfa-7af6ad175056"
+//    private var READ_EOG_CHARACTERISTIC_UUID = "f5dc3764-ce15-4449-8cfa-7af6ad175056"
+//    private var WRITABLE_EOG_CHARACTERISTIC_UUID = "f5dc3762-ce15-4449-8cfa-7af6ad175056"
 
 //    EEG Sensor UUID and Characteristics
-//    private var ADVERTISE_SERVICE_EEG_UUID = "6e400001-b5a3-f393-e0a9-e50e24dcca9e"
-//    private var NOTIFICATION_EEG_CHARACTERISTIC_UUID = "6e400003-b5a3-f393-e0a9-e50e24dcca9e"
-//    private var WRITABLE_EEG_CHARACTERISTIC_UUID = "6e400002-b5a3-f393-e0a9-e50e24dcca9e"
-//    private var DESCRIPTORS_EEG_CHARACTERISTIC_UUID = "00002902-0000-1000-8000-00805f9b34fb"
+    private var ADVERTISE_SERVICE_EEG_UUID = "6e400001-b5a3-f393-e0a9-e50e24dcca9e"
+    private var NOTIFICATION_EEG_CHARACTERISTIC_UUID = "6e400003-b5a3-f393-e0a9-e50e24dcca9e"
+    private var WRITABLE_EEG_CHARACTERISTIC_UUID = "6e400002-b5a3-f393-e0a9-e50e24dcca9e"
+    private var DESCRIPTORS_EEG_CHARACTERISTIC_UUID = "00002902-0000-1000-8000-00805f9b34fb"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,29 +52,30 @@ class BleFragment : BottomSheetDialogFragment(),
 
         binding?.startData?.setOnClickListener {
             if (bleHelper?.isConnected == true) {
-                bleHelper?.read(ADVERTISE_SERVICE_EOG_UUID, READ_EOG_CHARACTERISTIC_UUID)
-                val aBytes = ByteArray(20)
-                aBytes[0] = (0x14 and 0xFF).toByte()
-                aBytes[1] = (0x24 and 0xFF).toByte()
-                aBytes[2] = (0x96 and 0xFF).toByte()
-                aBytes[3] = (0x7F and 0xFF).toByte()
-                aBytes[4] = (0x3F and 0xFF).toByte()
-                aBytes[5] = (0x6B and 0xFF).toByte()
-                aBytes[6] = (0x7F and 0xFF).toByte()
-                aBytes[7] = (0x6C and 0xFF).toByte()
-                aBytes[8] = (0x9B and 0xFF).toByte()
-                aBytes[9] = (0xFF and 0xFF).toByte()
-                aBytes[10] = (0x88 and 0xFF).toByte()
-                aBytes[11] = (0x6F and 0xFF).toByte()
-                aBytes[12] = (0xC5 and 0xFF).toByte()
-                aBytes[13] = (0xB4 and 0xFF).toByte()
-                aBytes[14] = (0x60 and 0xFF).toByte()
-                aBytes[15] = (0x44 and 0xFF).toByte()
-                aBytes[16] = (0xE0 and 0xFF).toByte()
-                aBytes[17] = (0x87 and 0xFF).toByte()
-                aBytes[18] = (0x06 and 0xFF).toByte()
-                aBytes[19] = (0x00 and 0xFF).toByte()
-                bleHelper?.write(ADVERTISE_SERVICE_EOG_UUID, WRITABLE_EOG_CHARACTERISTIC_UUID, aBytes)
+                bleHelper?.read(ADVERTISE_SERVICE_EEG_UUID, NOTIFICATION_EEG_CHARACTERISTIC_UUID)
+                bleHelper?.write(ADVERTISE_SERVICE_EEG_UUID,NOTIFICATION_EEG_CHARACTERISTIC_UUID,BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE)
+//                val aBytes = ByteArray(20)
+//                aBytes[0] = (0x14 and 0xFF).toByte()
+//                aBytes[1] = (0x24 and 0xFF).toByte()
+//                aBytes[2] = (0x96 and 0xFF).toByte()
+//                aBytes[3] = (0x7F and 0xFF).toByte()
+//                aBytes[4] = (0x3F and 0xFF).toByte()
+//                aBytes[5] = (0x6B and 0xFF).toByte()
+//                aBytes[6] = (0x7F and 0xFF).toByte()
+//                aBytes[7] = (0x6C and 0xFF).toByte()
+//                aBytes[8] = (0x9B and 0xFF).toByte()
+//                aBytes[9] = (0xFF and 0xFF).toByte()
+//                aBytes[10] = (0x88 and 0xFF).toByte()
+//                aBytes[11] = (0x6F and 0xFF).toByte()
+//                aBytes[12] = (0xC5 and 0xFF).toByte()
+//                aBytes[13] = (0xB4 and 0xFF).toByte()
+//                aBytes[14] = (0x60 and 0xFF).toByte()
+//                aBytes[15] = (0x44 and 0xFF).toByte()
+//                aBytes[16] = (0xE0 and 0xFF).toByte()
+//                aBytes[17] = (0x87 and 0xFF).toByte()
+//                aBytes[18] = (0x06 and 0xFF).toByte()
+//                aBytes[19] = (0x00 and 0xFF).toByte()
+//                bleHelper?.write(ADVERTISE_SERVICE_EOG_UUID, WRITABLE_EOG_CHARACTERISTIC_UUID, aBytes)
             }
         }
 

@@ -20,6 +20,7 @@ class BleDeviceAdapter(private var deviceList: MutableList<BluetoothLE>
     override fun onBindViewHolder(holder: ContentViewHolder, position: Int) {
         holder.address.text = deviceList[position].macAddress
         holder.name.text = deviceList[position].name
+        holder.rssi.text = "${deviceList[position].rssi}"
     }
 
     override fun getItemCount(): Int = deviceList.size
@@ -28,6 +29,7 @@ class BleDeviceAdapter(private var deviceList: MutableList<BluetoothLE>
         RecyclerView.ViewHolder(itemView) {
         val address: TextView = itemView.findViewById(R.id.deviceAddress)
         val name: TextView = itemView.findViewById(R.id.deviceName)
+        val rssi: TextView = itemView.findViewById(R.id.deviceRssi)
         init {
             itemView.setOnClickListener { v: View ->
                 val position: Int = adapterPosition
