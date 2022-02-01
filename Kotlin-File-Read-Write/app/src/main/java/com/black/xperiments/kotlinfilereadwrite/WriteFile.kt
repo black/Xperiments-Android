@@ -14,7 +14,7 @@ class WriteFile(var context: Context) {
 
     }
 
-    // check if file exists ?
+    // check if file exists ?ye
     fun checkDirectory(fileName:String): File? {
         var file = Environment.getExternalStorageDirectory()
         file = File(file,context.getString(R.string.app_name))

@@ -1,4 +1,4 @@
-package com.black.xperiments.eegchannelfour.blemodule
+package com.black.xperiments.bluetooth_server.blemodule
 
 class BleConstant {
     companion object {

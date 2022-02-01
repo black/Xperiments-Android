@@ -2,13 +2,10 @@ package com.black.xperiments.bluetooth_server.blemodule
 
 import android.app.Service
 import android.bluetooth.*
-import android.content.Context
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
 import android.util.Log
-import com.black.xperiments.eegchannelfour.blemodule.BleConnectionManager
-import com.black.xperiments.eegchannelfour.blemodule.BleConstant
 import java.util.*
 import kotlin.experimental.and
 

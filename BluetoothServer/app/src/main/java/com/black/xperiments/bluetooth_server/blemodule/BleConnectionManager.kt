@@ -1,4 +1,4 @@
-package com.black.xperiments.eegchannelfour.blemodule
+package com.black.xperiments.bluetooth_server.blemodule
 
 import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothGattCharacteristic.*
@@ -9,7 +9,6 @@ import android.content.ServiceConnection
 import android.os.IBinder
 import android.util.Log
 import com.black.xperiments.bluetooth_server.R
-import com.black.xperiments.bluetooth_server.blemodule.BLEService
 
 object BleConnectionManager {
     private val TAG = "BLEConnectionManager"
