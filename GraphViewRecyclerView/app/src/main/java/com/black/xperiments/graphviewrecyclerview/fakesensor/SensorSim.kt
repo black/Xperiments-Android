@@ -16,7 +16,7 @@ class SensorSim constructor(
     }
 
     // speed
-    fun starSensor(){
+    fun startSensor(){
         handler.postDelayed(runnable, 0)
     }
 
@@ -26,13 +26,8 @@ class SensorSim constructor(
 
     private val runnable: Runnable = object : Runnable {
         override fun run() {
-            handler.postDelayed(this, time * 100)
-            sensorStream?.dataA(random()*100)
-            sensorStream?.dataB(random()*100)
-            sensorStream?.dataC(random()*100)
-            sensorStream?.dataD(random()*100)
-            sensorStream?.dataE(random()*100)
-//            Log.d("GraphViewRecyclerView","Sensor sim $signal")
+            handler.postDelayed(this, time)
+            sensorStream?.onData(arrayListOf<Double>(random()*100,random()*100,random()*100,random()*100))
         }
     }
 

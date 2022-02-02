@@ -22,8 +22,6 @@ class RecyclerViewGraphViewAdapter(
     RecyclerView.Adapter<RecyclerViewGraphViewAdapter.ContentViewHolder>() {
     private var onItemClickListener: OnItemClickListener? = null
     private var graphPlotters = GraphPlotters(context)
-    private var upperThreshold:Float = 20.0f
-    private var lowerThreshold:Float = -20.0f
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContentViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.layout_graphview, parent, false)
@@ -33,11 +31,11 @@ class RecyclerViewGraphViewAdapter(
     override fun onBindViewHolder(holder: ContentViewHolder, position: Int) {
         val currentItem = graphViewDataList[position]
         holder.titleView.text = currentItem.title
+        holder.leftValue.text = currentItem.lower.toString().take(6)
+        holder.rightValue.text = currentItem.upper.toString().take(6)
         holder.thresholdSeek.apply {
-           // values = listOf<Float>(fusionData.eyeThreshold[0],fusionData.eyeThreshold[1])
+            values = listOf<Float>(currentItem.lower,currentItem.upper)
             addOnChangeListener { rangeSlider, value, fromUser ->
-                lowerThreshold = rangeSlider.values[0]
-                upperThreshold = rangeSlider.values[1]
                 holder.leftValue.text = rangeSlider.values[0].toString().take(6)
                 holder.rightValue.text = rangeSlider.values[1].toString().take(6)
                 onItemClickListener?.onRangeSliderChange(position, rangeSlider.values[0],rangeSlider.values[1])
@@ -45,19 +43,15 @@ class RecyclerViewGraphViewAdapter(
         }
 
         holder.switchView.isChecked  = currentItem.state
-/*
-        holder.switchView.setOnCheckedChangeListener { buttonView, isChecked ->
-            onItemClickListener?.onSwitchChange(position,isChecked)
-        }*/
 
-        graphPlotters.setSeries(currentItem.signalSeries[0], R.color.brand, 3, R.color.brand)
-        graphPlotters.setSeries(currentItem.signalSeries[1], R.color.positive, 3, R.color.positive)
-        graphPlotters.setSeries(currentItem.signalSeries[2], R.color.positive, 3, R.color.positive)
+        graphPlotters.setSeries(currentItem.signalSeries, R.color.brand, 3, R.color.brand)
+        graphPlotters.setSeries(currentItem.lowerThresholdSeries, R.color.positive, 3, R.color.positive)
+        graphPlotters.setSeries(currentItem.upperThresholdSeries, R.color.positive, 3, R.color.positive)
 
         holder.graphView.apply {
-            addSeries(currentItem.signalSeries[0]) // signal
-            addSeries(currentItem.signalSeries[1]) // lowerThreshold
-            addSeries(currentItem.signalSeries[2]) // upperThreshold
+            addSeries(currentItem.signalSeries) // signal
+            addSeries(currentItem.lowerThresholdSeries) // lowerThreshold
+            addSeries(currentItem.upperThresholdSeries) // upperThreshold
             graphPlotters.setGraph(this, 100, currentItem.title)
         }
     }
@@ -65,26 +59,6 @@ class RecyclerViewGraphViewAdapter(
     override fun getItemCount(): Int {
         return graphViewDataList.size
     }
-
-    fun updateSeries(pos:Int,signal:Double, ticker: Double){
-        graphViewDataList[pos].signalSeries[0].appendData(
-            DataPoint(ticker, signal),
-            true,
-            100
-        )
-        graphViewDataList[pos].signalSeries[1].appendData(
-            DataPoint(ticker, lowerThreshold.toDouble()),
-            true,
-            100
-        )
-        graphViewDataList[pos].signalSeries[2].appendData(
-            DataPoint(ticker, upperThreshold.toDouble()),
-            true,
-            100
-        )
-        notifyItemChanged(pos)
-    }
-
 
     inner class ContentViewHolder(itemView: View, listener: OnItemClickListener) :
         RecyclerView.ViewHolder(itemView) {
@@ -113,12 +87,6 @@ class RecyclerViewGraphViewAdapter(
         }
 
     }
-
-//    override fun getItemViewType(position: Int): Int {
-//        return when(position){
-//            0-
-//        }
-//    }
 
     fun setOnItemClickListener(listener: OnItemClickListener) {
         onItemClickListener = listener

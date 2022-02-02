@@ -2,37 +2,19 @@ package com.black.xperiments.graphviewrecyclerview
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.black.xperiments.graphviewrecyclerview.models.FusionStateData
 
-class SomeViewModel:ViewModel() {
-    private val sensorA: MutableLiveData<Int> = MutableLiveData()
-    private val sensorB: MutableLiveData<Int> = MutableLiveData()
-    private val sensorC: MutableLiveData<Int> = MutableLiveData()
-    private val sensorD: MutableLiveData<Int> = MutableLiveData()
-    private val sensorE: MutableLiveData<Int> = MutableLiveData()
 
-    fun setSensorA(msg: Int) {
-        sensorA.postValue(msg)
+class SomeViewModel: ViewModel() {
+    private val sensorData: MutableLiveData<ArrayList<Double>> = MutableLiveData()
+    private val fusionStateData: MutableLiveData<FusionStateData> = MutableLiveData()
+    fun setSensorData(msg: ArrayList<Double>) {
+        sensorData.postValue(msg)
     }
-    fun getSensorA() = sensorA
+    fun getSensorData() = sensorData
 
-    fun setSensorB(msg: Int) {
-        sensorB.postValue(msg)
+    fun setFusionState(data: FusionStateData) {
+        fusionStateData.postValue(data)
     }
-    fun getSensorB() = sensorB
-
-    fun setSensorC(msg: Int) {
-        sensorC.postValue(msg)
-    }
-    fun getSensorC() = sensorC
-
-    fun setSensorD(msg: Int) {
-        sensorD.postValue(msg)
-    }
-    fun getSensorD() = sensorD
-
-    fun setSensorE(msg: Int) {
-        sensorE.postValue(msg)
-    }
-    fun getSensorE() = sensorE
-
+    fun getFusionState() = fusionStateData
 }
