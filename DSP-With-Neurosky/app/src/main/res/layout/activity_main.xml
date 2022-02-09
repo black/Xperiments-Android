@@ -14,6 +14,11 @@
         android:layout_height="200dp" />
 
     <com.jjoe64.graphview.GraphView
+        android:id="@+id/filteredView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <com.jjoe64.graphview.GraphView
         android:id="@+id/fftView"
         android:layout_width="match_parent"
         android:layout_height="200dp" />

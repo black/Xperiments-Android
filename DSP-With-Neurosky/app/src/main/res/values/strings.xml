@@ -8,4 +8,5 @@
     <string name="psd">PSD</string>
     <string name="fft">FFT</string>
     <string name="raw">RAW</string>
+    <string name="filterSignal">FILTER</string>
 </resources>

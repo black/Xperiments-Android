@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list_analysis">
+        <item>@string/raw</item>
+        <item>@string/filterSignal</item>
+        <item>@string/fft</item>
+        <item>@string/psd</item>
+        <item>@string/bands</item>
+    </string-array>
+</resources>

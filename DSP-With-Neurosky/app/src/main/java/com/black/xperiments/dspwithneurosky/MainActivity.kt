@@ -2,17 +2,16 @@ package com.black.xperiments.dspwithneurosky
 
 import android.Manifest
 import android.content.DialogInterface
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ProgressBar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.black.xperiments.dspwithneurosky.databinding.ActivityMainBinding
 import com.black.xperiments.dspwithneurosky.extensions.GraphPlotters
@@ -32,6 +31,8 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import kotlin.math.sin
+
 
 class MainActivity : AppCompatActivity() {
     private val TAG  = "DSP_EEG"
@@ -43,7 +44,6 @@ class MainActivity : AppCompatActivity() {
     private var powerProgressView: ProgressBar? = null
     private var eeg_sensor = "not_found"
 
-
     // Graph Plotting
     private var seriesSignal = arrayListOf<LineGraphSeries<DataPoint>>()
     private var graph2LastSignalValue = arrayListOf<Double>()
@@ -51,19 +51,30 @@ class MainActivity : AppCompatActivity() {
     private var graphPlotters: GraphPlotters? = null
 
     // Signal Processing
-    private var signal = doubleArrayOf()
+
+    /*
+     Define EEG bands
+     eeg_bands = {
+     'Delta': (1, 4),
+     'Theta': (4, 8),
+     'Alpha': (8, 12),
+     'Beta': (12, 30),
+     'Gamma': (30, 45)
+     }
+    */
     private var fs:Int = 512
     private var sampleSize = fs
+    private var signal = arrayListOf<Double>()
     private var order:Int = 4
-    private var lowCutOff:Int = 2 // Hz
-    private var highCutOff:Int = 50 // Hz
-    private var filter:Butterworth?=null
+    private var lowCutOff:Int = 12 // Hz
+    private var highCutOff:Int = 30  // Hz
     private var index  = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         /*Permissions*/
         val permissions = listOf(
             Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -74,31 +85,35 @@ class MainActivity : AppCompatActivity() {
             Manifest.permission.READ_EXTERNAL_STORAGE,
         )
         validatePermission(permissions)
-        graphPlotters = GraphPlotters(this)
+
         try {
             LinkManager.init(this)
         } catch (e: Exception) {
             e.printStackTrace()
         }
 
-        for(i in 0..3){
+        // serial data
+        graphPlotters = GraphPlotters(this)
+        val analysisList = resources.getStringArray(R.array.list_analysis)
+
+//        analysisList.forEachIndexed { index, signalAnalysis ->
+//            initGraphs(signalAnalysis, binding.rawView,index)
+//        }
+
+        for(i in 0..4){
             seriesSignal.add(LineGraphSeries<DataPoint>())
             graph2LastSignalValue.add(5.0)
         }
 
         initGraphs(resources.getString(R.string.raw), binding.rawView,0)
-        initGraphs(resources.getString(R.string.fft),binding.fftView,1)
-        initGraphs(resources.getString(R.string.psd), binding.psdView,2)
-        initGraphs(resources.getString(R.string.bands),binding.bandsView,3)
-
-        filter = Butterworth(signal,fs.toDouble())
-
+        initGraphs(resources.getString(R.string.filterSignal),binding.filteredView,1)
+        initGraphs(resources.getString(R.string.fft),binding.fftView,2)
+        initGraphs(resources.getString(R.string.psd), binding.psdView,3)
+        initGraphs(resources.getString(R.string.bands),binding.bandsView,4)
     }
 
-    // LayoutSignalGraphBinding
-
-    private fun initGraphs(signalTitle: String, graphView:GraphView ,pos:Int) {
-        graphPlotters?.setSeries(seriesSignal[pos], R.color.brand, 3, R.color.brand)
+    private fun initGraphs(signalTitle: String, graphView:GraphView, pos:Int) {
+        graphPlotters?.setSeries(seriesSignal[pos], R.color.brand, 1, R.color.brand)
         graphView.apply {
             addSeries(seriesSignal[pos])
             graphPlotters?.setGraph(this, 512, signalTitle)
@@ -110,7 +125,6 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
-
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
         powerProgressView =
@@ -179,16 +193,14 @@ class MainActivity : AppCompatActivity() {
                 true,
                 512
             )
-            if(index<sampleSize) {
-                // signal[index] = it.toDouble()
-                val resultSignal  = filter?.bandPassFilter(order, lowCutOff.toDouble(),highCutOff.toDouble())
-                Log.d(TAG,"$resultSignal")
-                // https://jdsp.dev/filters.html
-                // seriesSignal[1].appendData(DataPoint(graph2LastSignalValue[0],resultSignal),true,512)
-                index++
-            }else index = 0
-
             graph2LastSignalValue[0] += 1.0
+
+            if(signal.size<sampleSize){
+                signal.add(it.toDouble())
+            }else{
+                getFilteredSignal(signal)
+                signal.removeAll{it<signal.size/2}
+            }
         }
     }
 
@@ -196,8 +208,38 @@ class MainActivity : AppCompatActivity() {
         get() = if (this) 1 else 0
 
 
-    /*---- EEG Sensor -------*/
+    private fun applyFilter(signal:DoubleArray):DoubleArray{
+        val filter = Butterworth(signal,fs.toDouble())
+        return filter.bandPassFilter(order, lowCutOff.toDouble(),highCutOff.toDouble())
+    }
 
+    private fun getFFT(){
+    }
+
+    private fun analysed(sample:DoubleArray): Array<DataPoint?> {
+        val count = sample.size
+        val values = arrayOfNulls<DataPoint>(count)
+        for (i in 0 until count) {
+            val x = i.toDouble()
+            val y: Double = sample[i]
+            val v = DataPoint(x, y)
+            values[i] = v
+        }
+        return values
+    }
+
+    private fun getFilteredSignal(sample:ArrayList<Double>){
+        val transformedSample = sample.toDoubleArray()
+        seriesSignal[1].resetData(analysed(applyFilter(transformedSample)))
+    }
+
+    private fun getBands(sample:DoubleArray){
+
+    }
+
+
+
+    /*---- EEG Sensor -------*/
     private var eegListener: EEGPowerDataListener = object : EEGPowerDataListener {
         override fun onBrainWavedata(s: String?, brainWave: BrainWave?) {
             handler.post {
@@ -291,7 +333,6 @@ class MainActivity : AppCompatActivity() {
     fun disConnectSensor(view: View?) {
         LinkManager.getInstance().close()
     }
-
 
     private fun validatePermission(permissions: List<String>) {
         Dexter.withContext(this)
