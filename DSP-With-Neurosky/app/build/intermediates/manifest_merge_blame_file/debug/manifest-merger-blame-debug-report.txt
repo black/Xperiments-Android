@@ -1,0 +1,114 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.black.xperiments.dspwithneurosky"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+11-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:5:5-79
+11-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:5:22-76
+12    <uses-permission android:name="android.permission.BLUETOOTH" />
+12-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:6:5-68
+12-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:6:22-65
+13    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+13-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:7:5-74
+13-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:7:22-71
+14    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+14-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:8:5-81
+14-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:8:22-78
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+15-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:9:5-79
+15-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:9:22-76
+16    <uses-permission android:name="android.permission.VIBRATE" />
+16-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:10:5-66
+16-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:10:22-63
+17    <uses-permission android:name="android.permission.INTERNET" />
+17-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:11:5-67
+17-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:11:22-64
+18
+19    <application
+19-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:12:5-28:19
+20        android:allowBackup="true"
+20-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:13:9-35
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->[androidx.core:core:1.7.0] C:\Users\Black\.gradle\caches\transforms-3\adacc4bbdca3c037c01e5031782c646c\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+22        android:debuggable="true"
+23        android:icon="@mipmap/ic_launcher"
+23-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:14:9-43
+24        android:label="@string/app_name"
+24-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:15:9-41
+25        android:roundIcon="@mipmap/ic_launcher_round"
+25-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:16:9-54
+26        android:supportsRtl="true"
+26-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:17:9-35
+27        android:testOnly="true"
+28        android:theme="@style/Theme.DSPWithNeurosky" >
+28-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:18:9-53
+29        <activity
+29-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:19:9-27:20
+30            android:name="com.black.xperiments.dspwithneurosky.MainActivity"
+30-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:20:13-41
+31            android:exported="true" >
+31-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:21:13-36
+32            <intent-filter>
+32-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:22:13-26:29
+33                <action android:name="android.intent.action.MAIN" />
+33-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:23:17-69
+33-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:23:25-66
+34
+35                <category android:name="android.intent.category.LAUNCHER" />
+35-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:25:17-77
+35-->C:\Users\Black\Desktop\GitHub\Android-Xperiments\DSP-With-Neurosky\app\src\main\AndroidManifest.xml:25:27-74
+36            </intent-filter>
+37        </activity>
+38
+39        <uses-library
+39-->[androidx.window:window:1.0.0] C:\Users\Black\.gradle\caches\transforms-3\1059f126906fc174061bb0dd50a3f15f\transformed\jetified-window-1.0.0\AndroidManifest.xml:25:9-27:40
+40            android:name="androidx.window.extensions"
+40-->[androidx.window:window:1.0.0] C:\Users\Black\.gradle\caches\transforms-3\1059f126906fc174061bb0dd50a3f15f\transformed\jetified-window-1.0.0\AndroidManifest.xml:26:13-54
+41            android:required="false" />
+41-->[androidx.window:window:1.0.0] C:\Users\Black\.gradle\caches\transforms-3\1059f126906fc174061bb0dd50a3f15f\transformed\jetified-window-1.0.0\AndroidManifest.xml:27:13-37
+42        <uses-library
+42-->[androidx.window:window:1.0.0] C:\Users\Black\.gradle\caches\transforms-3\1059f126906fc174061bb0dd50a3f15f\transformed\jetified-window-1.0.0\AndroidManifest.xml:28:9-30:40
+43            android:name="androidx.window.sidecar"
+43-->[androidx.window:window:1.0.0] C:\Users\Black\.gradle\caches\transforms-3\1059f126906fc174061bb0dd50a3f15f\transformed\jetified-window-1.0.0\AndroidManifest.xml:29:13-51
+44            android:required="false" />
+44-->[androidx.window:window:1.0.0] C:\Users\Black\.gradle\caches\transforms-3\1059f126906fc174061bb0dd50a3f15f\transformed\jetified-window-1.0.0\AndroidManifest.xml:30:13-37
+45
+46        <activity
+46-->[com.karumi:dexter:6.2.1] C:\Users\Black\.gradle\caches\transforms-3\10bb6b50e708637f88e7b6e96065cda1\transformed\jetified-dexter-6.2.1\AndroidManifest.xml:27:9-29:72
+47            android:name="com.karumi.dexter.DexterActivity"
+47-->[com.karumi:dexter:6.2.1] C:\Users\Black\.gradle\caches\transforms-3\10bb6b50e708637f88e7b6e96065cda1\transformed\jetified-dexter-6.2.1\AndroidManifest.xml:28:13-60
+48            android:theme="@style/Dexter.Internal.Theme.Transparent" />
+48-->[com.karumi:dexter:6.2.1] C:\Users\Black\.gradle\caches\transforms-3\10bb6b50e708637f88e7b6e96065cda1\transformed\jetified-dexter-6.2.1\AndroidManifest.xml:29:13-69
+49
+50        <provider
+50-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Black\.gradle\caches\transforms-3\914af07b2490dc878f01326ae2aa49a5\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+51            android:name="androidx.startup.InitializationProvider"
+51-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Black\.gradle\caches\transforms-3\914af07b2490dc878f01326ae2aa49a5\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+52            android:authorities="com.black.xperiments.dspwithneurosky.androidx-startup"
+52-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Black\.gradle\caches\transforms-3\914af07b2490dc878f01326ae2aa49a5\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+53            android:exported="false" >
+53-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Black\.gradle\caches\transforms-3\914af07b2490dc878f01326ae2aa49a5\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+54            <meta-data
+54-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Black\.gradle\caches\transforms-3\914af07b2490dc878f01326ae2aa49a5\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+55                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+55-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Black\.gradle\caches\transforms-3\914af07b2490dc878f01326ae2aa49a5\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+56                android:value="androidx.startup" />
+56-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Black\.gradle\caches\transforms-3\914af07b2490dc878f01326ae2aa49a5\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+57            <meta-data
+57-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Black\.gradle\caches\transforms-3\bf8d388157906b2f93596545fa1cdd75\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+58                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+58-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Black\.gradle\caches\transforms-3\bf8d388157906b2f93596545fa1cdd75\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+59                android:value="androidx.startup" />
+59-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Black\.gradle\caches\transforms-3\bf8d388157906b2f93596545fa1cdd75\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+60        </provider>
+61    </application>
+62
+63</manifest>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Binge</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="trailer">TRAILER</string>
+</resources>

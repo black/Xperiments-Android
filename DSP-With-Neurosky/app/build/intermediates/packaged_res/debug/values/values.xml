@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <string-array name="list_analysis">
+        <item>@string/raw</item>
+        <item>@string/filterSignal</item>
+        <item>@string/fft</item>
+        <item>@string/psd</item>
+        <item>@string/bands</item>
+    </string-array>
+    <color name="black">#000000</color>
+    <color name="black10">#E5E5E5</color>
+    <color name="black30">#B2B2B2</color>
+    <color name="black50">#7F7F7F</color>
+    <color name="black70">#4C4C4C</color>
+    <color name="black80">#333333</color>
+    <color name="black90">#191919</color>
+    <color name="brand">#E63901</color>
+    <color name="brand10">#FCEBE5</color>
+    <color name="brand20">#FAD7CC</color>
+    <color name="brand30">#F7C3B2</color>
+    <color name="brand40">#F5B099</color>
+    <color name="brand50">#F29C80</color>
+    <color name="brand60">#F08867</color>
+    <color name="brand70">#ED744D</color>
+    <color name="brand80">#EB6134</color>
+    <color name="brand90">#E84C1A</color>
+    <color name="fillGraph">#32E63901</color>
+    <color name="fillGraphLow">#7000E5FF</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="strokeGraph">#E63901</color>
+    <color name="strokeGraphLow">#00E5FF</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="action_eeg">EEG</string>
+    <string name="action_power">POWER</string>
+    <string name="app_name">DSP With Neurosky</string>
+    <string name="bands">Bands</string>
+    <string name="fft">FFT</string>
+    <string name="filterSignal">FILTER</string>
+    <string name="psd">PSD</string>
+    <string name="raw">RAW</string>
+    <string name="storage_permission_rationale_message">Message</string>
+    <string name="storage_permission_rationale_title">Title</string>
+    <style name="PowerProgressBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/ic_action_power_progress</item>
+    </style>
+    <style name="Theme.DSPWithNeurosky" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

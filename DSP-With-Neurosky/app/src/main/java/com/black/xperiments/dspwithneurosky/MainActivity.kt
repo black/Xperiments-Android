@@ -23,6 +23,9 @@ import com.boby.bluetoothconnect.classic.bean.BlueConnectDevice
 import com.boby.bluetoothconnect.classic.listener.EEGPowerDataListener
 import com.boby.bluetoothconnect.classic.listener.OnConnectListener
 import com.github.psambit9791.jdsp.filter.Butterworth
+import com.github.psambit9791.jdsp.transform.DiscreteFourier
+import com.github.psambit9791.jdsp.transform.FastFourier
+import com.github.psambit9791.jdsp.windows.Hanning
 import com.jjoe64.graphview.GraphView
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
@@ -31,6 +34,7 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import org.apache.commons.math3.transform.FastFourierTransformer
 import kotlin.math.sin
 
 
@@ -63,7 +67,7 @@ class MainActivity : AppCompatActivity() {
      }
     */
     private var fs:Int = 512
-    private var sampleSize = fs
+    private var sampleSize = fs*2
     private var signal = arrayListOf<Double>()
     private var order:Int = 4
     private var lowCutOff:Int = 12 // Hz
@@ -199,6 +203,7 @@ class MainActivity : AppCompatActivity() {
                 signal.add(it.toDouble())
             }else{
                 getFilteredSignal(signal)
+               // getFFT(signal)
                 signal.removeAll{it<signal.size/2}
             }
         }
@@ -207,13 +212,31 @@ class MainActivity : AppCompatActivity() {
     val Boolean.int
         get() = if (this) 1 else 0
 
+    private fun getFFT(sample:DoubleArray){
+       val windows = Hanning(sampleSize)
+       val win = windows.window
+
+       win.forEachIndexed { index, d ->
+           sample[index] = sample[index]*d
+       }
+
+       val ft = FastFourier(sample)
+        ft.transform()
+        val tft = ft.getMagnitude(true)
+        seriesSignal[2].resetData(analysed(tft))
+    }
+
+    private fun getFilteredSignal(sample:ArrayList<Double>){
+        val transformedSample = sample.toDoubleArray()
+        val tfSmape = applyFilter(transformedSample)
+        val filteredSample = analysed(tfSmape)
+        getFFT(tfSmape)
+        seriesSignal[1].resetData(filteredSample)
+    }
 
     private fun applyFilter(signal:DoubleArray):DoubleArray{
         val filter = Butterworth(signal,fs.toDouble())
         return filter.bandPassFilter(order, lowCutOff.toDouble(),highCutOff.toDouble())
-    }
-
-    private fun getFFT(){
     }
 
     private fun analysed(sample:DoubleArray): Array<DataPoint?> {
@@ -228,10 +251,6 @@ class MainActivity : AppCompatActivity() {
         return values
     }
 
-    private fun getFilteredSignal(sample:ArrayList<Double>){
-        val transformedSample = sample.toDoubleArray()
-        seriesSignal[1].resetData(analysed(applyFilter(transformedSample)))
-    }
 
     private fun getBands(sample:DoubleArray){
 

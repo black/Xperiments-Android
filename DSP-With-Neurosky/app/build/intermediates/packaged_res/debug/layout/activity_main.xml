@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/rawView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/filteredView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/fftView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/psdView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/bandsView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+</LinearLayout>
