@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Kotlin-Async-FileWriter</string>
+    <!--    Bio-signals -->
+    <string name="focus">Brain Activity</string>
+    <string name="calm">Calm</string>
+    <string name="appreciation">Appreciation</string>
+    <string name="mental_effort">Mental Effort</string>
+    <string name="fusion">Performance</string>
+    <string name="intent">Intent</string>
+
+    <!--    EEG Signals -->
+    <string name="low_alpha">Low Alpha</string>
+    <string name="high_alpha">High Alpha</string>
+    <string name="low_beta">Low Beta</string>
+    <string name="high_beta">High Beta</string>
+    <string name="low_gamma">Low Gamma</string>
+    <string name="mid_gamma">Mid Gamma</string>
+    <string name="delta">Delta</string>
+    <string name="theta">Theta</string>
+    <string name="eeg_raw">Raw</string>
+
+    <!-- Fusion Labels -->
+    <string name="fusion_eye_horizontal">horizontal</string>
+    <string name="fusion_eye_vertical">vertical</string>
+    <string name="action_recorder">Recorder</string>
+    <string name="storage_permission_rationale_title">Title</string>
+    <string name="storage_permission_rationale_message">Description</string>
+</resources>

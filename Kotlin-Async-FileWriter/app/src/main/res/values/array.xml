@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="algoSignals">
+        <item>@string/focus</item>
+        <item>@string/calm</item>
+        <item>@string/appreciation</item>
+        <item>@string/mental_effort</item>
+    </string-array>
+    <string-array name="eogSignals">
+        <item>@string/fusion_eye_horizontal</item>
+        <item>@string/fusion_eye_vertical</item>
+    </string-array>
+    <string-array name="eegSignals">
+        <item>@string/delta</item>
+        <item>@string/theta</item>
+        <item>@string/low_alpha</item>
+        <item>@string/high_alpha</item>
+        <item>@string/low_beta</item>
+        <item>@string/high_beta</item>
+        <item>@string/low_gamma</item>
+        <item>@string/mid_gamma</item>
+        <item>@string/eeg_raw</item>
+    </string-array>
+</resources>
