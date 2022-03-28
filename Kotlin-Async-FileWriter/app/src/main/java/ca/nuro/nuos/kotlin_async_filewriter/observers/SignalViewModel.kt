@@ -23,7 +23,7 @@ class SignalViewModel : ViewModel() {
     }
     fun getFileName() = fileName
 
-    fun setSensorData(data:Int): Flow<Int> {
+    fun writeData(data:Int): Flow<Int> {
         return flow{
             emit(data)
         }

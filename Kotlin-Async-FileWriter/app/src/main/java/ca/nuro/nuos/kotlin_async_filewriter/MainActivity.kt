@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity() {
             binding.sensorData.text = "$data $t   /  $m"
             t++;
             lifecycleScope.launch {
-                signalViewModel.setSensorData(data).buffer().collect{
+                signalViewModel.writeData(data).buffer().collect{
                     if (isWriting){
                         for (i in 0 until fileList.size){
                             fileWriter.writeDataInTheFile(it,fileList[i])
