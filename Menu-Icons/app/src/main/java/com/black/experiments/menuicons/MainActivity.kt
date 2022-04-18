@@ -10,8 +10,8 @@ import android.widget.ProgressBar
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.black.experiments.menuicons.databinding.ActivityMainBinding
+import com.black.experiments.menuicons.models.SensorState
 import com.black.experiments.menuicons.observers.FakeSensorViewModel
-import com.black.experiments.menuicons.observers.Power
 import com.black.experiments.menuicons.sensor.DataInterface
 import com.black.experiments.menuicons.sensor.FakeSensor
 import com.black.experiments.menuicons.sensor.PowerInterface
@@ -29,8 +29,12 @@ class MainActivity : AppCompatActivity() {
     private var twoPowerProgressView: ProgressBar? = null
     private var onePower = 0
     private var twoPower = 0
-    private val sensorOne = FakeSensor(10,5000)
-    private val sensorTwo = FakeSensor(100,1000)
+    private var onePowerPrev = 0
+    private var twoPowerPrev = 0
+    private val sensorOne = FakeSensor(10,1000)
+    private val sensorTwo = FakeSensor(20,1000)
+
+    private var sensorModel = SensorState()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,14 +73,12 @@ class MainActivity : AppCompatActivity() {
         onePowerProgressView =
             menu?.findItem(R.id.action_power_one)?.actionView?.findViewById(R.id.powerProgress) //one powerProgress
         onePowerProgressView?.max = 10
-        onePowerProgressView?.progress = onePower
-
-
+        onePowerProgressView?.progress = sensorModel.powerSensorOne
 
         /* EOG Toolbar icon update */
        menu?.findItem(R.id.action_start_one)?.icon = ContextCompat.getDrawable(
             this,
-            when(sensorOneStatus){
+            when(sensorModel.statusSensorOne){
                 "started"->R.drawable.ic_action_started
                 "connecting"->R.drawable.ic_action_connecting
                 "connected"->R.drawable.ic_action_connected
@@ -88,15 +90,15 @@ class MainActivity : AppCompatActivity() {
         /*----------EOG Connection---------------*/
         twoPowerProgressView =
             menu?.findItem(R.id.action_power_two)?.actionView?.findViewById(R.id.powerProgress) //two powerProgress
-        twoPowerProgressView?.max = 100
-        twoPowerProgressView?.progress = twoPower
+        twoPowerProgressView?.max = 20
+        twoPowerProgressView?.progress = sensorModel.powerSensorTwo
 
 
 
         /* EOG Toolbar icon update */
         menu?.findItem(R.id.action_start_two)?.icon = ContextCompat.getDrawable(
             this,
-            when(sensorTwoStatus){
+            when(sensorModel.statusSensorTwo){
                 "started"->R.drawable.ic_action_started
                 "connecting"->R.drawable.ic_action_connecting
                 "connected"->R.drawable.ic_action_connected
@@ -105,7 +107,6 @@ class MainActivity : AppCompatActivity() {
             }
         )
 
-        Log.d("POWER_VALUE","ONE=$onePower  / TWO=$twoPower")
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -158,7 +159,6 @@ class MainActivity : AppCompatActivity() {
         })
         sensorTwo.setPowerListener(object : PowerInterface {
             override fun onData(power: Int) {
-                Log.d("POWER_VALUE","TWO =$power")
                 fakeSensorViewModel.setFakeTwoPower(power)
             }
         })
@@ -168,6 +168,7 @@ class MainActivity : AppCompatActivity() {
     private fun observers(){
         fakeSensorViewModel.getFakeSensorOneConnectionStatus().observe(this){
             sensorOneStatus = it
+            sensorModel.statusSensorOne = it
             invalidateOptionsMenu()
         }
 
@@ -177,17 +178,23 @@ class MainActivity : AppCompatActivity() {
 
         fakeSensorViewModel.getFakeOnePower().observe(this){
             onePower = it
+            sensorModel.powerSensorOne = it
             binding.contentMain.powerValueOne.text = "First Power:  ${it}"
+
+            if (onePowerPrev!=onePower) {
+                onePowerPrev = onePower
+                invalidateOptionsMenu()
+            }
 
             if(it<1){
                 sensorOne.stopSensor()
             }
-            invalidateOptionsMenu()
         }
 
 
         fakeSensorViewModel.getFakeSensorTwoConnectionStatus().observe(this){
             sensorTwoStatus = it
+            sensorModel.statusSensorTwo = it
             invalidateOptionsMenu()
         }
 
@@ -197,11 +204,18 @@ class MainActivity : AppCompatActivity() {
 
         fakeSensorViewModel.getFakeTwoPower().observe(this){
             twoPower = it
+            sensorModel.powerSensorTwo = it
             binding.contentMain.powerValueTwo.text = "Second Power:  ${it}"
+
+            if (twoPowerPrev!=twoPower) {
+                twoPowerPrev = twoPower
+                invalidateOptionsMenu()
+
+            }
+
             if(it<1){
                 sensorTwo.stopSensor()
             }
-            invalidateOptionsMenu()
         }
     }
 }
