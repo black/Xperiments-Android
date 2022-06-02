@@ -1,4 +1,4 @@
-package ca.nuro.nuos.fear.common
+package com.black.xperiments.readwriteshare.common
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

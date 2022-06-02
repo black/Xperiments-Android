@@ -1,13 +1,11 @@
-package com.black.xperiments.readwritefile.read
+package com.black.xperiments.readwriteshare.read
 
 import android.content.Context
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
-import android.util.Log
 import androidx.core.content.FileProvider
-import androidx.core.net.toUri
-import com.black.xperiments.readwritefile.common.MyFile
+import com.black.xperiments.readwriteshare.common.MyFile
 import java.io.File
 import java.text.DecimalFormat
 import kotlin.math.log10

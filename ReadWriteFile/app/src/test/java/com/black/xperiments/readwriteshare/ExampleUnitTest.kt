@@ -1,4 +1,4 @@
-package com.black.xperiments.readwritefile
+package com.black.xperiments.readwriteshare
 
 import org.junit.Test
 

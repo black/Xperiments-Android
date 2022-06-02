@@ -1,4 +1,4 @@
-package com.black.xperiments.readwritefile.common
+package com.black.xperiments.readwriteshare.common
 
 class SensorData(private val data: String) {
     fun toCSVData(): String {

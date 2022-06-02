@@ -1,4 +1,4 @@
-package com.black.xperiments.readwritefile.common
+package com.black.xperiments.readwriteshare.common
 
 import android.graphics.Rect
 import android.view.View

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Read Write File</string>
+    <string name="app_name">Kotlin Read Write Share</string>
     <string name="storage_permission_rationale_title">Title</string>
     <string name="storage_permission_rationale_message">Message</string>
     <string name="action_write">WRITE</string>

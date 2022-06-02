@@ -1,4 +1,4 @@
-package com.black.xperiments.readwritefile.common
+package com.black.xperiments.readwriteshare.common
 
 interface OnClickListener {
     fun onClick(pos: Int)

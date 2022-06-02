@@ -1,7 +1,6 @@
-package com.black.xperiments.readwritefile
+package com.black.xperiments.readwriteshare
 
 import android.Manifest
-import android.content.ClipData
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -18,13 +17,13 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import ca.nuro.nuos.fear.common.AsyncTask
-import com.black.xperiments.readwritefile.common.MyFile
-import com.black.xperiments.readwritefile.common.OnClickListener
-import com.black.xperiments.readwritefile.common.SpacesItemDecoration
-import com.black.xperiments.readwritefile.databinding.ActivityMainBinding
-import com.black.xperiments.readwritefile.read.MyFileReader
-import com.black.xperiments.readwritefile.write.MyFileWriter
+import com.black.xperiments.readwriteshare.common.AsyncTask
+import com.black.xperiments.readwriteshare.databinding.ActivityMainBinding
+import com.black.xperiments.readwriteshare.common.MyFile
+import com.black.xperiments.readwriteshare.common.OnClickListener
+import com.black.xperiments.readwriteshare.common.SpacesItemDecoration
+import com.black.xperiments.readwriteshare.read.MyFileReader
+import com.black.xperiments.readwriteshare.write.MyFileWriter
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken

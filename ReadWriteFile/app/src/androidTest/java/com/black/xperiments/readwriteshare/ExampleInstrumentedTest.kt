@@ -1,4 +1,4 @@
-package com.black.xperiments.readwritefile
+package com.black.xperiments.readwriteshare
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

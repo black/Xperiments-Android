@@ -1,4 +1,4 @@
-package com.black.xperiments.readwritefile
+package com.black.xperiments.readwriteshare
 
 
 import android.util.Log
@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.black.xperiments.readwritefile.common.MyFile
-import com.black.xperiments.readwritefile.common.OnClickListener
+import com.black.xperiments.readwriteshare.common.MyFile
+import com.black.xperiments.readwriteshare.common.OnClickListener
 
 class FileAdapter(private val respArray: ArrayList<MyFile>,var currentFileName:String) :
     RecyclerView.Adapter<FileAdapter.ContentViewHolder>() {

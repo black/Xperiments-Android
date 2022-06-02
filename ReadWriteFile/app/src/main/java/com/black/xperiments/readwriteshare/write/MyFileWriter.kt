@@ -1,9 +1,9 @@
-package com.black.xperiments.readwritefile.write
+package com.black.xperiments.readwriteshare.write
 
 import android.content.Context
 import android.os.Build
 import android.os.Environment
-import com.black.xperiments.readwritefile.common.SensorData
+import com.black.xperiments.readwriteshare.common.SensorData
 import java.io.File
 import java.io.FileOutputStream
 
