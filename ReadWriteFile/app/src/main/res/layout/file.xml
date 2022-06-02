@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_rect_highlight"
+    android:padding="16dp" >
+    <TextView
+        android:id="@+id/fileName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:selectAllOnFocus="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:text="@string/file_name"/>
+    <TextView
+        android:layout_below="@+id/fileName"
+        android:id="@+id/fileSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/oo_mb"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp"/>
+    <ImageView
+        android:id="@+id/fileSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"
+        android:src="@drawable/ic_selected"/>
+</RelativeLayout>

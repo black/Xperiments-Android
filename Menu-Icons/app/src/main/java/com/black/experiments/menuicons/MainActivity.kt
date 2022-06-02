@@ -114,7 +114,7 @@ class MainActivity : AppCompatActivity() {
         sensorOne.startConnection()
         sensorOne.setConnectionStatusListener(object:StatusInterface{
             override fun onStatus(status: String) {
-                fakeSensorViewModel.setFakeSensorOneConnectionStatus(status)
+                fakeSensorViewModel.fakeConnectionOne.value = status
                 if(status=="connected"){
                     startSensorOne()
                 }
@@ -127,12 +127,12 @@ class MainActivity : AppCompatActivity() {
         sensorOne.startSensor()
         sensorOne.setDataListener(object : DataInterface {
             override fun onData(signal: Int) {
-                fakeSensorViewModel.setFakeOneSignal(signal)
+                fakeSensorViewModel.fakeSignalOne.value = signal
             }
         })
         sensorOne.setPowerListener(object : PowerInterface {
             override fun onData(power: Int) {
-                fakeSensorViewModel.setFakeOnePower(power)
+                fakeSensorViewModel.fakePowerOne.value = power
             }
         })
     }
@@ -141,7 +141,7 @@ class MainActivity : AppCompatActivity() {
         sensorTwo.startConnection()
         sensorTwo.setConnectionStatusListener(object:StatusInterface{
             override fun onStatus(status: String) {
-                fakeSensorViewModel.setFakeSensorTwoConnectionStatus(status)
+                fakeSensorViewModel.fakeConnectionTwo.value = status
                 if(status=="connected"){
                     startSensorTwo()
                 }
@@ -154,29 +154,29 @@ class MainActivity : AppCompatActivity() {
         sensorTwo.startSensor()
         sensorTwo.setDataListener(object : DataInterface {
             override fun onData(signal: Int) {
-                fakeSensorViewModel.setFakeTwoSignal(signal)
+                fakeSensorViewModel.fakeSignalTwo.value = signal
             }
         })
         sensorTwo.setPowerListener(object : PowerInterface {
             override fun onData(power: Int) {
-                fakeSensorViewModel.setFakeTwoPower(power)
+                fakeSensorViewModel.fakePowerTwo.value = power
             }
         })
     }
 
 
     private fun observers(){
-        fakeSensorViewModel.getFakeSensorOneConnectionStatus().observe(this){
+        fakeSensorViewModel.fakeConnectionOne.observe(this){
             sensorOneStatus = it
             sensorModel.statusSensorOne = it
             invalidateOptionsMenu()
         }
 
-        fakeSensorViewModel.getFakeOneSignal().observe(this){
+        fakeSensorViewModel.fakeSignalOne.observe(this){
             binding.contentMain.sensorValueOne.text = "$it"
         }
 
-        fakeSensorViewModel.getFakeOnePower().observe(this){
+        fakeSensorViewModel.fakePowerOne.observe(this){
             onePower = it
             sensorModel.powerSensorOne = it
             binding.contentMain.powerValueOne.text = "First Power:  ${it}"
@@ -192,17 +192,17 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        fakeSensorViewModel.getFakeSensorTwoConnectionStatus().observe(this){
+        fakeSensorViewModel.fakeConnectionTwo.observe(this){
             sensorTwoStatus = it
             sensorModel.statusSensorTwo = it
             invalidateOptionsMenu()
         }
 
-        fakeSensorViewModel.getFakeTwoSignal().observe(this){
+        fakeSensorViewModel.fakeSignalTwo.observe(this){
             binding.contentMain.sensorValueTwo.text = "$it"
         }
 
-        fakeSensorViewModel.getFakeTwoPower().observe(this){
+        fakeSensorViewModel.fakePowerTwo.observe(this){
             twoPower = it
             sensorModel.powerSensorTwo = it
             binding.contentMain.powerValueTwo.text = "Second Power:  ${it}"

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Read Write File</string>
+    <string name="storage_permission_rationale_title">Title</string>
+    <string name="storage_permission_rationale_message">Message</string>
+    <string name="action_write">WRITE</string>
+    <string name="action_share">SHARE</string>
+
+    <string name="cat">cat</string>
+    <string name="dog">dog</string>
+    <string name="file_name">Name</string>
+    <string name="oo_mb">00\\</string>
+</resources>

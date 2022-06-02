@@ -1,7 +1,6 @@
 package com.black.xperiments.usbdeviceconnection
 
 import android.app.PendingIntent
-import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.hardware.usb.UsbDevice
@@ -38,9 +37,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         /*-------------------------------------------------*/
-        usbReceiver = UsbBroadcastReceiver()
+        usbReceiver = UsbBroadcastReceiver(this,device!!)
         val permissionIntent = PendingIntent.getBroadcast(this, 0, Intent(Constants.ACTION_USB_PERMISSION), 0)
-        val filter = IntentFilter(Constants.ACTION_USB_PERMISSION)
+        val filter = usbReceiver?.makeIntentFilter()
         registerReceiver(usbReceiver, filter)
         manager.requestPermission(device, permissionIntent)
 
@@ -54,15 +53,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /*private fun makeIntentFilter(): IntentFilter? {
-        // set intent filter for custom　broadcast receiver
-        val intentFilter = IntentFilter()
-        intentFilter.addAction(Constants.ACTION_USB_PERMISSION)
-        intentFilter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED)
-        intentFilter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED)
-        intentFilter.addAction(Constants.ACTION_PORT_OPEN)
-        intentFilter.addAction(Constants.ACTION_PORT_CLOSE)
-        intentFilter.addAction(Constants.ACTION_DATA_AVAILABLE)
-        return intentFilter
-    }*/
 }
