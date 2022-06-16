@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <usb-device vendor-id="1234" product-id="5678" class="255" subclass="66" protocol="1" />
-</resources>
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">-->
-<!--    <usb-device vendor-id="1234" product-id="5678" class="255" subclass="66" protocol="1" />-->
-<!--</PreferenceScreen>-->
