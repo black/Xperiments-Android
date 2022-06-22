@@ -1,25 +1,16 @@
 package com.black.xperiments.mlkitocr
 
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
-import android.util.SparseIntArray
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.Surface
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.camera.core.ImageAnalysis
-import androidx.camera.core.ImageProxy
+import androidx.fragment.app.Fragment
 import com.black.xperiments.mlkitocr.databinding.FragmentOcrBinding
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.TextRecognizer
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
-import java.nio.ByteBuffer
-import java.nio.ByteOrder
 
 class OCRFragment : Fragment(R.layout.fragment_ocr),
     ViewBindingHolder<FragmentOcrBinding> by ViewBindingHolderImpl()  {
@@ -52,6 +43,7 @@ class OCRFragment : Fragment(R.layout.fragment_ocr),
                         // ...
                         for (element in line.elements) {
                             // ...
+
                         }
                     }
                 }
