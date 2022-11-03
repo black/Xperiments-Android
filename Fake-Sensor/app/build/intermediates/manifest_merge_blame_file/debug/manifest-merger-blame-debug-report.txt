@@ -1,0 +1,100 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.black.experiments.fakesensor"
+4    android:versionCode="1"
+5    android:versionName="1.1" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml
+10
+11    <permission
+11-->[androidx.core:core:1.9.0] C:\Users\abhik\.gradle\caches\transforms-3\f75202200db48fb541bf72c50f23e569\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+12        android:name="com.black.experiments.fakesensor.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+12-->[androidx.core:core:1.9.0] C:\Users\abhik\.gradle\caches\transforms-3\f75202200db48fb541bf72c50f23e569\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+13        android:protectionLevel="signature" />
+13-->[androidx.core:core:1.9.0] C:\Users\abhik\.gradle\caches\transforms-3\f75202200db48fb541bf72c50f23e569\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+14
+15    <uses-permission android:name="com.black.experiments.fakesensor.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+15-->[androidx.core:core:1.9.0] C:\Users\abhik\.gradle\caches\transforms-3\f75202200db48fb541bf72c50f23e569\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+15-->[androidx.core:core:1.9.0] C:\Users\abhik\.gradle\caches\transforms-3\f75202200db48fb541bf72c50f23e569\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+16
+17    <application
+17-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:4:5-22:19
+18        android:allowBackup="true"
+18-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:5:9-35
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.9.0] C:\Users\abhik\.gradle\caches\transforms-3\f75202200db48fb541bf72c50f23e569\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+20        android:debuggable="true"
+21        android:icon="@mipmap/ic_launcher"
+21-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:6:9-43
+22        android:label="@string/app_name"
+22-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:7:9-41
+23        android:roundIcon="@mipmap/ic_launcher_round"
+23-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:8:9-54
+24        android:supportsRtl="true"
+24-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:9:9-35
+25        android:testOnly="true"
+26        android:theme="@style/Theme.MenuIcons" >
+26-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:10:9-47
+27        <activity
+27-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:11:9-21:20
+28            android:name="com.black.experiments.fakesensor.MainActivity"
+28-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:12:13-73
+29            android:exported="true"
+29-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:13:13-36
+30            android:label="@string/app_name"
+30-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:14:13-45
+31            android:theme="@style/Theme.MenuIcons.NoActionBar" >
+31-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:15:13-63
+32            <intent-filter>
+32-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:16:13-20:29
+33                <action android:name="android.intent.action.MAIN" />
+33-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:17:17-69
+33-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:17:25-66
+34
+35                <category android:name="android.intent.category.LAUNCHER" />
+35-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:19:17-77
+35-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\Fake-Sensor\app\src\main\AndroidManifest.xml:19:27-74
+36            </intent-filter>
+37        </activity>
+38
+39        <uses-library
+39-->[androidx.window:window:1.0.0] C:\Users\abhik\.gradle\caches\transforms-3\2ebeefaef1a3a68c1e8576bfc18ca22d\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+40            android:name="androidx.window.extensions"
+40-->[androidx.window:window:1.0.0] C:\Users\abhik\.gradle\caches\transforms-3\2ebeefaef1a3a68c1e8576bfc18ca22d\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+41            android:required="false" />
+41-->[androidx.window:window:1.0.0] C:\Users\abhik\.gradle\caches\transforms-3\2ebeefaef1a3a68c1e8576bfc18ca22d\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+42        <uses-library
+42-->[androidx.window:window:1.0.0] C:\Users\abhik\.gradle\caches\transforms-3\2ebeefaef1a3a68c1e8576bfc18ca22d\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+43            android:name="androidx.window.sidecar"
+43-->[androidx.window:window:1.0.0] C:\Users\abhik\.gradle\caches\transforms-3\2ebeefaef1a3a68c1e8576bfc18ca22d\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+44            android:required="false" />
+44-->[androidx.window:window:1.0.0] C:\Users\abhik\.gradle\caches\transforms-3\2ebeefaef1a3a68c1e8576bfc18ca22d\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+45
+46        <provider
+46-->[androidx.emoji2:emoji2:1.2.0] C:\Users\abhik\.gradle\caches\transforms-3\433ef41f91b46554937a8b4111342db5\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+47            android:name="androidx.startup.InitializationProvider"
+47-->[androidx.emoji2:emoji2:1.2.0] C:\Users\abhik\.gradle\caches\transforms-3\433ef41f91b46554937a8b4111342db5\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+48            android:authorities="com.black.experiments.fakesensor.androidx-startup"
+48-->[androidx.emoji2:emoji2:1.2.0] C:\Users\abhik\.gradle\caches\transforms-3\433ef41f91b46554937a8b4111342db5\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+49            android:exported="false" >
+49-->[androidx.emoji2:emoji2:1.2.0] C:\Users\abhik\.gradle\caches\transforms-3\433ef41f91b46554937a8b4111342db5\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+50            <meta-data
+50-->[androidx.emoji2:emoji2:1.2.0] C:\Users\abhik\.gradle\caches\transforms-3\433ef41f91b46554937a8b4111342db5\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+51                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+51-->[androidx.emoji2:emoji2:1.2.0] C:\Users\abhik\.gradle\caches\transforms-3\433ef41f91b46554937a8b4111342db5\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+52                android:value="androidx.startup" />
+52-->[androidx.emoji2:emoji2:1.2.0] C:\Users\abhik\.gradle\caches\transforms-3\433ef41f91b46554937a8b4111342db5\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+53            <meta-data
+53-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\abhik\.gradle\caches\transforms-3\60aa7f6134fa262f6ed065910011efa9\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+54                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+54-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\abhik\.gradle\caches\transforms-3\60aa7f6134fa262f6ed065910011efa9\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+55                android:value="androidx.startup" />
+55-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\abhik\.gradle\caches\transforms-3\60aa7f6134fa262f6ed065910011efa9\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+56        </provider>
+57    </application>
+58
+59</manifest>

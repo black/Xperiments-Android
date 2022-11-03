@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.black.experiments.fakesensor.MainActivity">
+    <item
+        android:id="@+id/action_start_one"
+        android:title="@string/action_start"
+        android:icon="@drawable/ic_action_not_found"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_power_one"
+        android:title="@string/action_power"
+        app:actionLayout="@layout/power_progress"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_start_two"
+        android:title="@string/action_start"
+        android:icon="@drawable/ic_action_not_found"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_power_two"
+        android:title="@string/action_power"
+        app:actionLayout="@layout/power_progress"
+        app:showAsAction="always" />
+</menu>

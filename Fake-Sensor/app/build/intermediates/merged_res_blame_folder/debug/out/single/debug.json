@@ -1,0 +1,98 @@
+[
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/drawable_ic_action_connected.xml.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/drawable/ic_action_connected.xml"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/menu_menu_main.xml.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/menu/menu_main.xml"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/drawable_ic_action_power_progress.xml.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/drawable/ic_action_power_progress.xml"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/drawable_ic_action_not_found.xml.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/drawable/ic_action_not_found.xml"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/layout_power_progress.xml.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/layout/power_progress.xml"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/drawable_ic_action_connecting.xml.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/drawable/ic_action_connecting.xml"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/drawable_ic_action_disconnected.xml.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/drawable/ic_action_disconnected.xml"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/layout_activity_main.xml.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/drawable_ic_action_started.xml.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/drawable/ic_action_started.xml"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/layout_content_main.xml.flat",
+        "source": "com.black.experiments.fakesensor.app-main-47:/layout/content_main.xml"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-merged_res-45:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.black.experiments.fakesensor.app-pngs-40:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    }
+]

@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.black.experiments.fakesensor.app-mergeDebugResources-44:/layout/activity_main.xml",
+        "source": "com.black.experiments.fakesensor.app-main-47:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-mergeDebugResources-44:/layout/power_progress.xml",
+        "source": "com.black.experiments.fakesensor.app-main-47:/layout/power_progress.xml"
+    },
+    {
+        "merged": "com.black.experiments.fakesensor.app-mergeDebugResources-44:/layout/content_main.xml",
+        "source": "com.black.experiments.fakesensor.app-main-47:/layout/content_main.xml"
+    }
+]
