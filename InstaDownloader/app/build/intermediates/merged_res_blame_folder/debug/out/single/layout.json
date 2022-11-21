@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.black.instadownloader.app-mergeDebugResources-45:/layout/insta.xml",
+        "source": "com.black.instadownloader.app-main-48:/layout/insta.xml"
+    },
+    {
+        "merged": "com.black.instadownloader.app-mergeDebugResources-45:/layout/activity_main.xml",
+        "source": "com.black.instadownloader.app-main-48:/layout/activity_main.xml"
+    }
+]
