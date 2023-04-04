@@ -6,9 +6,9 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="16"
-8-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
+8-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="30" />
-9-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
+9-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
 10
 11    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 12    <!-- <uses-sdk android:minSdkVersion="14"/> -->
@@ -20,35 +20,35 @@
 14-->[com.google.firebase:firebase-storage:20.0.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\6d60184ea3b3ea11684bbeb1b94dbb9d\firebase-storage-20.0.0\AndroidManifest.xml:27:22-64
 15
 16    <application
-16-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:5:5-19:19
+16-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:5:5-19:19
 17        android:allowBackup="true"
-17-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:6:9-35
+17-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:6:9-35
 18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 18-->[androidx.core:core:1.5.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\2035b8ef85a6eac2fc4525b65dd8dd0d\core-1.5.0\AndroidManifest.xml:24:18-86
 19        android:debuggable="true"
 20        android:icon="@mipmap/ic_launcher"
-20-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:7:9-43
+20-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:7:9-43
 21        android:label="@string/app_name"
-21-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:8:9-41
+21-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:8:9-41
 22        android:roundIcon="@mipmap/ic_launcher_round"
-22-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:9:9-54
+22-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:9:9-54
 23        android:supportsRtl="true"
-23-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:10:9-35
+23-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:10:9-35
 24        android:testOnly="true"
 25        android:theme="@style/Theme.AnimatedIcons" >
-25-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:11:9-51
+25-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:11:9-51
 26        <activity android:name="com.black.icon.animated.MainActivity" >
-26-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:12:9-18:20
-26-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:12:19-47
+26-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:12:9-18:20
+26-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:12:19-47
 27            <intent-filter>
-27-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:13:13-17:29
+27-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:13:13-17:29
 28                <action android:name="android.intent.action.MAIN" />
-28-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:14:17-69
-28-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:14:25-66
+28-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:14:17-69
+28-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:14:25-66
 29
 30                <category android:name="android.intent.category.LAUNCHER" />
-30-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:16:17-77
-30-->C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:16:27-74
+30-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:16:17-77
+30-->C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:16:27-74
 31            </intent-filter>
 32        </activity>
 33

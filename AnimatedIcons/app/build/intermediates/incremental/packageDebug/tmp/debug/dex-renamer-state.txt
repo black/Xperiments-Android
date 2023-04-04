@@ -1,4 +1,4 @@
-#Tue Jan 04 09:51:45 IST 2022
-base.0=C\:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\AnimatedIcons\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Sat Dec 17 08:43:59 IST 2022
+base.0=C\:\\Users\\abhik\\Desktop\\GitHub\\Xperiments-Android\\AnimatedIcons\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

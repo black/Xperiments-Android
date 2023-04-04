@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.black.instadownloader.common.AsyncTask
+import com.black.instadownloader.common.DownloadViewModel
 import com.black.instadownloader.databinding.ActivityMainBinding
 import com.black.instadownloader.manager.InstaAdapter
 import com.black.instadownloader.manager.InstaFile
@@ -30,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     private val asyncExample: AsyncTask by lazy { ViewModelProvider(this)[AsyncTask::class.java] }
 
     private var downloader : Downloader? = null
+    private val downloadViewModel: DownloadViewModel by viewModels()
 
     /*---Read Files-------*/
     private var downloadList = ArrayList<InstaFile>()
@@ -51,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             Manifest.permission.READ_EXTERNAL_STORAGE,
         )
 
-        downloader = Downloader(this)
+        downloader = Downloader(this,downloadViewModel)
         validatePermission(permissions)
         initList()
     }
@@ -59,7 +62,7 @@ class MainActivity : AppCompatActivity() {
     fun startDownload(view: View) {
         // get text from edit box
         val editView  = (binding.downloadURI.text)
-        val downloadURI = editView.toString()
+        val downloadURI = editView.toString() + "embed" + "/captioned"
         editView.clear()
 
         // add text to download

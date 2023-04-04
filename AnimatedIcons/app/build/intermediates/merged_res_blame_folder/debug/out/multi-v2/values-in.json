@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\AnimatedIcons\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-in\\values-in.xml",
+            "outputFile": "C:\\Users\\abhik\\Desktop\\GitHub\\Xperiments-Android\\AnimatedIcons\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-in\\values-in.xml",
             "map": [
                 {
                     "source": "C:\\Users\\abhik\\.gradle\\caches\\transforms-2\\files-2.1\\36928f372f25b6bf4bbfb9d0d66e19e1\\play-services-base-17.1.0\\res\\values-in\\values.xml",

@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Siren Viewpager</string>
+    <string name="dialog_title">EMERGENCY</string>
+    <string name="dialog_message">Some Message</string>
+    <string name="dialog_btn">CLOSE</string>
+</resources>

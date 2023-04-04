@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\abhik\\Desktop\\GitHub\\Android-Xperiments\\AnimatedIcons\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
+            "outputFile": "C:\\Users\\abhik\\Desktop\\GitHub\\Xperiments-Android\\AnimatedIcons\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
             "map": [
                 {
                     "source": "C:\\Users\\abhik\\.gradle\\caches\\transforms-2\\files-2.1\\f0733dd2008665c8f53633b597920549\\appcompat-1.3.0\\res\\values-large-v4\\values-large-v4.xml",

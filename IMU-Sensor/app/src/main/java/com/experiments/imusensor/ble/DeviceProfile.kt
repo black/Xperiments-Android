@@ -1,0 +1,31 @@
+package com.experiments.imusensor.ble
+
+import java.util.UUID
+
+class DeviceProfile {
+    companion object{
+        var SERVICE_UUID = UUID.fromString("ABF0E000-B597-4BE0-B869-6054B7ED0CE3")
+
+        /*---time-------*/
+        var CHARACTERISTIC_STATE_UUID_TIME = UUID.fromString("ABF0E001-B597-4BE0-B869-6054B7ED0CE3")
+        var DESCRIPTOR_STATE_UUID_TIME = UUID.fromString("2901")
+
+        /*---gyro-------*/
+        var CHARACTERISTIC_STATE_UUID_GYRO_X = UUID.fromString("ABF0E005-B597-4BE0-B869-6054B7ED0CE3")
+        var CHARACTERISTIC_STATE_UUID_GYRO_Y = UUID.fromString("ABF0E006-B597-4BE0-B869-6054B7ED0CE3")
+        var CHARACTERISTIC_STATE_UUID_GYRO_Z = UUID.fromString("ABF0E007-B597-4BE0-B869-6054B7ED0CE3")
+
+        var DESCRIPTOR_STATE_UUID_GYRO_X = UUID.fromString("2901")
+        var DESCRIPTOR_STATE_UUID_GYRO_Y = UUID.fromString("2901")
+        var DESCRIPTOR_STATE_UUID_GYRO_Z = UUID.fromString("2901")
+
+        /*---accelerometer-------*/
+        var CHARACTERISTIC_STATE_UUID_ACCEL_X = UUID.fromString("ABF0E002-B597-4BE0-B869-6054B7ED0CE3")
+        var CHARACTERISTIC_STATE_UUID_ACCEL_Y = UUID.fromString("ABF0E003-B597-4BE0-B869-6054B7ED0CE3")
+        var CHARACTERISTIC_STATE_UUID_ACCEL_Z = UUID.fromString("ABF0E004-B597-4BE0-B869-6054B7ED0CE3")
+
+        var DESCRIPTOR_STATE_UUID_ACCEL_X = UUID.fromString("2901")
+        var DESCRIPTOR_STATE_UUID_ACCEL_Y = UUID.fromString("2901")
+        var DESCRIPTOR_STATE_UUID_ACCEL_Z = UUID.fromString("2901")
+    }
+}

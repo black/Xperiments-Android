@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
+ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
 MERGED from [androidx.databinding:viewbinding:4.2.1] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\1ee2f2657baf1a6788761e5720e5dc77\viewbinding-4.2.1\AndroidManifest.xml:17:1-22:12
 MERGED from [com.firebaseui:firebase-ui-storage:7.1.1] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\6bf1cea0fb8522e947d800efbe2a0288\firebase-ui-storage-7.1.1\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-storage-ktx:20.0.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\a32638cf951cf548822f3ec4ca1bd8e3\firebase-storage-ktx-20.0.0\AndroidManifest.xml:2:1-21:12
@@ -76,25 +76,25 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\abhik\.gradle\ca
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\11dec527fdc6347c4d6a42bffc6503c9\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\e5aa20899b89f0975401a2c427907cad\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\639405141e77302c5b4e7365a9588c9a\annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
 	package
-		ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:3:5-38
-		INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:3:5-38
+		INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
-		INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
+		INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
-		INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:2:1-21:12
+		INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:5:5-19:19
+ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:5:5-19:19
 MERGED from [com.google.firebase:firebase-storage-ktx:20.0.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\a32638cf951cf548822f3ec4ca1bd8e3\firebase-storage-ktx-20.0.0\AndroidManifest.xml:11:5-19:19
 MERGED from [com.google.firebase:firebase-storage-ktx:20.0.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\a32638cf951cf548822f3ec4ca1bd8e3\firebase-storage-ktx-20.0.0\AndroidManifest.xml:11:5-19:19
 MERGED from [com.google.firebase:firebase-common-ktx:20.0.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\4ff2de84ddcd9e04864a6012a16b4d33\firebase-common-ktx-20.0.0\AndroidManifest.xml:11:5-19:19
@@ -132,35 +132,35 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\ab
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.5.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\2035b8ef85a6eac2fc4525b65dd8dd0d\core-1.5.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:10:9-35
 	android:label
-		ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:8:9-41
+		ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:8:9-41
 	android:roundIcon
-		ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:9:9-54
+		ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:9:9-54
 	android:icon
-		ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:7:9-43
 	android:allowBackup
-		ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
-		ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:11:9-51
+		ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:11:9-51
 activity#com.black.icon.animated.MainActivity
-ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:12:9-18:20
+ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:12:9-18:20
 	android:name
-		ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:12:19-47
+		ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:12:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:13:13-17:29
+ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:13:13-17:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:14:17-69
+ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:14:17-69
 	android:name
-		ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:14:25-66
+		ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:14:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:16:17-77
+ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:16:17-77
 	android:name
-		ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml:16:27-74
+		ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml:16:27-74
 uses-sdk
-INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
 MERGED from [androidx.databinding:viewbinding:4.2.1] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\1ee2f2657baf1a6788761e5720e5dc77\viewbinding-4.2.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.databinding:viewbinding:4.2.1] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\1ee2f2657baf1a6788761e5720e5dc77\viewbinding-4.2.1\AndroidManifest.xml:20:5-44
 MERGED from [com.firebaseui:firebase-ui-storage:7.1.1] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\6bf1cea0fb8522e947d800efbe2a0288\firebase-ui-storage-7.1.1\AndroidManifest.xml:7:5-9:41
@@ -305,16 +305,16 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\abhik\.gradle\caches\transform
 MERGED from [androidx.print:print:1.0.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\e5aa20899b89f0975401a2c427907cad\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\639405141e77302c5b4e7365a9588c9a\annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\639405141e77302c5b4e7365a9588c9a\annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
-INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\abhik\Desktop\GitHub\Android-Xperiments\AnimatedIcons\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\abhik\Desktop\GitHub\Xperiments-Android\AnimatedIcons\app\src\main\AndroidManifest.xml
 service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [com.google.firebase:firebase-storage-ktx:20.0.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\a32638cf951cf548822f3ec4ca1bd8e3\firebase-storage-ktx-20.0.0\AndroidManifest.xml:12:9-18:19
 MERGED from [com.google.firebase:firebase-common-ktx:20.0.0] C:\Users\abhik\.gradle\caches\transforms-2\files-2.1\4ff2de84ddcd9e04864a6012a16b4d33\firebase-common-ktx-20.0.0\AndroidManifest.xml:12:9-18:19

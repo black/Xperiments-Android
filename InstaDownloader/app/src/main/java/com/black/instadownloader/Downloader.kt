@@ -9,10 +9,11 @@ import android.webkit.MimeTypeMap
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.black.instadownloader.common.DownloadViewModel
 import java.io.File
 
 
-class Downloader(var ctx:Context) {
+class Downloader(var ctx:Context,var downloadViewModel: DownloadViewModel) {
     // download from url captured from the edittext
      fun getContent(uri: String):String{
         // Instantiate the RequestQueue.
